@@ -5,6 +5,7 @@
 
 PROJECT_NAME
 =============
+Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
 Contents:
 
@@ -13,5 +14,8 @@ Contents:
    :numbered:
    :caption: Table of Contents
 
-   test.rst
-   test2.rst
+   autoclass.rst
+   automodule.rst
+   test3.rst
+   test4.rst
+   test5.rst

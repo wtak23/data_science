@@ -1,29 +1,21 @@
-.. _autoclass:
-
 ..  Multiline comment
     Include reference before heading, so i can cross-reference them in the module files.
     http://www.sphinx-doc.org/en/stable/markup/inline.html#role-ref
 
+.. _autoclass:
+
 #################
 Class autosummary
 #################
+
+Demonstration of creating **recursive autodoc** for python class.
 
 Cross reference: :ref:`automodule`
 
 ***********
 pandas demo
 ***********
-.. code-block:: rst
-
-    .. currentmodule:: pandas
-
-    .. autosummary::
-       :toctree: generated/
-
-       read_excel
-       ExcelFile.parse
-
-.. currentmodule:: pandas
+This will create a table, but won't create subpages... (hence not hyperlinked)
 
 .. autosummary::
    :toctree: generated/
@@ -31,29 +23,37 @@ pandas demo
    read_excel
    ExcelFile.parse
 
+
+**********************************
+pandas demo with my template files
+**********************************
+Use my template class:
+
+.. code-block:: rst
+
+    .. autosummary::
+       :toctree: generated/
+       :template: class_custom.rst
+
+       pandas.Panel
+
+
+.. autosummary::
+   :toctree: generated/
+   :template: class_custom.rst
+
+   pandas.Panel
+
 ***************
 sklearn.cluster
 ***************
 Few examples from scikit classes:
 
-.. code-block:: rst
-
-    .. currentmodule:: sklearn
-
-    .. autosummary::
-       :toctree: generated/
-       :template: class_tak.rst
-
-       cluster.AgglomerativeClustering
-       cluster.Birch
-       cluster.FeatureAgglomeration
-       cluster.KMeans
-
 .. currentmodule:: sklearn
 
 .. autosummary::
    :toctree: generated/
-   :template: class_tak.rst
+   :template: class_custom.rst
 
    cluster.AgglomerativeClustering
    cluster.Birch

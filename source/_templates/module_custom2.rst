@@ -21,8 +21,7 @@
    Classes
    ---------
    .. autosummary::
-      :toctree:generated/
-      :template:class_custom.rst
+      :toctree:
 
    {% for item in classes %}
       {{ item }}
