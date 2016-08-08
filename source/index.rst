@@ -7,15 +7,11 @@ PROJECT_NAME
 =============
 Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
-Contents:
-
 .. toctree::
    :maxdepth: 2
    :numbered:
    :caption: Table of Contents
 
+   demo_class.rst
    autoclass.rst
-   automodule.rst
-   test3.rst
-   test4.rst
-   test5.rst
+   string.rst

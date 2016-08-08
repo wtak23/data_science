@@ -36,9 +36,6 @@
    .. autosummary::
       :toctree:
 
-   .. autosummary::
-      :toctree:
-
    {% for item in exceptions %}
       {{ item }}
    {%- endfor %}

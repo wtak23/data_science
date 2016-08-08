@@ -12,6 +12,7 @@ Demonstration of creating **recursive autodoc** for python class.
 
 Cross reference: :ref:`automodule`
 
+
 ***********
 pandas demo
 ***********
@@ -35,14 +36,14 @@ Use my template class:
        :toctree: generated/
        :template: class_custom.rst
 
-       pandas.Panel
+       sklearn.SpectralClustering
 
 
 .. autosummary::
    :toctree: generated/
    :template: class_custom.rst
 
-   pandas.Panel
+   sklearn.linear_model.RandomizedLasso
 
 ***************
 sklearn.cluster
@@ -55,8 +56,6 @@ Few examples from scikit classes:
    :toctree: generated/
    :template: class_custom.rst
 
-   cluster.AgglomerativeClustering
-   cluster.Birch
-   cluster.FeatureAgglomeration
-   cluster.KMeans
+   sklearn.cluster.Birch
+   sklearn.cluster.KMeans
 

@@ -93,7 +93,6 @@ language = None
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
 'autosummary.rst',
-'autoclass.rst',
 'test3.rst',
 #'templates',
 # 'autosummary/pyspark.sql.*',
@@ -145,7 +144,7 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'navigation_depth': 4,
 }
 
