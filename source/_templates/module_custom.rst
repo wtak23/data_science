@@ -27,6 +27,15 @@
    {% for item in classes %}
       {{ item }}
    {%- endfor %}
+
+   .. toctree::
+       :maxdepth: 1
+       :hidden:
+
+   {% for item in classes %}
+      generated/{{ fullname }}.{{ item }}
+   {%- endfor %}
+
    {% endif %}
    {% endblock %}
 

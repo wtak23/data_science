@@ -6,15 +6,12 @@
 .. autoclass:: {{ objname }}
 
 {% block methods %}
-.. automethod:: __init__
 
 {% if methods %}
 
-Methods
--------
-
 .. autosummary::
    :toctree:
+   :hidden:
 
 {% for item in methods %}
    ~{{ name }}.{{ item }}
@@ -25,11 +22,10 @@ Methods
 {% block attributes %}
 {% if attributes %}
 
-Attributes
-----------
 
 .. autosummary::
   :toctree:
+  :hidden:
 
 {% for item in attributes %}
    ~{{ name }}.{{ item }}
