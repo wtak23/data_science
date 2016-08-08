@@ -14,4 +14,4 @@ Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
    demo_class.rst
    autoclass.rst
-   string.rst
+   demo_automodule.rst

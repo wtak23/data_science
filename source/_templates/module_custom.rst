@@ -33,7 +33,7 @@
        :hidden:
 
    {% for item in classes %}
-      generated/{{ fullname }}.{{ item }}
+       generated/{{ fullname }}.{{ item }}
    {%- endfor %}
 
    {% endif %}
