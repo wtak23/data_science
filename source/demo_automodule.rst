@@ -4,7 +4,31 @@
 ###########################
 Automodule demo
 ###########################
-Only catch: make sure to explicitly insert ``toctree`` directive with option set at ``:hidden:``
+Only catch: make sure to explicitly insert ``toctree`` directive with option set at ``:hidden:`` (with subdir ``generated/`` indicated)
+
+.. rubric:: rst-code used
+
+.. code-block:: rst
+
+    .. toctree::
+        :maxdepth: 1
+        :hidden:
+
+        generated/string
+        generated/pyspark
+        generated/pyspark.mllib
+        generated/pyspark.mllib.classification
+        generated/sklearn.covariance
+
+    .. autosummary::
+       :toctree:generated/
+       :template:module_custom.rst
+
+        string
+        pyspark
+        pyspark.mllib
+        pyspark.mllib.classification
+        sklearn.covariance
 
 .. toctree::
     :maxdepth: 1
@@ -14,8 +38,7 @@ Only catch: make sure to explicitly insert ``toctree`` directive with option set
     generated/pyspark
     generated/pyspark.mllib
     generated/pyspark.mllib.classification
-..    generated/pyspark.sql
-..    generated/pyspark.sql.functions
+    generated/sklearn.covariance
 
 .. autosummary::
    :toctree:generated/
@@ -25,5 +48,4 @@ Only catch: make sure to explicitly insert ``toctree`` directive with option set
     pyspark
     pyspark.mllib
     pyspark.mllib.classification
-..    pyspark.sql
-..    pyspark.sql.functions
+    sklearn.covariance
