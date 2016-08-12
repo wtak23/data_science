@@ -59,7 +59,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'PROJECT_NAME'
+project = u'My Project'
 copyright = u'2016'
 author = u''
 
@@ -144,7 +144,7 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-    'collapse_navigation': True,
+    'collapse_navigation': False,
     'navigation_depth': 4,
 }
 
@@ -155,6 +155,7 @@ html_theme_options = {
 # "<project> v<release> documentation" by default.
 #
 # html_title = u'PROJECT_NAME v1'
+html_title = project+u' v1'
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -254,7 +255,8 @@ html_static_path = ['_static']
 # html_search_scorer = 'scorer.js'
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'PROJECT_NAME'
+# htmlhelp_basename = 'PROJECT_NAME'
+htmlhelp_basename = project
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -280,7 +282,8 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'PROJECT_NAME.tex', u'PROJECT_NAME Documentation',
+    # (master_doc, 'PROJECT_NAME.tex', u'PROJECT_NAME Documentation',
+    (master_doc, project+'.tex', project+u' Documentation',
      u'WWW', 'manual'),
 ]
 
@@ -322,7 +325,8 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+    # (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+    (master_doc, project, project+u' Documentation',
      [author], 1)
 ]
 
@@ -336,9 +340,14 @@ man_pages = [
 # Grouping the document tree into Texinfo files. List of tuples
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
+# texinfo_documents = [
+#     (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
+#      author, 'PROJECT_NAME', 'One line description of project.',
+#      'Miscellaneous'),
+# ]
 texinfo_documents = [
-    (master_doc, 'PROJECT_NAME', u'PROJECT_NAME Documentation',
-     author, 'PROJECT_NAME', 'One line description of project.',
+    (master_doc, project, project+u' Documentation',
+     author, project, 'One line description of project.',
      'Miscellaneous'),
 ]
 

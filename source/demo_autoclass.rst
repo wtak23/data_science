@@ -1,5 +1,5 @@
 
-.. _demo.class:
+.. _demo_autoclass:
 
 ###########################
 Demo of autodoc'ing classes
@@ -12,30 +12,14 @@ be contained in the TOC.
 - I first thought I had the include the toctree in ``index.rst``, but doing so
   would disrupt the hierarchy of the global TOC structure
 
+Here cross reference with hyperlink: :ref:`demo_automodule`
+
 See:
 
 - http://www.sphinx-doc.org/en/stable/tutorial.html#defining-document-structure
 - http://www.sphinx-doc.org/en/stable/markup/toctree.html
 
-
 .. rubric:: rst-code used
-
-.. code-block:: rst
-
-    .. toctree::
-        :maxdepth: 1
-        :caption: Table of Contents
-        :hidden:
-
-        generated/sklearn.linear_model.Lasso
-        generated/sklearn.cluster.AgglomerativeClustering
-
-    .. autosummary::
-       :toctree:generated/
-       :template:class_custom.rst
-
-        sklearn.linear_model.Lasso
-        sklearn.cluster.AgglomerativeClustering
 
 .. toctree::
     :maxdepth: 1
@@ -51,5 +35,3 @@ See:
 
     sklearn.linear_model.Lasso
     sklearn.cluster.AgglomerativeClustering
-
-

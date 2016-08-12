@@ -9,5 +9,4 @@ rm -r ./source/generated*
 # cp -r ./source/_templates ./source/generated/
 # cp -r ./source/_templates ./source/generated/generated/
 make html
-bash fix_name.sh
 # rsync -r build/html/ bs4doc/

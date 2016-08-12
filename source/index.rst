@@ -12,6 +12,5 @@ Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
    :numbered:
    :caption: Table of Contents
 
-   demo_autoclass1.rst
-   demo_autoclass2.rst
+   demo_autoclass.rst
    demo_automodule.rst
