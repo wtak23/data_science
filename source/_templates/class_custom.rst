@@ -3,12 +3,12 @@
 
 .. currentmodule:: {{ module }}
 
+:func:`{{ objname }}.__init__`
+
 .. autoclass:: {{ objname }}
-
+    :members: __init__
 {% block methods %}
-
 {% if methods %}
-
 .. autosummary::
    :toctree:
    :hidden:

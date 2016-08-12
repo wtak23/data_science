@@ -28,6 +28,7 @@ See:
 
     generated/sklearn.linear_model.Lasso
     generated/sklearn.cluster.AgglomerativeClustering
+    generated/matplotlib.lines.Line2D
 
 .. autosummary::
    :toctree:generated/
@@ -35,3 +36,4 @@ See:
 
     sklearn.linear_model.Lasso
     sklearn.cluster.AgglomerativeClustering
+    matplotlib.lines.Line2D
