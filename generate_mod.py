@@ -34,7 +34,7 @@ from sphinx.ext.autosummary import import_by_name, get_documenter
 from sphinx.jinja2glue import BuiltinTemplateLoader
 from sphinx.util.osutil import ensuredir
 from sphinx.util.inspect import safe_getattr
-from inspect import ismethod, isclass
+from inspect import ismethod, isclass, isfunction
 
 # Add documenters to AutoDirective registry
 from sphinx.ext.autodoc import add_documenter, \
@@ -166,6 +166,11 @@ def generate_autosummary_docs(sources, output_dir=None, suffix='.rst',
                         try:
                             if isclass(obj):
                                 cond = True
+                            elif isclass(obj_name) or isfunction(obj_name):
+                                if obj_name.__module__.split('.')[0] == obj.__name__.split('.')[0]:
+                                    cond=True
+                                else:
+                                    cond=False
                             else:
                                 cond = (
                                     imported or 
