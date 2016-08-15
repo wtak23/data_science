@@ -30,8 +30,14 @@ sys.path.insert(0, os.path.abspath('.'))
 # extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
 # ones.
 autosummary_generate=True
+autoclass_content='class' # http://www.sphinx-doc.org/en/stable/ext/autodoc.html#confval-autoclass_content
 import IPython.sphinxext
 import numpydoc
+
+# these needed to be set to False to avoid redundant toctree being created from autosummary (fml...wasted so much time on this...)
+# https://github.com/numpy/numpydoc, https://github.com/sphinx-doc/sphinx/issues/99
+numpydoc_class_members_toctree = False
+numpydoc_show_class_members = False
 extensions = [
     'sphinx.ext.autosummary',
     'sphinx.ext.viewcode',

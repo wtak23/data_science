@@ -23,7 +23,6 @@ See:
 
 .. toctree::
     :maxdepth: 1
-    :caption: Table of Contents
 
     generated/sklearn.linear_model.Lasso
     generated/sklearn.cluster.AgglomerativeClustering
@@ -36,3 +35,17 @@ See:
     sklearn.linear_model.Lasso
     sklearn.cluster.AgglomerativeClustering
     matplotlib.lines.Line2D
+
+
+.. rubric:: Here using template for including hidden methods
+
+.. toctree::
+    :maxdepth: 1
+
+    generated/bs4.BeautifulSoup
+
+.. autosummary::
+   :toctree:generated/
+   :template:class_all_methods.rst
+
+    bs4.BeautifulSoup

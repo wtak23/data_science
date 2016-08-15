@@ -1,3 +1,4 @@
+.. use this template to show hidden methods (ones beginning with underscores)
 {{ fullname }}
 {{ underline }}
 
@@ -12,7 +13,7 @@ Methods
 .. autosummary::
    :toctree:
 
-{% for item in methods %}
+{% for item in all_methods %}
    ~{{ name }}.{{ item }}
 {%- endfor %}
 {% endif %}
