@@ -144,7 +144,7 @@ html_theme = 'sphinx_rtd_theme'
 # documentation.
 #
 html_theme_options = {
-    'collapse_navigation': False,
+    'collapse_navigation': True,
     'navigation_depth': 4,
 }
 

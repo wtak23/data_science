@@ -12,7 +12,6 @@ Here cross reference with hyperlink: :ref:`demo_autoclass`
 
 .. toctree::
     :maxdepth: 1
-    :hidden:
 
     generated/string
     generated/pyspark

@@ -24,7 +24,6 @@ See:
 .. toctree::
     :maxdepth: 1
     :caption: Table of Contents
-    :hidden:
 
     generated/sklearn.linear_model.Lasso
     generated/sklearn.cluster.AgglomerativeClustering
