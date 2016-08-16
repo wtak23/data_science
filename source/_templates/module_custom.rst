@@ -19,7 +19,7 @@
    {% block classes %}
    {% if classes %}
    Classes
-   ---------
+   -------
    .. autosummary::
       :toctree:generated/
       :template:class_custom.rst
@@ -42,7 +42,7 @@
    {% block exceptions %}
    {% if exceptions %}
    Exceptions
-   ---------
+   ----------
    .. autosummary::
       :toctree:
 
