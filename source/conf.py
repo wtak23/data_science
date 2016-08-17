@@ -1,5 +1,12 @@
 # -*- coding: utf-8 -*-
 #
+#=============================================================================#
+# See:
+# - http://www.sphinx-doc.org/en/stable/config.html
+# - http://www.sphinx-doc.org/en/stable/config.html#project-information
+# - http://www.sphinx-doc.org/en/stable/markup/inline.html?highlight=replacement#substitutions
+# (|release|, |version|, |today| for replacment)
+#=============================================================================#
 # PROJECT_NAME documentation build configuration file, created by
 # sphinx-quickstart on Wed Aug  3 13:00:32 2016.
 #
