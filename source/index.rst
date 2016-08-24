@@ -14,3 +14,13 @@ Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
    demo_autoclass.rst
    demo_automodule.rst
+
+
+.. note:: 
+
+    Minor change made in Sphinx source code ``generate.py``
+    
+    (located at ``$HOME/.local/lib/python2.7/site-packages/sphinx/ext/autosummary/generate.py``)
+
+    .. literalinclude:: generate_mod.py
+       :diff: generate.py
