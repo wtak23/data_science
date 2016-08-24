@@ -8,23 +8,30 @@ Only catch: make sure to explicitly insert ``toctree`` directive with option set
 
 Here cross reference with hyperlink: :ref:`demo_autoclass`
 
-.. rubric:: rst-code used
+.. rubric:: Include all functions/methods using ``module_custom.rst`` template
 
 .. toctree::
     :maxdepth: 1
 
-    generated/string
-    generated/pyspark
-    generated/pyspark.mllib
-    generated/pyspark.mllib.classification
-    generated/sklearn.covariance
+    generated/statsmodels.discrete.discrete_margins
 
 .. autosummary::
    :toctree:generated/
    :template:module_custom.rst
 
-    string
-    pyspark
-    pyspark.mllib
-    pyspark.mllib.classification
-    sklearn.covariance
+    statsmodels.discrete.discrete_margins
+
+.. rubric:: Same as above, but also include hidden methods using ``module_all_methods.rst`` template
+
+**hidden functions** = methods starting with underscore, like ``__all__``
+
+.. toctree::
+    :maxdepth: 1
+
+    generated/statsmodels.distributions
+
+.. autosummary::
+   :toctree:generated/
+   :template:module_all_methods.rst
+
+    statsmodels.distributions

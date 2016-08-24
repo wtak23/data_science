@@ -26,7 +26,6 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
-
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -183,7 +182,7 @@ html_title = project+u' v1'
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-# html_favicon = None
+html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,

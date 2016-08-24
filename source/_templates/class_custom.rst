@@ -1,9 +1,7 @@
 {{ fullname }}
 {{ underline }}
-
 .. currentmodule:: {{ module }}
 .. autoclass:: {{ objname }}
-   :members: __init__
    :undoc-members:
 {% block methods %}
 {% if methods %}
