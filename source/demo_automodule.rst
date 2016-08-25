@@ -29,11 +29,9 @@ Here cross reference with hyperlink: :ref:`demo_autoclass`
     :maxdepth: 1
 
     generated/statsmodels.distributions
-    generated/statsmodels.discrete.discrete_model
 
 .. autosummary::
    :toctree:generated/
    :template:module_all_methods.rst
 
     statsmodels.distributions
-    statsmodels.discrete.discrete_model
