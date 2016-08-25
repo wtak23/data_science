@@ -2,6 +2,8 @@ Sphinx Skeleton
 ===============
 Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
+
+
 .. toctree::
    :maxdepth: 2
    :numbered:
@@ -10,6 +12,10 @@ Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
    demo_autoclass.rst
    demo_automodule.rst
 
+
+
+>>> a = 1
+1
 
 .. note:: 
 
