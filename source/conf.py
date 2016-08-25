@@ -49,6 +49,7 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.autodoc',
     'sphinx.ext.mathjax',
+    'sphinx.ext.todo',
     'IPython.sphinxext.ipython_console_highlighting',
     'IPython.sphinxext.ipython_directive',
     'numpydoc', # used to parse numpy-style docstrings for autodoc    
@@ -104,8 +105,8 @@ language = None
 # directories to ignore when looking for source files.
 # This patterns also effect to html_static_path and html_extra_path
 exclude_patterns = [
-'demo_autoclass.rst',
-'demo_automodule.rst',
+# 'demo_autoclass.rst',
+# 'demo_automodule.rst',
 # 'demo_automodule.rst',
 # 'test3.rst',
 #'templates',
@@ -143,7 +144,7 @@ pygments_style = 'sphinx'
 # keep_warnings = False
 
 # If true, `todo` and `todoList` produce output, else they produce nothing.
-todo_include_todos = False
+todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
@@ -169,7 +170,7 @@ html_theme_options = {
 # "<project> v<release> documentation" by default.
 #
 # html_title = u'PROJECT_NAME v1'
-html_title = project+u' v1'
+html_title = project
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
 #
@@ -380,3 +381,6 @@ texinfo_documents = [
 # If true, do not generate a @detailmenu in the "Top" node's menu.
 #
 # texinfo_no_detailmenu = False
+def setup(app):
+    # to hide/show the prompt in code examples:
+    app.add_javascript('copybutton.js')

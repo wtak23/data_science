@@ -2,7 +2,9 @@ Sphinx Skeleton
 ===============
 Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
-
+- ``|version|`` = |version|
+- ``|release|`` = |release|
+- ``|today|`` = |today|
 
 .. toctree::
    :maxdepth: 2
@@ -11,11 +13,14 @@ Skeleton for creating my doc. Use of sphinx ``autosummary`` saved my life.
 
    demo_autoclass.rst
    demo_automodule.rst
+   demo_copybutton.rst
 
+.. todo:: Just checking if the ``todo`` extension is loaded
 
+.. note:: Finally got the ``copybutton.js`` to work... Sphinx 1.4.5 didn't render it correctly (rolled back to 1.3.5)...that was a soul-crushing experience...
 
->>> a = 1
-1
+    >>> a = 1
+    1
 
 .. note:: 
 
