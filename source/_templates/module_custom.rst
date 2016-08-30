@@ -1,5 +1,5 @@
-{{ fullname }}
-{{ underline }}
+:mod:`{{ fullname }}`
+======={{ underline }}
 
 .. automodule:: {{ fullname }}
 
