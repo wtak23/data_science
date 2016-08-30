@@ -22,7 +22,7 @@
    -------
    .. autosummary::
       :toctree:generated/
-      :template:class_custom.rst
+      :template:class_all_methods.rst
 
    {% for item in classes %}
       {{ item }}
