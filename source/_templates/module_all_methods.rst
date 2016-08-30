@@ -1,5 +1,5 @@
-{{ fullname }}
-{{ underline }}
+:mod:`{{ fullname }}`
+======={{ underline }}
 
 .. automodule:: {{ fullname }}
 
@@ -22,7 +22,7 @@
    -------
    .. autosummary::
       :toctree:generated/
-      :template:class_all_methods.rst
+      :template:class_custom.rst
 
    {% for item in classes %}
       {{ item }}
