@@ -1,5 +1,5 @@
-{{ fullname }}
-{{ underline }}
+:class:`{{ fullname }}`
+========={{ underline }}
 .. currentmodule:: {{ module }}
 .. autoclass:: {{ objname }}
    :undoc-members:
