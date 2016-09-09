@@ -8,12 +8,21 @@
    Functions
    ---------
    .. autosummary::
-      :toctree:
-      :template:func_custom.rst
+      :toctree:generated/
+      :template:function_custom.rst
 
    {% for item in functions %}
       {{ item }}
    {%- endfor %}
+
+   .. toctree::
+       :maxdepth: 1
+       :hidden:
+
+   {% for item in functions %}
+       generated/{{ fullname }}.{{ item }}
+   {%- endfor %}
+      
    {% endif %}
    {% endblock %}
 
