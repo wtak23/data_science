@@ -9,6 +9,7 @@
    ---------
    .. autosummary::
       :toctree:
+      :template:func_custom.rst
 
    {% for item in functions %}
       {{ item }}
