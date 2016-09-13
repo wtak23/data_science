@@ -186,7 +186,7 @@ html_short_title = None
 # the docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
 # pixels large.
 #
-html_favicon = '_static/favicon.ico'
+#html_favicon = '_static/favicon.ico'
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -202,8 +202,8 @@ html_static_path = ['_static']
 # If not None, a 'Last updated on:' timestamp is inserted at every page
 # bottom, using the given strftime format.
 # The empty string is equivalent to '%b %d, %Y'.
-#
 # html_last_updated_fmt = None
+html_last_updated_fmt = ''
 
 # If true, SmartyPants will be used to convert quotes and dashes to
 # typographically correct entities.
@@ -236,12 +236,12 @@ html_static_path = ['_static']
 # html_show_sourcelink = True
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
-#
 # html_show_sphinx = True
+html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-#
 # html_show_copyright = True
+html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -385,3 +385,7 @@ texinfo_documents = [
 def setup(app):
     # to hide/show the prompt in code examples:
     app.add_javascript('copybutton.js')
+
+# http://www.sphinx-doc.org/en/stable/config.html#options-for-html-output
+html_secnumber_suffix = ' '
+html_add_permalinks = None # http://www.sphinx-doc.org/en/stable/config.html#confval-html_add_permalinks
