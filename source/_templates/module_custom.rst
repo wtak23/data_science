@@ -10,7 +10,8 @@
    .. autosummary::
       :toctree:generated/
       :template:func_custom.rst
-
+      
+   {# to include private functions, use *all_functions* below #}
    {% for item in functions %}
       {{ item }}
    {%- endfor %}
