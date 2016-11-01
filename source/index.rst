@@ -4,11 +4,11 @@ A few illustrative examples from ``pytak`` -- my personal python package.
 
 .. toctree::
    :maxdepth: 2
-   :numbered:
    :caption: Table of Contents
 
    file1.rst
    distributions
+   choose_my_geolocator
 
 .. These substitutions are predefined in Sphinx
 
