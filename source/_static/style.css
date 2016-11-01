@@ -25,8 +25,10 @@ code {
     background-clip: content-box;
 }
 /* === above is from seaborn === */
-/*body {
-
-  width: 500px;
-
-}*/
+@media (min-width: 1200px) {
+    /* i prefer the body to not be TOOOO huge in full screen mode */
+    /*http://stackoverflow.com/questions/18548453/how-to-change-navbar-container-width-bootstrap-3*/
+    .container{
+        max-width: 1000px;
+    }
+}

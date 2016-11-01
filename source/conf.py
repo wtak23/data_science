@@ -92,7 +92,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Python Code Examples'
+project = u'pytak'
 copyright = u'2016 Takanori Watanabe'
 author = u'Takanori Watanabe'
 
