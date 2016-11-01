@@ -26,6 +26,7 @@
 import os
 import sys
 sys.path.insert(0, os.path.abspath('.'))
+
 # -- General configuration ------------------------------------------------
 
 # If your documentation needs a minimal Sphinx version, state it here.
@@ -55,6 +56,25 @@ extensions = [
     'numpydoc', # used to parse numpy-style docstrings for autodoc    
 ]
 
+#=============================================================================#
+# config for seaborn style repos 11-01-2016 (15:26)
+#=============================================================================#
+import sphinx_bootstrap_theme
+import matplotlib as mpl
+mpl.use("Agg")
+
+# Generate the API documentation when building
+autosummary_generate = True
+numpydoc_show_class_members = False
+
+# Include the example source for plots in API docs
+plot_include_source = True
+plot_formats = [("png", 90)]
+plot_html_show_formats = False
+plot_html_show_source_link = False
+
+#-----------------------------------------------------------------------------#
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -72,9 +92,9 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'Sphinx Skeleton'
-copyright = u'2016'
-author = u''
+project = u'Python Code Examples'
+copyright = u'2016 Takanori Watanabe'
+author = u'Takanori Watanabe'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -148,20 +168,29 @@ todo_include_todos = True
 
 
 # -- Options for HTML output ----------------------------------------------
-
+#*****************************************************************************#
+# from seaborn
+#*****************************************************************************#
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-#
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'bootstrap'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
-#
 html_theme_options = {
-    'collapse_navigation': False,
-#    'navigation_depth': 4,
-}
+    'source_link_position': "footer",
+    'bootswatch_theme': "flatly",
+    'navbar_sidebarrel': False,
+    'bootstrap_version': "3",
+    'navbar_links': [("API", "api"),
+                     ("Tutorial", "tutorial"),
+                     ("Gallery", "examples/index")],
+
+    }
+
+# Add any paths that contain custom themes here, relative to this directory.
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 # Add any paths that contain custom themes here, relative to this directory.
 # html_theme_path = []
@@ -240,8 +269,8 @@ html_last_updated_fmt = ''
 html_show_sphinx = False
 
 # If true, "(C) Copyright ..." is shown in the HTML footer. Default is True.
-# html_show_copyright = True
-html_show_copyright = False
+html_show_copyright = True
+# html_show_copyright = False
 
 # If true, an OpenSearch description file will be output, and all pages will
 # contain a <link> tag referring to it.  The value of this option must be the
@@ -385,6 +414,7 @@ texinfo_documents = [
 def setup(app):
     # to hide/show the prompt in code examples:
     app.add_javascript('copybutton.js')
+    app.add_stylesheet('style.css') # <- from seaborn doc
 
 # http://www.sphinx-doc.org/en/stable/config.html#options-for-html-output
 html_secnumber_suffix = ' '
