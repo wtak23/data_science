@@ -15,8 +15,6 @@ Hall <http://www.facilities.upenn.edu/maps/locations/huntsman-hall-jon-m>`__
 from its address, and locate it on `Mapbox <https://www.mapbox.com/>`__
 service
 
-I now have this running at http://wtak23.github.io/plotly\_mapbox.html
-
 .. code:: python
 
     # get my mapbox token

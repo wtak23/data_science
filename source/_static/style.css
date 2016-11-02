@@ -54,3 +54,47 @@ div.topic {
   background-color:rgba(0,255,0,0.15);
   /*font-family:"Incosolata","Consolata","Monaco",monospace; */
 }
+
+/*=============================================================================
+    To style output from pandas
+    (these are assigned class "dataframe")
+  ===========================================================================*/
+table.dataframe {
+    overflow-x:auto;
+    width:100%; 
+    table-layout:fixed;
+    display: block;
+    border-collapse: collapse;
+    padding-top: 12px;
+    padding-bottom: 12px;
+}
+
+table.dataframe th,table.dataframe  td {
+    padding: 14px;
+    /*border: 1px solid #ecf0f1;*/
+    border: 1px solid rgba(255,128,128,0.1);
+    /*border: 1px solid black;*/
+    /*border: 2px solid #ecf0f1;*/
+    /*border-bottom: 2px solid #ddd;*/
+    /*border-bottom: 2px solid #aaa;*/
+}
+
+table.dataframe th {
+    font-size:16px;
+    text-align: center;
+    font-weight:bold;
+    /*border: 2px solid #aaa;*/
+    background-color: rgba(255,0,0,0.15);
+    /*background: #E3E3E3;  Light grey background */
+}
+
+table.dataframe td {
+    font-size:14px;
+    text-align: center;
+    /*border: 1px solid #ecf0f1;*/
+    /*border: 1px solid rgba(0,0,0,0.1);*/
+}
+
+/*table.dataframe tr:hover{background-color:#CCF6FF}*/
+table.dataframe tr:hover{background-color:rgba(0,128,255,0.1)}
+

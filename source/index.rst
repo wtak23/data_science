@@ -8,7 +8,8 @@ A few illustrative examples from ``pytak`` -- my personal python package.
 
    file1.rst
    distributions
-   choose_my_geolocator
+   plotly_demos/plotly_demos.rst
+
 
 .. These substitutions are predefined in Sphinx
 
