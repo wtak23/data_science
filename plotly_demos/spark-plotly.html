@@ -1,0 +1,1331 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Spark demo with Plotly</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="" href="../index.html" />
+    <link rel="up" title="Plotly demos" href="top-plotly.html" />
+    <link rel="next" title="Plotly FigureFactory" href="../plotly_FF/top-plotly-FF.html" />
+    <link rel="prev" title="Steph Curry Demo" href="steph_curry_demo.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Data Science</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://github.com/wtak23"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents (Top) <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pytak.html"><code class="docutils literal"><span class="pre">pytak</span></code> &#8212; my personal python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sqlite-whirlwind.html">A whirlwind tour to sqlite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#beginning">Beginning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#insert-data">Insert data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#get-data">Get data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-factory">Row factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#iterdump">iterdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#cursor-object">Cursor object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-objects">Row objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spark-config.html">Spark Configuration Setup for Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#about">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#self-contained-applications">self-contained applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#note">Note</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc-mean-analysis.html">Brain Connectivity - PNC Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-relevant-packages">Load relevant packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-clinical-scores-dataframe">Load clinical-scores (DataFrame)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#handle-nan-values">Handle nan values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-histogram-of-numeric-scores">Create histogram of numeric scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#display-mean-connectome-heatmap">Display mean connectome heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-let-s-repeat-using-plotly">Nice, let&#8217;s repeat using plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-plotly-trace-object">Create plotly <code class="docutils literal"><span class="pre">trace</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#bunch-of-layout-objects">Bunch of layout objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-but-we-can-do-better-by-defining-a-layout-object">Nice, but we can do better by defining a <code class="docutils literal"><span class="pre">layout</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#try-again">Try again</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html">PNC classification experiment results (old)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#what-is-this">What is this?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#load-data">Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#show-classification-result">Show classification result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-coefficients">Display median coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-connmat">Display median connmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glass-brain">Glass-brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#thresholded-median-value-experimental">Thresholded median value (experimental)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#trinarized-median-connmat-after-thresholding">Trinarized median connmat after thresholding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glassbrain">Glassbrain</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Plotly demos</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="top-plotly.html">Plotly demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="choose_my_geolocator.html">Choose my Geolocator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#try-to-pinpoint-huntsman-hall">Try to pinpoint Huntsman Hall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#hmmm-that-s-pretty-off">Hmmm...that&#8217;s pretty off...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#url-request-using-freegeopi">URL Request using freegeopi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#that-s-also-quite-off">That&#8217;s also quite off....</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#try-geolocation-python">Try geolocation-python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#success">Success!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google_big_query.html">Google Big Query Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#top-10-hacker-news-submissions-by-score">Top 10 Hacker News Submissions (by score)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#from-which-top-level-domain-tld-most-of-the-stories-come">From which Top-level domain (TLD) most of the stories come?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#public-response-to-the-who-is-hiring-posts">Public response to the &#8220;Who Is Hiring?&#8221; posts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#submission-traffic-volume-in-a-week">Submission Traffic Volume in a Week</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#programming-language-trend-on-hackernews">Programming Language Trend on HackerNews</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql_plotly.html">MySQL with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#first-download-the-world-database">First download the world database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#install-database-in-mysql">Install database in mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#for-this-demo-create-user-with-all-privileges-to-this-world-database">For this demo, create user with all privileges to this <code class="docutils literal"><span class="pre">world</span></code> database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#alright-we-are-in-business-let-s-analyze-this-database">Alright, we are in business. Let&#8217;s analyze this database!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#create-pandas-dataframe">create pandas DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#a-bit-of-data-cleansing">A bit of data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#plot-interactive-scatterplots">Plot interactive scatterplots!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#prettify-the-above">prettify the above :)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plotly_sqlite.html">Plotly and SQLite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#create-database-file-on-disk-by-reading-in-subset-of-data">Create database file on disk by reading in subset of data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#alright-let-s-preview-the-table">Alright, let&#8217;s preview the table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#k-let-s-do-some-plotly">K, let&#8217;s do some plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#housing-and-development-dept-receives-the-most-complaints">Housing and Development Dept receives the most complaints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#heat-hot-water-is-the-most-common-complaint">Heat / Hot Water is the most common complaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#what-s-the-most-complain-in-each-city">What&#8217;s the most complain in each city?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#part2-slite3-timeseries-with-pandas">Part2: Slite3 timeseries with pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#filter-noise-complaints-by-hour">Filter noise complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#segregate-complaints-by-hour">Segregate complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly_sqlite.html#aggregate-time-series">Aggregate time series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="steph_curry_demo.html">Steph Curry Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#data-transformation-for-querying">Data Transformation for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#shot-locations">Shot locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#create-the-court">Create the court</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#outer-lines">Outer Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#basketball-hoop">2. basketball hoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#basket-backboard">Basket Backboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#outer-box-of-three-second-area">Outer box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#inner-box-of-three-second-area">Inner box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-line-left">Three-point line (left)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-line-right">Three-point line (right)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-arc">Three-point arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#center-circle">Center circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#restraining-circe">Restraining circe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#free-throw-circle">Free-throw circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#restricted-area">Restricted area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#chart-the-shots">Chart the shots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#good-stuff-let-s-save-in-plotly">Good stuff! let&#8217;s save in plotly</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Spark demo with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#check-pyspark-is-loaded-correctly">Check pyspark is loaded correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#download-bike-data">Download bike data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#register-dataframe-as-table-to-use-sql-commands">Register dataframe as table to use SQL commands!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#now-let-s-visualize">Now let&#8217;s visualize!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#pyspark-dataframe-to-pandas-dataframe">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_FF/top-plotly-FF.html">Plotly FigureFactory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html">Figure Factory &#8211; my favorites!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-2d-density">Simple 2d Density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#add-colorscale">add colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#with-heatmap">With heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-distplot">simple distplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#normal-distribution-plot-with-no-rug">normal distribution plot with no rug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#diagonal-boxplots">Diagonal boxplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-pandas">Using pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html">Figure Factory Demos (a-o)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-2d-density-plot">Simple 2D Density plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#using-parameters">Using Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-annotated-heatmap">create_annotated_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-candlestick">create_candlestick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-candlestick-chart-from-a-pandas-dataframe">Simple candlestick chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-candlestick-chart">Add text and annotations to the candlestick chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-candlestick-colors">Customize the candlestick colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#candlestick-chart-with-datetime-objects">Candlestick chart with datetime objects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-distplot-of-1-dataset">Simple distplot of 1 dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#plot-with-normal-curve-and-hide-rug-plot">Plot with normal curve and hide rug plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-gantt">create_gantt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-gantt-chart">Simple Gantt Chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-numerical-entries">Index by Column with Numerical Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-string-entries">Index by Column with String Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-dictionary-for-colors">Use a dictionary for colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-pandas-dataframe">Use a pandas dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-ohlc">create_ohlc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-ohlc-chart-from-a-pandas-dataframe">Simple OHLC chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-ohlc-chart">Add text and annotations to the OHLC chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-ohlc-colors">Customize the OHLC colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#ohlc-chart-with-datetime-objects">OHLC chart with datetime objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html">Figure Factory Demos (q-z)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-quiver">create_quiver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#trivial-quiver">Trivial Quiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#quiver-plot-using-meshgrid">Quiver plot using meshgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-quiver-plot">Styling the quiver plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#vanilla-scatterplot-matrix">Vanilla Scatterplot Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#indexing-a-column">Indexing a Column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-diagonal-subplots">Styling the Diagonal Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-streamline">create_streamline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#from-aeropython">from AeroPython</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table-with-pandas">Simple Plotly Table with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-trisurf">create_trisurf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#torus">Torus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#mobius-band">Mobius Band</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-a-custom-colormap-function-with-light-cone">Using a Custom Colormap Function with Light Cone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#enter-color-func-as-a-list-of-colors">Enter color_func as a list of colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#single-violin-plot">Single Violin Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_layout/top-plotly-layout.html">Plotly layout options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html">plotly-layout-options-axes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#toggling-axes-lines-ticks-labels-and-autorange">Toggling Axes Lines, Ticks, Labels, and Autorange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#tick-placement-color-and-style">Tick Placement, Color, and Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#set-and-style-axes-title-labels-and-ticks">Set and Style Axes Title Labels and Ticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#styling-and-coloring-axes-and-the-zero-line">Styling and Coloring Axes and the Zero-Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#setting-the-range-of-axes-manually">Setting the Range of Axes Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#logarithmic-axes">Logarithmic Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes">Reversed Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes-with-range-min-max-specified">Reversed Axes with Range ( Min/Max ) Specified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#nonnegative-tozero-and-normal-rangemode">nonnegative, tozero, and normal Rangemode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#enumerated-ticks-with-tickvals-and-ticktext">Enumerated Ticks with Tickvals and Ticktext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html">plotly-layout-options-axes3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#range-of-axes">Range of Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#set-axes-title">Set Axes Title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#ticks-formatting">Ticks Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#background-color-and-grid-color">Background color and grid color</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html">plotly-layout-options-legend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#basic-legend">Basic legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#positioning-the-legend">Positioning the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#grouped-legends">Grouped legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#styling-and-coloring-the-legend">Styling and Coloring the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#selectively-hide-legend-entries">Selectively hide legend entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#hiding-legend-entries-in-grouped-legends">Hiding Legend Entries In Grouped Legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#horizontal-legends">Horizontal legends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html">plotly-layout-options-subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#simple-subplots">Simple subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-subplots-with-titles">Multiple Subplots With Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#customizing-subplot-axes">Customizing Subplot Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-y-axes">Subplots with Shared Y-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#stacked-subplots">Stacked Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#custom-sized-subplot-with-subplot-titles">+++Custom Sized Subplot with Subplot Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-x-axes">Subplots with Shared X-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-axes">Subplots with shared Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-custom-sized-subplots">Multiple Custom Sized Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplot-with-custom-sizes">++Subplot with custom sizes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html">plotly-layout-options-text-and-annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-text-to-data-in-line-and-scatter-plots">Adding Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-hover-text-to-data-in-line-and-scatter-plots">Adding Hover Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#simple-annotation">Simple Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#multiple-annotations">Multiple Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#custom-text-color-and-styling">Custom Text Color and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#disabling-hover-text">Disabling Hover Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#styling-and-coloring-annotations">Styling and Coloring Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#text-font-as-an-array-styling-each-text-element">Text Font as an Array - Styling Each Text Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-annotations-with-xref-and-yref-as-paper">Adding Annotations with xref and yref as Paper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html">plotly-layout-options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#adding-logos">Adding logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#add-background-image">Add background image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#latex">Latex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#text-and-font-styling-global-font-properties">Text and Font Styling (global font properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-graph-size">Setting graph size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-the-title-legend-entries-and-axis-titles">Setting the Title, Legend Entries, and Axis Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-axes">Multiple Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#two-y-axes">Two y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-y-axes">Multiple y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#inset-plots">Inset Plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_demos_api/top-plotly-api.html">Plotly &#8211; API demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html">3d-plot-demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#plot">Plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-trace">Set trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-layout">set layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#finally-plot">finally, plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh">3d mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html">annotated-heatmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bar-charts.html">bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html">bubble-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#note">note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html">chord-diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-nodes">Define nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-edges">Define edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#node-position">Node position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#finally-plot">Finally, plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmaps.html">heatmaps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-traces">Define traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/line-charts.html">line-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#simple-line-charts">Simple line charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#line-plot-models">Line plot models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#style-line-plots">Style Line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#the-traces">The traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#annotation-content">Annotation content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/networkx-demo.html">networkx-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/pie-charts.html">pie-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#basic-pie-chart">Basic pie chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#donut-chart">Donut Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-subplots">Pie Chart Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/tables.html">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#simple-table">Simple table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#add-links">Add Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-latex">Use LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#include-and-index-column">Include and Index Column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-table-colors">Custom Table Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-font-colors">Custom Font Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#change-font-size">Change Font Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#tables-with-graphs">Tables with Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#horizontal-subplots">Horizontal subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#vertical-subplots">Vertical subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Contents (current page) <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Spark demo with Plotly</a><ul>
+<li><a class="reference internal" href="#check-pyspark-is-loaded-correctly">Check pyspark is loaded correctly</a></li>
+<li><a class="reference internal" href="#download-bike-data">Download bike data</a></li>
+<li><a class="reference internal" href="#register-dataframe-as-table-to-use-sql-commands">Register dataframe as table to use SQL commands!</a></li>
+<li><a class="reference internal" href="#now-let-s-visualize">Now let&#8217;s visualize!</a></li>
+<li><a class="reference internal" href="#pyspark-dataframe-to-pandas-dataframe">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="spark-demo-with-plotly">
+<h1>Spark demo with Plotly</h1>
+<p>From <a class="reference external" href="https://plot.ly/python/apache-spark/">https://plot.ly/python/apache-spark/</a></p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#check-pyspark-is-loaded-correctly" id="id25">Check pyspark is loaded correctly</a></li>
+<li><a class="reference internal" href="#download-bike-data" id="id26">Download bike data</a></li>
+<li><a class="reference internal" href="#register-dataframe-as-table-to-use-sql-commands" id="id27">Register dataframe as table to use SQL commands!</a></li>
+<li><a class="reference internal" href="#now-let-s-visualize" id="id28">Now let&#8217;s visualize!</a></li>
+<li><a class="reference internal" href="#pyspark-dataframe-to-pandas-dataframe" id="id29">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</div>
+<div class="section" id="check-pyspark-is-loaded-correctly">
+<h2><a class="toc-backref" href="#id25">Check pyspark is loaded correctly</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="n">spark_home</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">environ</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;SPARK_HOME&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">spark_home</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>/home/takanori/mybin/spark-2.0.0-bin-hadoop2.7
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">print_function</span> <span class="c1">#python 3 support</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>&lt;pyspark.context.SparkContext object at 0x7f6ca3274d50&gt;
+</pre></div>
+</div>
+<p>Spark Context object loaded nicely :).</p>
+<p>How about <code class="docutils literal"><span class="pre">sqlcontext</span></code>?</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pyspark.sql</span> <span class="kn">import</span> <span class="n">SQLContext</span>
+<span class="n">sqlContext</span> <span class="o">=</span> <span class="n">SQLContext</span><span class="p">(</span><span class="n">sc</span><span class="p">)</span>
+<span class="k">print</span><span class="p">(</span><span class="n">sqlContext</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>&lt;pyspark.sql.context.SQLContext object at 0x7f6c91426090&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="download-bike-data">
+<h2><a class="toc-backref" href="#id26">Download bike data</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>%%bash
+wget https://raw.githubusercontent.com/anabranch/Interactive-Graphs-with-Plotly/master/btd2.json
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>--2016-09-22 15:49:51--  https://raw.githubusercontent.com/anabranch/Interactive-Graphs-with-Plotly/master/btd2.json
+Resolving raw.githubusercontent.com (raw.githubusercontent.com)... 151.101.20.133
+Connecting to raw.githubusercontent.com (raw.githubusercontent.com)|151.101.20.133|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 41125386 (39M) [text/plain]
+Saving to: ‘btd2.json’
+
+     0K .......... .......... .......... .......... ..........  0%  219M 0s
+    50K .......... .......... .......... .......... ..........  0%  402M 0s
+   100K .......... .......... .......... .......... ..........  0%  408M 0s
+   150K .......... .......... .......... .......... ..........  0%  382M 0s
+   200K .......... .......... .......... .......... ..........  0% 8.15M 1s
+   250K .......... .......... .......... .......... ..........  0% 7.07M 2s
+   300K .......... .......... .......... .......... ..........  0% 16.5M 2s
+   350K .......... .......... .......... .......... ..........  0% 4.44M 3s
+   400K .......... .......... .......... .......... ..........  1% 7.13M 3s
+   450K .......... .......... .......... .......... ..........  1% 14.0M 3s
+   500K .......... .......... .......... .......... ..........  1% 6.76M 3s
+   550K .......... .......... .......... .......... ..........  1% 6.98M 3s
+   600K .......... .......... .......... .......... ..........  1% 7.04M 4s
+   650K .......... .......... .......... .......... ..........  1% 20.3M 3s
+   700K .......... .......... .......... .......... ..........  1% 7.09M 4s
+   750K .......... .......... .......... .......... ..........  1% 6.18M 4s
+   800K .......... .......... .......... .......... ..........  2% 7.69M 4s
+   850K .......... .......... .......... .......... ..........  2% 7.78M 4s
+   900K .......... .......... .......... .......... ..........  2% 17.9M 4s
+   950K .......... .......... .......... .......... ..........  2% 6.93M 4s
+  1000K .......... .......... .......... .......... ..........  2% 6.80M 4s
+  1050K .......... .......... .......... .......... ..........  2% 6.88M 4s
+  1100K .......... .......... .......... .......... ..........  2% 6.87M 4s
+  1150K .......... .......... .......... .......... ..........  2% 6.29M 4s
+  1200K .......... .......... .......... .......... ..........  3% 67.3M 4s
+  1250K .......... .......... .......... .......... ..........  3% 6.84M 4s
+  1300K .......... .......... .......... .......... ..........  3% 6.09M 4s
+  1350K .......... .......... .......... .......... ..........  3% 6.70M 4s
+  1400K .......... .......... .......... .......... ..........  3% 54.7M 4s
+  1450K .......... .......... .......... .......... ..........  3% 6.91M 4s
+  1500K .......... .......... .......... .......... ..........  3% 6.87M 4s
+  1550K .......... .......... .......... .......... ..........  3% 6.39M 4s
+  1600K .......... .......... .......... .......... ..........  4% 6.70M 4s
+  1650K .......... .......... .......... .......... ..........  4% 7.22M 4s
+  1700K .......... .......... .......... .......... ..........  4% 37.6M 4s
+  1750K .......... .......... .......... .......... ..........  4% 6.87M 4s
+  1800K .......... .......... .......... .......... ..........  4% 6.53M 4s
+  1850K .......... .......... .......... .......... ..........  4% 6.78M 4s
+  1900K .......... .......... .......... .......... ..........  4% 7.13M 4s
+  1950K .......... .......... .......... .......... ..........  4% 6.80M 4s
+  2000K .......... .......... .......... .......... ..........  5% 40.6M 4s
+  2050K .......... .......... .......... .......... ..........  5% 6.46M 4s
+  2100K .......... .......... .......... .......... ..........  5% 6.77M 4s
+  2150K .......... .......... .......... .......... ..........  5% 7.28M 4s
+  2200K .......... .......... .......... .......... ..........  5% 37.0M 4s
+  2250K .......... .......... .......... .......... ..........  5% 6.86M 4s
+  2300K .......... .......... .......... .......... ..........  5% 6.85M 4s
+  2350K .......... .......... .......... .......... ..........  5% 6.71M 4s
+  2400K .......... .......... .......... .......... ..........  6% 8.05M 4s
+  2450K .......... .......... .......... .......... ..........  6% 21.1M 4s
+  2500K .......... .......... .......... .......... ..........  6% 6.76M 4s
+  2550K .......... .......... .......... .......... ..........  6% 6.85M 4s
+  2600K .......... .......... .......... .......... ..........  6% 6.80M 4s
+  2650K .......... .......... .......... .......... ..........  6% 46.5M 4s
+  2700K .......... .......... .......... .......... ..........  6% 6.40M 4s
+  2750K .......... .......... .......... .......... ..........  6% 7.18M 4s
+  2800K .......... .......... .......... .......... ..........  7% 7.46M 4s
+  2850K .......... .......... .......... .......... ..........  7% 6.73M 4s
+  2900K .......... .......... .......... .......... ..........  7% 7.66M 4s
+  2950K .......... .......... .......... .......... ..........  7% 26.6M 4s
+  3000K .......... .......... .......... .......... ..........  7% 6.83M 4s
+  3050K .......... .......... .......... .......... ..........  7% 6.77M 4s
+  3100K .......... .......... .......... .......... ..........  7% 8.92M 4s
+  3150K .......... .......... .......... .......... ..........  7% 5.43M 4s
+  3200K .......... .......... .......... .......... ..........  8% 57.0M 4s
+  3250K .......... .......... .......... .......... ..........  8% 6.69M 4s
+  3300K .......... .......... .......... .......... ..........  8% 6.77M 4s
+  3350K .......... .......... .......... .......... ..........  8% 6.45M 4s
+  3400K .......... .......... .......... .......... ..........  8% 66.7M 4s
+  3450K .......... .......... .......... .......... ..........  8% 7.07M 4s
+  3500K .......... .......... .......... .......... ..........  8% 6.26M 4s
+  3550K .......... .......... .......... .......... ..........  8% 6.28M 4s
+  3600K .......... .......... .......... .......... ..........  9% 2.88M 4s
+  3650K .......... .......... .......... .......... ..........  9% 32.5M 4s
+  3700K .......... .......... .......... .......... ..........  9% 6.80M 4s
+  3750K .......... .......... .......... .......... ..........  9% 6.32M 4s
+  3800K .......... .......... .......... .......... ..........  9% 7.36M 4s
+  3850K .......... .......... .......... .......... ..........  9% 54.7M 4s
+  3900K .......... .......... .......... .......... ..........  9% 6.66M 4s
+  3950K .......... .......... .......... .......... ..........  9% 6.79M 4s
+  4000K .......... .......... .......... .......... .......... 10% 6.63M 4s
+  4050K .......... .......... .......... .......... .......... 10% 6.87M 4s
+  4100K .......... .......... .......... .......... .......... 10% 27.6M 4s
+  4150K .......... .......... .......... .......... .......... 10% 7.89M 4s
+  4200K .......... .......... .......... .......... .......... 10% 5.85M 4s
+  4250K .......... .......... .......... .......... .......... 10% 6.54M 4s
+  4300K .......... .......... .......... .......... .......... 10% 49.3M 4s
+  4350K .......... .......... .......... .......... .......... 10% 5.06M 4s
+  4400K .......... .......... .......... .......... .......... 11% 6.75M 4s
+  4450K .......... .......... .......... .......... .......... 11% 6.74M 4s
+  4500K .......... .......... .......... .......... .......... 11% 11.4M 4s
+  4550K .......... .......... .......... .......... .......... 11% 7.05M 4s
+  4600K .......... .......... .......... .......... .......... 11% 12.6M 4s
+  4650K .......... .......... .......... .......... .......... 11% 6.86M 4s
+  4700K .......... .......... .......... .......... .......... 11% 7.81M 4s
+  4750K .......... .......... .......... .......... .......... 11% 6.13M 4s
+  4800K .......... .......... .......... .......... .......... 12% 9.07M 4s
+  4850K .......... .......... .......... .......... .......... 12% 6.91M 4s
+  4900K .......... .......... .......... .......... .......... 12% 3.98M 4s
+  4950K .......... .......... .......... .......... .......... 12% 7.10M 4s
+  5000K .......... .......... .......... .......... .......... 12% 13.0M 4s
+  5050K .......... .......... .......... .......... .......... 12% 6.49M 4s
+  5100K .......... .......... .......... .......... .......... 12% 12.4M 4s
+  5150K .......... .......... .......... .......... .......... 12% 6.33M 4s
+  5200K .......... .......... .......... .......... .......... 13% 6.70M 4s
+  5250K .......... .......... .......... .......... .......... 13% 8.85M 4s
+  5300K .......... .......... .......... .......... .......... 13% 6.77M 4s
+  5350K .......... .......... .......... .......... .......... 13% 9.48M 4s
+  5400K .......... .......... .......... .......... .......... 13% 9.72M 4s
+  5450K .......... .......... .......... .......... .......... 13% 7.08M 4s
+  5500K .......... .......... .......... .......... .......... 13% 7.86M 4s
+  5550K .......... .......... .......... .......... .......... 13% 6.09M 4s
+  5600K .......... .......... .......... .......... .......... 14% 7.02M 4s
+  5650K .......... .......... .......... .......... .......... 14% 24.9M 4s
+  5700K .......... .......... .......... .......... .......... 14% 6.75M 4s
+  5750K .......... .......... .......... .......... .......... 14% 8.10M 4s
+  5800K .......... .......... .......... .......... .......... 14% 6.20M 4s
+  5850K .......... .......... .......... .......... .......... 14% 13.4M 4s
+  5900K .......... .......... .......... .......... .......... 14% 6.57M 4s
+  5950K .......... .......... .......... .......... .......... 14% 4.86M 4s
+  6000K .......... .......... .......... .......... .......... 15% 22.3M 4s
+  6050K .......... .......... .......... .......... .......... 15% 6.84M 4s
+  6100K .......... .......... .......... .......... .......... 15% 6.42M 4s
+  6150K .......... .......... .......... .......... .......... 15% 9.29M 4s
+  6200K .......... .......... .......... .......... .......... 15% 5.37M 4s
+  6250K .......... .......... .......... .......... .......... 15% 48.8M 4s
+  6300K ........**OUTPUT MUTED**
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">btd</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">read</span><span class="o">.</span><span class="n">json</span><span class="p">(</span><span class="s1">&#39;btd2.json&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">btd</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>&lt;class &#39;pyspark.sql.dataframe.DataFrame&#39;&gt;
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">btd</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>root
+ |-- Bike #: string (nullable = true)
+ |-- Duration: string (nullable = true)
+ |-- End Date: string (nullable = true)
+ |-- End Station: string (nullable = true)
+ |-- End Terminal: string (nullable = true)
+ |-- Start Date: string (nullable = true)
+ |-- Start Station: string (nullable = true)
+ |-- Start Terminal: string (nullable = true)
+ |-- Subscription Type: string (nullable = true)
+ |-- Trip ID: string (nullable = true)
+ |-- Zip Code: string (nullable = true)
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">btd</span><span class="o">.</span><span class="n">take</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>[Row(Bike #=u&#39;520&#39;, Duration=u&#39;63&#39;, End Date=u&#39;8/29/13 14:14&#39;, End Station=u&#39;South Van Ness at Market&#39;, End Terminal=u&#39;66&#39;, Start Date=u&#39;8/29/13 14:13&#39;, Start Station=u&#39;South Van Ness at Market&#39;, Start Terminal=u&#39;66&#39;, Subscription Type=u&#39;Subscriber&#39;, Trip ID=u&#39;4576&#39;, Zip Code=u&#39;94127&#39;),
+ Row(Bike #=u&#39;661&#39;, Duration=u&#39;70&#39;, End Date=u&#39;8/29/13 14:43&#39;, End Station=u&#39;San Jose City Hall&#39;, End Terminal=u&#39;10&#39;, Start Date=u&#39;8/29/13 14:42&#39;, Start Station=u&#39;San Jose City Hall&#39;, Start Terminal=u&#39;10&#39;, Subscription Type=u&#39;Subscriber&#39;, Trip ID=u&#39;4607&#39;, Zip Code=u&#39;95138&#39;),
+ Row(Bike #=u&#39;48&#39;, Duration=u&#39;71&#39;, End Date=u&#39;8/29/13 10:17&#39;, End Station=u&#39;Mountain View City Hall&#39;, End Terminal=u&#39;27&#39;, Start Date=u&#39;8/29/13 10:16&#39;, Start Station=u&#39;Mountain View City Hall&#39;, Start Terminal=u&#39;27&#39;, Subscription Type=u&#39;Subscriber&#39;, Trip ID=u&#39;4130&#39;, Zip Code=u&#39;97214&#39;)]
+</pre></div>
+</div>
+</div>
+<div class="section" id="register-dataframe-as-table-to-use-sql-commands">
+<h2><a class="toc-backref" href="#id27">Register dataframe as table to use SQL commands!</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">sqlContext</span><span class="o">.</span><span class="n">registerDataFrameAsTable</span><span class="p">(</span><span class="n">btd</span><span class="p">,</span> <span class="s2">&quot;bay_area_bike&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># now i can use sql commands with table named *bay_area_bike*</span>
+<span class="n">df2</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT Duration as d1 from bay_area_bike where Duration &lt; 7200&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">printSchema</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>root
+ |-- d1: string (nullable = true)
+</pre></div>
+</div>
+</div>
+<div class="section" id="now-let-s-visualize">
+<h2><a class="toc-backref" href="#id28">Now let&#8217;s visualize!</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">([</span><span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df2</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()[</span><span class="s1">&#39;d1&#39;</span><span class="p">])])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;spark/less_2_hour_rides&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<pre class="myliteral literal-block">
+/home/takanori/.local/lib/python2.7/site-packages/plotly/plotly/plotly.py:236: UserWarning:
+
+Woah there! Look at all those points! Due to browser limitations, the Plotly SVG drawing functions have a hard time graphing more than 500k data points for line charts, or 40k points for other types of charts. Here are some suggestions:
+(1) Use the <cite>plotly.graph_objs.Scattergl</cite> trace object to generate a WebGl graph.
+(2) Trying using the image API to return an image instead of a graph URL
+(3) Use matplotlib
+(4) See if you can create your visualization with fewer data points
+
+If the visualization you're using aggregates points (e.g., box plot, histogram, etc.) you can disregard this warning.
+</pre>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/189.embed" height="525px" width="100%"></iframe><p>That was simple and we can see that plotly was able to handle the data
+without issue. We can see that big uptick in rides that last less than
+~30 minutes (2000 seconds) - so let&#8217;s look at that distribution.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df3</span> <span class="o">=</span> <span class="n">sqlContext</span><span class="o">.</span><span class="n">sql</span><span class="p">(</span><span class="s2">&quot;SELECT Duration as d1 from bay_area_bike where Duration &lt; 2000&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>A great thing about Apache Spark is that you can sample easily from
+large datasets, you just set the amount you would like to sample and
+you&#8217;re all set.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">s1</span> <span class="o">=</span> <span class="n">df2</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">s2</span> <span class="o">=</span> <span class="n">df3</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="bp">False</span><span class="p">,</span> <span class="mf">0.05</span><span class="p">,</span> <span class="mi">2500</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">([</span>
+        <span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">s1</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()[</span><span class="s1">&#39;d1&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Large Sample&quot;</span><span class="p">),</span>
+        <span class="n">Histogram</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">s2</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()[</span><span class="s1">&#39;d1&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Small Sample&quot;</span><span class="p">)</span>
+    <span class="p">])</span>
+</pre></div>
+</div>
+<p>Plotly converts those samples into beautifully overlayed histograms.
+This is a great way to eyeball different distributions.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;spark/sample_rides&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/191.embed" height="525px" width="100%"></iframe><p>What&#8217;s really powerful about Plotly is sharing this data is simple. I
+can take the above graph and change the styling or bins visually. A
+common workflow is to make a rough sketch of the graph in code, then
+make a more refined version with notes to share with management like the
+one below. Plotly&#8217;s online interface allows you to edit graphs in other
+languages as well.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="kn">as</span> <span class="nn">tls</span>
+<span class="n">tls</span><span class="o">.</span><span class="n">embed</span><span class="p">(</span><span class="s2">&quot;https://plot.ly/~bill_chambers/101&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~bill_chambers/101.embed" height="525" width="100%"></iframe></div>
+<div class="section" id="pyspark-dataframe-to-pandas-dataframe">
+<h2><a class="toc-backref" href="#id29">PySpark Dataframe to Pandas Dataframe</a></h2>
+<p>Now let&#8217;s check out bike rentals from individual stations. We can do a
+groupby with Spark DataFrames just as we might in Pandas. We&#8217;ve also
+seen at this point how easy it is to convert a Spark DataFrame to a
+pandas DataFrame.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">dep_stations</span> <span class="o">=</span> <span class="n">btd</span><span class="o">.</span><span class="n">groupBy</span><span class="p">(</span><span class="n">btd</span><span class="p">[</span><span class="s1">&#39;Start Station&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">count</span><span class="p">()</span><span class="o">.</span><span class="n">toPandas</span><span class="p">()</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="s1">&#39;count&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="n">dep_stations</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>/home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:1: FutureWarning:
+
+sort(columns=....) is deprecated, use sort_values(by=.....)
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Start Station</th>
+      <th>count</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>64</th>
+      <td>San Francisco Caltrain (Townsend at 4th)</td>
+      <td>9838</td>
+    </tr>
+    <tr>
+      <th>50</th>
+      <td>Harry Bridges Plaza (Ferry Building)</td>
+      <td>7343</td>
+    </tr>
+    <tr>
+      <th>54</th>
+      <td>Embarcadero at Sansome</td>
+      <td>6545</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Market at Sansome</td>
+      <td>5922</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>Temporary Transbay Terminal (Howard at Beale)</td>
+      <td>5113</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Market at 4th</td>
+      <td>5030</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>2nd at Townsend</td>
+      <td>4987</td>
+    </tr>
+    <tr>
+      <th>58</th>
+      <td>San Francisco Caltrain 2 (330 Townsend)</td>
+      <td>4976</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>Steuart at Market</td>
+      <td>4913</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Townsend at 7th</td>
+      <td>4493</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>2nd at South Park</td>
+      <td>4458</td>
+    </tr>
+    <tr>
+      <th>48</th>
+      <td>Grant Avenue at Columbus Avenue</td>
+      <td>4004</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>Powell Street BART</td>
+      <td>3836</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>2nd at Folsom</td>
+      <td>3776</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>South Van Ness at Market</td>
+      <td>3521</td>
+    </tr>
+    <tr>
+      <th>40</th>
+      <td>Market at 10th</td>
+      <td>3511</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>Embarcadero at Bryant</td>
+      <td>3497</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Spear at Folsom</td>
+      <td>3423</td>
+    </tr>
+    <tr>
+      <th>60</th>
+      <td>Howard at 2nd</td>
+      <td>3263</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Civic Center BART (7th at Market)</td>
+      <td>3074</td>
+    </tr>
+    <tr>
+      <th>44</th>
+      <td>Beale at Market</td>
+      <td>3057</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>Embarcadero at Folsom</td>
+      <td>2931</td>
+    </tr>
+    <tr>
+      <th>51</th>
+      <td>Mechanics Plaza (Market at Battery)</td>
+      <td>2868</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Commercial at Montgomery</td>
+      <td>2834</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Powell at Post (Union Square)</td>
+      <td>2824</td>
+    </tr>
+    <tr>
+      <th>65</th>
+      <td>Embarcadero at Vallejo</td>
+      <td>2785</td>
+    </tr>
+    <tr>
+      <th>45</th>
+      <td>5th at Howard</td>
+      <td>2635</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Post at Kearney</td>
+      <td>2503</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Yerba Buena Center of the Arts (3rd @ Howard)</td>
+      <td>2487</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>Clay at Battery</td>
+      <td>2419</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>San Pedro Square</td>
+      <td>715</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Mountain View City Hall</td>
+      <td>630</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>San Salvador at 1st</td>
+      <td>597</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>MLK Library</td>
+      <td>528</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Japantown</td>
+      <td>496</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>SJSU - San Salvador at 9th</td>
+      <td>489</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>University and Emerson</td>
+      <td>434</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>Palo Alto Caltrain Station</td>
+      <td>431</td>
+    </tr>
+    <tr>
+      <th>68</th>
+      <td>SJSU 4th at San Carlos</td>
+      <td>389</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>Redwood City Caltrain Station</td>
+      <td>378</td>
+    </tr>
+    <tr>
+      <th>67</th>
+      <td>St James Park</td>
+      <td>366</td>
+    </tr>
+    <tr>
+      <th>63</th>
+      <td>Cowper at University</td>
+      <td>355</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>San Jose Civic Center</td>
+      <td>346</td>
+    </tr>
+    <tr>
+      <th>53</th>
+      <td>Arena Green / SAP Center</td>
+      <td>339</td>
+    </tr>
+    <tr>
+      <th>42</th>
+      <td>Adobe on Almaden</td>
+      <td>335</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>California Ave Caltrain Station</td>
+      <td>297</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Rengstorff Avenue / California Street</td>
+      <td>248</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>San Antonio Caltrain Station</td>
+      <td>238</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>Evelyn Park and Ride</td>
+      <td>218</td>
+    </tr>
+    <tr>
+      <th>43</th>
+      <td>Broadway St at Battery St</td>
+      <td>201</td>
+    </tr>
+    <tr>
+      <th>59</th>
+      <td>Park at Olive</td>
+      <td>189</td>
+    </tr>
+    <tr>
+      <th>56</th>
+      <td>Castro Street and El Camino Real</td>
+      <td>132</td>
+    </tr>
+    <tr>
+      <th>47</th>
+      <td>Redwood City Medical Center</td>
+      <td>123</td>
+    </tr>
+    <tr>
+      <th>57</th>
+      <td>San Antonio Shopping Center</td>
+      <td>108</td>
+    </tr>
+    <tr>
+      <th>49</th>
+      <td>San Mateo County Center</td>
+      <td>101</td>
+    </tr>
+    <tr>
+      <th>62</th>
+      <td>Franklin at Maple</td>
+      <td>99</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Broadway at Main</td>
+      <td>45</td>
+    </tr>
+    <tr>
+      <th>41</th>
+      <td>Redwood City Public Library</td>
+      <td>44</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>San Jose Government Center</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Mezes Park</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+<p>69 rows × 2 columns</p>
+</div><p>Now that we&#8217;ve got a better sense of which stations might be interesting
+to look at, let&#8217;s graph out, the number of trips leaving from the top
+two stations over time.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">dep_stations</span><span class="p">[</span><span class="s1">&#39;Start Station&#39;</span><span class="p">][:</span><span class="mi">3</span><span class="p">]</span> <span class="c1"># top 3 stations</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>64    San Francisco Caltrain (Townsend at 4th)
+50        Harry Bridges Plaza (Ferry Building)
+54                      Embarcadero at Sansome
+Name: Start Station, dtype: object
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">transform_df</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;counts&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Start Date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;Start Date&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">&#39;Start Date&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pop_stations</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># being popular stations - we could easily extend this to more stations</span>
+<span class="k">for</span> <span class="n">station</span> <span class="ow">in</span> <span class="n">dep_stations</span><span class="p">[</span><span class="s1">&#39;Start Station&#39;</span><span class="p">][:</span><span class="mi">3</span><span class="p">]:</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">transform_df</span><span class="p">(</span><span class="n">btd</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">btd</span><span class="p">[</span><span class="s1">&#39;Start Station&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">station</span><span class="p">)</span><span class="o">.</span><span class="n">select</span><span class="p">(</span><span class="s2">&quot;Start Date&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toPandas</span><span class="p">())</span>
+    <span class="n">pop_stations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span>
+        <span class="n">Scatter</span><span class="p">(</span>
+        <span class="n">x</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">index</span><span class="p">,</span>
+        <span class="n">y</span><span class="o">=</span><span class="n">temp</span><span class="o">.</span><span class="n">counts</span><span class="p">,</span>
+        <span class="n">name</span><span class="o">=</span><span class="n">station</span>
+        <span class="p">)</span>
+    <span class="p">)</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>/home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:4: FutureWarning:
+
+how in .resample() is deprecated
+the new syntax is .resample(...).sum()
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">Data</span><span class="p">(</span><span class="n">pop_stations</span><span class="p">)</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s2">&quot;spark/over_time&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/193.embed" height="525px" width="100%"></iframe></div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/plotly_demos/spark-plotly.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016 Takanori Watanabe.<br/>
+      Last updated on Nov 01, 2016.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

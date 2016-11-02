@@ -1,0 +1,2709 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Plotly and SQLite</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="" href="../index.html" />
+    <link rel="up" title="Plotly demos" href="top-plotly.html" />
+    <link rel="next" title="Steph Curry Demo" href="steph_curry_demo.html" />
+    <link rel="prev" title="MySQL with Plotly" href="mysql_plotly.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Data Science</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://github.com/wtak23"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents (Top) <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pytak.html"><code class="docutils literal"><span class="pre">pytak</span></code> &#8212; my personal python package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../sqlite-whirlwind.html">A whirlwind tour to sqlite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#beginning">Beginning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#insert-data">Insert data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#get-data">Get data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-factory">Row factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#iterdump">iterdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#cursor-object">Cursor object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-objects">Row objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spark-config.html">Spark Configuration Setup for Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#about">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#self-contained-applications">self-contained applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#note">Note</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc-mean-analysis.html">Brain Connectivity - PNC Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-relevant-packages">Load relevant packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-clinical-scores-dataframe">Load clinical-scores (DataFrame)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#handle-nan-values">Handle nan values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-histogram-of-numeric-scores">Create histogram of numeric scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#display-mean-connectome-heatmap">Display mean connectome heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-let-s-repeat-using-plotly">Nice, let&#8217;s repeat using plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-plotly-trace-object">Create plotly <code class="docutils literal"><span class="pre">trace</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#bunch-of-layout-objects">Bunch of layout objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-but-we-can-do-better-by-defining-a-layout-object">Nice, but we can do better by defining a <code class="docutils literal"><span class="pre">layout</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#try-again">Try again</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html">PNC classification experiment results (old)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#what-is-this">What is this?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#load-data">Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#show-classification-result">Show classification result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-coefficients">Display median coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-connmat">Display median connmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glass-brain">Glass-brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#thresholded-median-value-experimental">Thresholded median value (experimental)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#trinarized-median-connmat-after-thresholding">Trinarized median connmat after thresholding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glassbrain">Glassbrain</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Plotly demos</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="top-plotly.html">Plotly demos</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="choose_my_geolocator.html">Choose my Geolocator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#try-to-pinpoint-huntsman-hall">Try to pinpoint Huntsman Hall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#hmmm-that-s-pretty-off">Hmmm...that&#8217;s pretty off...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#url-request-using-freegeopi">URL Request using freegeopi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#that-s-also-quite-off">That&#8217;s also quite off....</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#try-geolocation-python">Try geolocation-python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="choose_my_geolocator.html#success">Success!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="google_big_query.html">Google Big Query Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#top-10-hacker-news-submissions-by-score">Top 10 Hacker News Submissions (by score)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#from-which-top-level-domain-tld-most-of-the-stories-come">From which Top-level domain (TLD) most of the stories come?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#public-response-to-the-who-is-hiring-posts">Public response to the &#8220;Who Is Hiring?&#8221; posts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#submission-traffic-volume-in-a-week">Submission Traffic Volume in a Week</a></li>
+<li class="toctree-l3"><a class="reference internal" href="google_big_query.html#programming-language-trend-on-hackernews">Programming Language Trend on HackerNews</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="mysql_plotly.html">MySQL with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#first-download-the-world-database">First download the world database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#install-database-in-mysql">Install database in mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#for-this-demo-create-user-with-all-privileges-to-this-world-database">For this demo, create user with all privileges to this <code class="docutils literal"><span class="pre">world</span></code> database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#alright-we-are-in-business-let-s-analyze-this-database">Alright, we are in business. Let&#8217;s analyze this database!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#create-pandas-dataframe">create pandas DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#a-bit-of-data-cleansing">A bit of data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#plot-interactive-scatterplots">Plot interactive scatterplots!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mysql_plotly.html#prettify-the-above">prettify the above :)</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Plotly and SQLite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#create-database-file-on-disk-by-reading-in-subset-of-data">Create database file on disk by reading in subset of data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#alright-let-s-preview-the-table">Alright, let&#8217;s preview the table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#k-let-s-do-some-plotly">K, let&#8217;s do some plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#housing-and-development-dept-receives-the-most-complaints">Housing and Development Dept receives the most complaints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#heat-hot-water-is-the-most-common-complaint">Heat / Hot Water is the most common complaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-most-complain-in-each-city">What&#8217;s the most complain in each city?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#part2-slite3-timeseries-with-pandas">Part2: Slite3 timeseries with pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filter-noise-complaints-by-hour">Filter noise complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#segregate-complaints-by-hour">Segregate complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#aggregate-time-series">Aggregate time series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="steph_curry_demo.html">Steph Curry Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#data-transformation-for-querying">Data Transformation for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#shot-locations">Shot locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#create-the-court">Create the court</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#outer-lines">Outer Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#basketball-hoop">2. basketball hoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#basket-backboard">Basket Backboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#outer-box-of-three-second-area">Outer box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#inner-box-of-three-second-area">Inner box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-line-left">Three-point line (left)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-line-right">Three-point line (right)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#three-point-arc">Three-point arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#center-circle">Center circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#restraining-circe">Restraining circe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#free-throw-circle">Free-throw circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#restricted-area">Restricted area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#chart-the-shots">Chart the shots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="steph_curry_demo.html#good-stuff-let-s-save-in-plotly">Good stuff! let&#8217;s save in plotly</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="spark-plotly.html">Spark demo with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="spark-plotly.html#check-pyspark-is-loaded-correctly">Check pyspark is loaded correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-plotly.html#download-bike-data">Download bike data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-plotly.html#register-dataframe-as-table-to-use-sql-commands">Register dataframe as table to use SQL commands!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-plotly.html#now-let-s-visualize">Now let&#8217;s visualize!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="spark-plotly.html#pyspark-dataframe-to-pandas-dataframe">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_FF/top-plotly-FF.html">Plotly FigureFactory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html">Figure Factory &#8211; my favorites!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-2d-density">Simple 2d Density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#add-colorscale">add colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#with-heatmap">With heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-distplot">simple distplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#normal-distribution-plot-with-no-rug">normal distribution plot with no rug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#diagonal-boxplots">Diagonal boxplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-pandas">Using pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html">Figure Factory Demos (a-o)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-2d-density-plot">Simple 2D Density plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#using-parameters">Using Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-annotated-heatmap">create_annotated_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-candlestick">create_candlestick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-candlestick-chart-from-a-pandas-dataframe">Simple candlestick chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-candlestick-chart">Add text and annotations to the candlestick chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-candlestick-colors">Customize the candlestick colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#candlestick-chart-with-datetime-objects">Candlestick chart with datetime objects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-distplot-of-1-dataset">Simple distplot of 1 dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#plot-with-normal-curve-and-hide-rug-plot">Plot with normal curve and hide rug plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-gantt">create_gantt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-gantt-chart">Simple Gantt Chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-numerical-entries">Index by Column with Numerical Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-string-entries">Index by Column with String Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-dictionary-for-colors">Use a dictionary for colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-pandas-dataframe">Use a pandas dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-ohlc">create_ohlc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-ohlc-chart-from-a-pandas-dataframe">Simple OHLC chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-ohlc-chart">Add text and annotations to the OHLC chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-ohlc-colors">Customize the OHLC colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#ohlc-chart-with-datetime-objects">OHLC chart with datetime objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html">Figure Factory Demos (q-z)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-quiver">create_quiver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#trivial-quiver">Trivial Quiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#quiver-plot-using-meshgrid">Quiver plot using meshgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-quiver-plot">Styling the quiver plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#vanilla-scatterplot-matrix">Vanilla Scatterplot Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#indexing-a-column">Indexing a Column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-diagonal-subplots">Styling the Diagonal Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-streamline">create_streamline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#from-aeropython">from AeroPython</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table-with-pandas">Simple Plotly Table with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-trisurf">create_trisurf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#torus">Torus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#mobius-band">Mobius Band</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-a-custom-colormap-function-with-light-cone">Using a Custom Colormap Function with Light Cone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#enter-color-func-as-a-list-of-colors">Enter color_func as a list of colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#single-violin-plot">Single Violin Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_layout/top-plotly-layout.html">Plotly layout options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html">plotly-layout-options-axes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#toggling-axes-lines-ticks-labels-and-autorange">Toggling Axes Lines, Ticks, Labels, and Autorange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#tick-placement-color-and-style">Tick Placement, Color, and Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#set-and-style-axes-title-labels-and-ticks">Set and Style Axes Title Labels and Ticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#styling-and-coloring-axes-and-the-zero-line">Styling and Coloring Axes and the Zero-Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#setting-the-range-of-axes-manually">Setting the Range of Axes Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#logarithmic-axes">Logarithmic Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes">Reversed Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes-with-range-min-max-specified">Reversed Axes with Range ( Min/Max ) Specified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#nonnegative-tozero-and-normal-rangemode">nonnegative, tozero, and normal Rangemode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#enumerated-ticks-with-tickvals-and-ticktext">Enumerated Ticks with Tickvals and Ticktext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html">plotly-layout-options-axes3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#range-of-axes">Range of Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#set-axes-title">Set Axes Title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#ticks-formatting">Ticks Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#background-color-and-grid-color">Background color and grid color</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html">plotly-layout-options-legend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#basic-legend">Basic legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#positioning-the-legend">Positioning the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#grouped-legends">Grouped legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#styling-and-coloring-the-legend">Styling and Coloring the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#selectively-hide-legend-entries">Selectively hide legend entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#hiding-legend-entries-in-grouped-legends">Hiding Legend Entries In Grouped Legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#horizontal-legends">Horizontal legends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html">plotly-layout-options-subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#simple-subplots">Simple subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-subplots-with-titles">Multiple Subplots With Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#customizing-subplot-axes">Customizing Subplot Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-y-axes">Subplots with Shared Y-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#stacked-subplots">Stacked Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#custom-sized-subplot-with-subplot-titles">+++Custom Sized Subplot with Subplot Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-x-axes">Subplots with Shared X-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-axes">Subplots with shared Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-custom-sized-subplots">Multiple Custom Sized Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplot-with-custom-sizes">++Subplot with custom sizes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html">plotly-layout-options-text-and-annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-text-to-data-in-line-and-scatter-plots">Adding Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-hover-text-to-data-in-line-and-scatter-plots">Adding Hover Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#simple-annotation">Simple Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#multiple-annotations">Multiple Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#custom-text-color-and-styling">Custom Text Color and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#disabling-hover-text">Disabling Hover Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#styling-and-coloring-annotations">Styling and Coloring Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#text-font-as-an-array-styling-each-text-element">Text Font as an Array - Styling Each Text Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-annotations-with-xref-and-yref-as-paper">Adding Annotations with xref and yref as Paper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html">plotly-layout-options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#adding-logos">Adding logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#add-background-image">Add background image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#latex">Latex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#text-and-font-styling-global-font-properties">Text and Font Styling (global font properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-graph-size">Setting graph size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-the-title-legend-entries-and-axis-titles">Setting the Title, Legend Entries, and Axis Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-axes">Multiple Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#two-y-axes">Two y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-y-axes">Multiple y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#inset-plots">Inset Plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_demos_api/top-plotly-api.html">Plotly &#8211; API demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html">3d-plot-demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#plot">Plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-trace">Set trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-layout">set layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#finally-plot">finally, plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh">3d mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html">annotated-heatmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bar-charts.html">bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html">bubble-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#note">note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html">chord-diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-nodes">Define nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-edges">Define edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#node-position">Node position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#finally-plot">Finally, plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmaps.html">heatmaps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-traces">Define traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/line-charts.html">line-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#simple-line-charts">Simple line charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#line-plot-models">Line plot models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#style-line-plots">Style Line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#the-traces">The traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#annotation-content">Annotation content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/networkx-demo.html">networkx-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/pie-charts.html">pie-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#basic-pie-chart">Basic pie chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#donut-chart">Donut Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-subplots">Pie Chart Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/tables.html">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#simple-table">Simple table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#add-links">Add Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-latex">Use LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#include-and-index-column">Include and Index Column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-table-colors">Custom Table Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-font-colors">Custom Font Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#change-font-size">Change Font Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#tables-with-graphs">Tables with Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#horizontal-subplots">Horizontal subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#vertical-subplots">Vertical subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Contents (current page) <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Plotly and SQLite</a><ul>
+<li><a class="reference internal" href="#create-database-file-on-disk-by-reading-in-subset-of-data">Create database file on disk by reading in subset of data</a></li>
+<li><a class="reference internal" href="#alright-let-s-preview-the-table">Alright, let&#8217;s preview the table</a></li>
+<li><a class="reference internal" href="#k-let-s-do-some-plotly">K, let&#8217;s do some plotly</a></li>
+<li><a class="reference internal" href="#housing-and-development-dept-receives-the-most-complaints">Housing and Development Dept receives the most complaints</a></li>
+<li><a class="reference internal" href="#heat-hot-water-is-the-most-common-complaint">Heat / Hot Water is the most common complaint</a></li>
+<li><a class="reference internal" href="#what-s-the-most-complain-in-each-city">What&#8217;s the most complain in each city?</a></li>
+<li><a class="reference internal" href="#conclusion">Conclusion</a></li>
+<li><a class="reference internal" href="#part2-slite3-timeseries-with-pandas">Part2: Slite3 timeseries with pandas</a></li>
+<li><a class="reference internal" href="#filter-noise-complaints-by-hour">Filter noise complaints by hour</a></li>
+<li><a class="reference internal" href="#segregate-complaints-by-hour">Segregate complaints by hour</a></li>
+<li><a class="reference internal" href="#aggregate-time-series">Aggregate time series</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="plotly-and-sqlite">
+<h1>Plotly and SQLite</h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#create-database-file-on-disk-by-reading-in-subset-of-data" id="id1">Create database file on disk by reading in subset of data</a></li>
+<li><a class="reference internal" href="#alright-let-s-preview-the-table" id="id2">Alright, let&#8217;s preview the table</a></li>
+<li><a class="reference internal" href="#k-let-s-do-some-plotly" id="id3">K, let&#8217;s do some plotly</a></li>
+<li><a class="reference internal" href="#housing-and-development-dept-receives-the-most-complaints" id="id4">Housing and Development Dept receives the most complaints</a></li>
+<li><a class="reference internal" href="#heat-hot-water-is-the-most-common-complaint" id="id5">Heat / Hot Water is the most common complaint</a></li>
+<li><a class="reference internal" href="#what-s-the-most-complain-in-each-city" id="id6">What&#8217;s the most complain in each city?</a></li>
+<li><a class="reference internal" href="#conclusion" id="id7">Conclusion</a></li>
+<li><a class="reference internal" href="#part2-slite3-timeseries-with-pandas" id="id8">Part2: Slite3 timeseries with pandas</a></li>
+<li><a class="reference internal" href="#filter-noise-complaints-by-hour" id="id9">Filter noise complaints by hour</a></li>
+<li><a class="reference internal" href="#segregate-complaints-by-hour" id="id10">Segregate complaints by hour</a></li>
+<li><a class="reference internal" href="#aggregate-time-series" id="id11">Aggregate time series</a></li>
+</ul>
+</div>
+<p>This notebook demo is a modified version of the demo from plotly site (<a class="reference external" href="https://plot.ly/python/big-data-analytics-with-pandas-and-sqlite/">link</a>)</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+<span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span>
+
+<span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="kn">as</span> <span class="nn">py</span> <span class="c1"># interactive graphing</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objs</span> <span class="kn">import</span> <span class="n">Bar</span><span class="p">,</span> <span class="n">Scatter</span><span class="p">,</span> <span class="n">Marker</span><span class="p">,</span> <span class="n">Layout</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">os</span> <span class="kn">import</span> <span class="n">path</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>%%sh
+ls -l ~/Downloads/*.csv
+# a 9gb file!
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>-rw-r--r-- 1 takanori takanori 9087741962 Sep 15 02:28 /home/takanori/Downloads/311_Service_Requests_from_2010_to_Present.csv
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">filepath</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s1">&#39;~/Downloads/311_Service_Requests_from_2010_to_Present.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="table table-striped table-condensed table-bordered">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unique Key</th>
+      <th>Created Date</th>
+      <th>Closed Date</th>
+      <th>Agency</th>
+      <th>Agency Name</th>
+      <th>Complaint Type</th>
+      <th>Descriptor</th>
+      <th>Location Type</th>
+      <th>Incident Zip</th>
+      <th>Incident Address</th>
+      <th>Street Name</th>
+      <th>Cross Street 1</th>
+      <th>Cross Street 2</th>
+      <th>Intersection Street 1</th>
+      <th>Intersection Street 2</th>
+      <th>Address Type</th>
+      <th>City</th>
+      <th>Landmark</th>
+      <th>Facility Type</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>Resolution Description</th>
+      <th>Resolution Action Updated Date</th>
+      <th>Community Board</th>
+      <th>Borough</th>
+      <th>X Coordinate (State Plane)</th>
+      <th>Y Coordinate (State Plane)</th>
+      <th>Park Facility Name</th>
+      <th>Park Borough</th>
+      <th>School Name</th>
+      <th>School Number</th>
+      <th>School Region</th>
+      <th>School Code</th>
+      <th>School Phone Number</th>
+      <th>School Address</th>
+      <th>School City</th>
+      <th>School State</th>
+      <th>School Zip</th>
+      <th>School Not Found</th>
+      <th>School or Citywide Complaint</th>
+      <th>Vehicle Type</th>
+      <th>Taxi Company Borough</th>
+      <th>Taxi Pick Up Location</th>
+      <th>Bridge Highway Name</th>
+      <th>Bridge Highway Direction</th>
+      <th>Road Ramp</th>
+      <th>Bridge Highway Segment</th>
+      <th>Garage Lot Name</th>
+      <th>Ferry Direction</th>
+      <th>Ferry Terminal Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>33504340</td>
+      <td>06/03/2016 08:51:27 PM</td>
+      <td>06/09/2016 12:41:22 PM</td>
+      <td>HPD</td>
+      <td>Department of Housing Preservation and Develop...</td>
+      <td>UNSANITARY CONDITION</td>
+      <td>MOLD</td>
+      <td>RESIDENTIAL BUILDING</td>
+      <td>10469</td>
+      <td>3471 MICKLE AVENUE</td>
+      <td>MICKLE AVENUE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ADDRESS</td>
+      <td>BRONX</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Closed</td>
+      <td>NaN</td>
+      <td>The Department of Housing Preservation and Dev...</td>
+      <td>06/09/2016 12:41:22 PM</td>
+      <td>12 BRONX</td>
+      <td>BRONX</td>
+      <td>1026814</td>
+      <td>259342</td>
+      <td>Unspecified</td>
+      <td>BRONX</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.8784</td>
+      <td>-73.8461</td>
+      <td>(40.87840550821806, -73.84608300411983)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>33504341</td>
+      <td>06/02/2016 03:55:00 PM</td>
+      <td>06/06/2016 12:00:00 PM</td>
+      <td>DSNY</td>
+      <td>A - Illegal Posting Staten Island, Queens and ...</td>
+      <td>Dirty Conditions</td>
+      <td>E15 Illegal Postering</td>
+      <td>Sidewalk</td>
+      <td>11228</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15 AVENUE</td>
+      <td>BAY RIDGE PARKWAY</td>
+      <td>INTERSECTION</td>
+      <td>BROOKLYN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Closed</td>
+      <td>NaN</td>
+      <td>The Department of Sanitation has removed illeg...</td>
+      <td>06/06/2016 12:00:00 PM</td>
+      <td>11 BROOKLYN</td>
+      <td>BROOKLYN</td>
+      <td>983410</td>
+      <td>164301</td>
+      <td>Unspecified</td>
+      <td>BROOKLYN</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.6176</td>
+      <td>-74.0030</td>
+      <td>(40.61764469366998, -74.00302568205309)</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unique Key</th>
+      <th>Created Date</th>
+      <th>Closed Date</th>
+      <th>Agency</th>
+      <th>Agency Name</th>
+      <th>Complaint Type</th>
+      <th>Descriptor</th>
+      <th>Location Type</th>
+      <th>Incident Zip</th>
+      <th>Incident Address</th>
+      <th>Street Name</th>
+      <th>Cross Street 1</th>
+      <th>Cross Street 2</th>
+      <th>Intersection Street 1</th>
+      <th>Intersection Street 2</th>
+      <th>Address Type</th>
+      <th>City</th>
+      <th>Landmark</th>
+      <th>Facility Type</th>
+      <th>Status</th>
+      <th>Due Date</th>
+      <th>Resolution Description</th>
+      <th>Resolution Action Updated Date</th>
+      <th>Community Board</th>
+      <th>Borough</th>
+      <th>X Coordinate (State Plane)</th>
+      <th>Y Coordinate (State Plane)</th>
+      <th>Park Facility Name</th>
+      <th>Park Borough</th>
+      <th>School Name</th>
+      <th>School Number</th>
+      <th>School Region</th>
+      <th>School Code</th>
+      <th>School Phone Number</th>
+      <th>School Address</th>
+      <th>School City</th>
+      <th>School State</th>
+      <th>School Zip</th>
+      <th>School Not Found</th>
+      <th>School or Citywide Complaint</th>
+      <th>Vehicle Type</th>
+      <th>Taxi Company Borough</th>
+      <th>Taxi Pick Up Location</th>
+      <th>Bridge Highway Name</th>
+      <th>Bridge Highway Direction</th>
+      <th>Road Ramp</th>
+      <th>Bridge Highway Segment</th>
+      <th>Garage Lot Name</th>
+      <th>Ferry Direction</th>
+      <th>Ferry Terminal Name</th>
+      <th>Latitude</th>
+      <th>Longitude</th>
+      <th>Location</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>33504340</td>
+      <td>06/03/2016 08:51:27 PM</td>
+      <td>06/09/2016 12:41:22 PM</td>
+      <td>HPD</td>
+      <td>Department of Housing Preservation and Develop...</td>
+      <td>UNSANITARY CONDITION</td>
+      <td>MOLD</td>
+      <td>RESIDENTIAL BUILDING</td>
+      <td>10469</td>
+      <td>3471 MICKLE AVENUE</td>
+      <td>MICKLE AVENUE</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>ADDRESS</td>
+      <td>BRONX</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Closed</td>
+      <td>NaN</td>
+      <td>The Department of Housing Preservation and Dev...</td>
+      <td>06/09/2016 12:41:22 PM</td>
+      <td>12 BRONX</td>
+      <td>BRONX</td>
+      <td>1026814</td>
+      <td>259342</td>
+      <td>Unspecified</td>
+      <td>BRONX</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.8784</td>
+      <td>-73.8461</td>
+      <td>(40.87840550821806, -73.84608300411983)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>33504341</td>
+      <td>06/02/2016 03:55:00 PM</td>
+      <td>06/06/2016 12:00:00 PM</td>
+      <td>DSNY</td>
+      <td>A - Illegal Posting Staten Island, Queens and ...</td>
+      <td>Dirty Conditions</td>
+      <td>E15 Illegal Postering</td>
+      <td>Sidewalk</td>
+      <td>11228</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>15 AVENUE</td>
+      <td>BAY RIDGE PARKWAY</td>
+      <td>INTERSECTION</td>
+      <td>BROOKLYN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>Closed</td>
+      <td>NaN</td>
+      <td>The Department of Sanitation has removed illeg...</td>
+      <td>06/06/2016 12:00:00 PM</td>
+      <td>11 BROOKLYN</td>
+      <td>BROOKLYN</td>
+      <td>983410</td>
+      <td>164301</td>
+      <td>Unspecified</td>
+      <td>BROOKLYN</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>Unspecified</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>40.6176</td>
+      <td>-74.0030</td>
+      <td>(40.61764469366998, -74.00302568205309)</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span>%%bash
+DATA_FILE=&quot;${HOME}/Downloads/311_Service_Requests_from_2010_to_Present.csv&quot;
+#wc -l &lt; ${DATA_FILE}
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>Process is interrupted.
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sqlalchemy</span> <span class="kn">import</span> <span class="n">create_engine</span>
+<span class="n">disk_engine</span> <span class="o">=</span> <span class="n">create_engine</span><span class="p">(</span><span class="s1">&#39;sqlite:///mytest.db&#39;</span><span class="p">)</span> <span class="c1"># Initializes database with filename mytest.db in current directory</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>!ls
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>bokeh-try-movies.ipynb          plotly_js
+Choose my geolocator.ipynb  plotly-sql.ipynb
+ipywidgets              readme.rst
+matplotlib-demo                 RFXATDASL0S2I8PD3YMI4G53TBDSYK78.png
+nilearn                         sklearn
+old-stuffs              sqlite3
+Pandas-snippets.ipynb           streaming
+plotly
+</pre></div>
+</div>
+<div class="section" id="create-database-file-on-disk-by-reading-in-subset-of-data">
+<h2><a class="toc-backref" href="#id1">Create database file on disk by reading in subset of data</a></h2>
+<ul class="simple">
+<li>above file too big, so let&#8217;s process subset of it</li>
+</ul>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+<span class="n">chunksize</span> <span class="o">=</span> <span class="mi">2000</span>
+<span class="n">j</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">index_start</span> <span class="o">=</span> <span class="mi">1</span>
+
+<span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath</span><span class="p">,</span> <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span> <span class="n">iterator</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">):</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">c</span><span class="p">:</span> <span class="n">c</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">})</span> <span class="c1"># Remove spaces from columns</span>
+
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;CreatedDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;CreatedDate&#39;</span><span class="p">])</span> <span class="c1"># Convert to datetimes</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ClosedDate&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ClosedDate&#39;</span><span class="p">])</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">+=</span> <span class="n">index_start</span>
+
+    <span class="c1"># Remove the un-interesting columns</span>
+    <span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Agency&#39;</span><span class="p">,</span> <span class="s1">&#39;CreatedDate&#39;</span><span class="p">,</span> <span class="s1">&#39;ClosedDate&#39;</span><span class="p">,</span> <span class="s1">&#39;ComplaintType&#39;</span><span class="p">,</span> <span class="s1">&#39;Descriptor&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;CreatedDate&#39;</span><span class="p">,</span> <span class="s1">&#39;ClosedDate&#39;</span><span class="p">,</span> <span class="s1">&#39;TimeToCompletion&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;City&#39;</span><span class="p">]</span>
+
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">columns</span><span class="p">:</span>
+            <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+
+    <span class="n">j</span><span class="o">+=</span><span class="mi">1</span>
+    <span class="k">print</span> <span class="s1">&#39;{} seconds: completed {} rows&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">((</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span><span class="p">,</span> <span class="n">j</span><span class="o">*</span><span class="n">chunksize</span><span class="p">)</span>
+
+    <span class="n">df</span><span class="o">.</span><span class="n">to_sql</span><span class="p">(</span><span class="s1">&#39;data&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">,</span> <span class="n">if_exists</span><span class="o">=</span><span class="s1">&#39;append&#39;</span><span class="p">)</span>
+    <span class="n">index_start</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">1</span>
+    <span class="k">if</span> <span class="n">j</span><span class="o">*</span><span class="n">chunksize</span> <span class="o">&gt;=</span> <span class="mi">10000</span><span class="p">:</span>
+        <span class="c1"># i don&#39;t want it to get TOO big for this prototype purpose</span>
+        <span class="k">break</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>0 seconds: completed 2000 rows
+2 seconds: completed 4000 rows
+3 seconds: completed 6000 rows
+4 seconds: completed 8000 rows
+5 seconds: completed 10000 rows
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>!du -h mytest.db
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span>2.8M        mytest.db
+</pre></div>
+</div>
+</div>
+<div class="section" id="alright-let-s-preview-the-table">
+<h2><a class="toc-backref" href="#id2">Alright, let&#8217;s preview the table</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM data LIMIT 1&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">u&#39;index&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;CreatedDate&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;ClosedDate&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;Agency&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;ComplaintType&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;Descriptor&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;City&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT * FROM data LIMIT 3&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>index</th>
+      <th>CreatedDate</th>
+      <th>ClosedDate</th>
+      <th>Agency</th>
+      <th>ComplaintType</th>
+      <th>Descriptor</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2016-06-03 20:51:27.000000</td>
+      <td>2016-06-09 12:41:22.000000</td>
+      <td>HPD</td>
+      <td>UNSANITARY CONDITION</td>
+      <td>MOLD</td>
+      <td>BRONX</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>2016-06-02 15:55:00.000000</td>
+      <td>2016-06-06 12:00:00.000000</td>
+      <td>DSNY</td>
+      <td>Dirty Conditions</td>
+      <td>E15 Illegal Postering</td>
+      <td>BROOKLYN</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>2016-06-03 06:24:00.000000</td>
+      <td>2016-06-03 12:00:00.000000</td>
+      <td>DSNY</td>
+      <td>Dirty Conditions</td>
+      <td>E3 Dirty Sidewalk</td>
+      <td>STATEN ISLAND</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, Descriptor, Agency &#39;</span>
+                  <span class="s1">&#39;FROM data &#39;</span>
+                  <span class="s1">&#39;LIMIT 10&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ComplaintType</th>
+      <th>Descriptor</th>
+      <th>Agency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>UNSANITARY CONDITION</td>
+      <td>MOLD</td>
+      <td>HPD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Dirty Conditions</td>
+      <td>E15 Illegal Postering</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Dirty Conditions</td>
+      <td>E3 Dirty Sidewalk</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Missed Collection (All Materials)</td>
+      <td>1 Missed Collection</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Missed Collection (All Materials)</td>
+      <td>1 Missed Collection</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Missed Collection (All Materials)</td>
+      <td>2 Bulk-Missed Collection</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Derelict Vehicles</td>
+      <td>14 Derelict Vehicles</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Noise - Residential</td>
+      <td>Loud Music/Party</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Sanitation Condition</td>
+      <td>15 Street Cond/Dump-Out/Drop-Off</td>
+      <td>DSNY</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Sanitation Condition</td>
+      <td>15 Street Cond/Dump-Out/Drop-Off</td>
+      <td>DSNY</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, Descriptor, Agency &#39;</span>
+                  <span class="s1">&#39;FROM data &#39;</span>
+                  <span class="s1">&#39;WHERE Agency = &quot;NYPD&quot; &#39;</span>
+                  <span class="s1">&#39;LIMIT 10&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ComplaintType</th>
+      <th>Descriptor</th>
+      <th>Agency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Noise - Residential</td>
+      <td>Loud Music/Party</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Vending</td>
+      <td>Unlicensed</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Blocked Driveway</td>
+      <td>No Access</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Derelict Vehicle</td>
+      <td>With License Plate</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Illegal Parking</td>
+      <td>Blocked Hydrant</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Urinating in Public</td>
+      <td>None</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Noise - Commercial</td>
+      <td>Car/Truck Horn</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Noise - Vehicle</td>
+      <td>Car/Truck Horn</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Illegal Parking</td>
+      <td>Commercial Overnight Parking</td>
+      <td>NYPD</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Noise - Street/Sidewalk</td>
+      <td>Loud Music/Party</td>
+      <td>NYPD</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, Descriptor, Agency &#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;WHERE Agency IN (&quot;NYPD&quot;, &quot;DOB&quot;)&#39;</span>
+                       <span class="s1">&#39;LIMIT 50&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+      <th>25</th>
+      <th>26</th>
+      <th>27</th>
+      <th>28</th>
+      <th>29</th>
+      <th>30</th>
+      <th>31</th>
+      <th>32</th>
+      <th>33</th>
+      <th>34</th>
+      <th>35</th>
+      <th>36</th>
+      <th>37</th>
+      <th>38</th>
+      <th>39</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>ComplaintType</th>
+      <td>Noise - Residential</td>
+      <td>Vending</td>
+      <td>Blocked Driveway</td>
+      <td>Derelict Vehicle</td>
+      <td>Illegal Parking</td>
+      <td>Urinating in Public</td>
+      <td>Noise - Commercial</td>
+      <td>Noise - Vehicle</td>
+      <td>Illegal Parking</td>
+      <td>Noise - Street/Sidewalk</td>
+      <td>Illegal Parking</td>
+      <td>Noise - Street/Sidewalk</td>
+      <td>Non-Emergency Police Matter</td>
+      <td>Illegal Parking</td>
+      <td>Noise - Residential</td>
+      <td>Homeless Encampment</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Residential</td>
+      <td>Blocked Driveway</td>
+      <td>Illegal Parking</td>
+      <td>Blocked Driveway</td>
+      <td>Blocked Driveway</td>
+      <td>Illegal Parking</td>
+      <td>Illegal Parking</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Street/Sidewalk</td>
+      <td>Blocked Driveway</td>
+      <td>Derelict Vehicle</td>
+      <td>Noise - Residential</td>
+      <td>Blocked Driveway</td>
+      <td>General Construction/Plumbing</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Street/Sidewalk</td>
+      <td>Noise - Residential</td>
+      <td>Elevator</td>
+      <td>General Construction/Plumbing</td>
+      <td>General Construction/Plumbing</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Residential</td>
+      <td>Plumbing</td>
+      <td>Building/Use</td>
+      <td>Special Enforcement</td>
+      <td>Building/Use</td>
+      <td>General Construction/Plumbing</td>
+      <td>General Construction/Plumbing</td>
+      <td>General Construction/Plumbing</td>
+      <td>Noise - Residential</td>
+      <td>Noise - Street/Sidewalk</td>
+    </tr>
+    <tr>
+      <th>Descriptor</th>
+      <td>Loud Music/Party</td>
+      <td>Unlicensed</td>
+      <td>No Access</td>
+      <td>With License Plate</td>
+      <td>Blocked Hydrant</td>
+      <td>None</td>
+      <td>Car/Truck Horn</td>
+      <td>Car/Truck Horn</td>
+      <td>Commercial Overnight Parking</td>
+      <td>Loud Music/Party</td>
+      <td>Blocked Hydrant</td>
+      <td>Loud Music/Party</td>
+      <td>Trespassing</td>
+      <td>Overnight Commercial Storage</td>
+      <td>Loud Talking</td>
+      <td>None</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>No Access</td>
+      <td>Blocked Sidewalk</td>
+      <td>No Access</td>
+      <td>No Access</td>
+      <td>Double Parked Blocking Traffic</td>
+      <td>Blocked Hydrant</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>No Access</td>
+      <td>With License Plate</td>
+      <td>Loud Music/Party</td>
+      <td>No Access</td>
+      <td>Cons - Contrary/Beyond Approved Plans/Permits</td>
+      <td>Loud Talking</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>Elevator - Defective/Not Working</td>
+      <td>Egress - Doors Locked/Blocked/Improper/No Seco...</td>
+      <td>Working Contrary To Stop Work Order</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+      <td>Failure To Retain Water/Improper Drainage- (LL...</td>
+      <td>Illegal Conversion Of Residential Building/Space</td>
+      <td>SEP - Professional Certification Compliance Audit</td>
+      <td>Illegal Conversion Of Residential Building/Space</td>
+      <td>Site Conditions Endangering Workers</td>
+      <td>Working Contrary To Stop Work Order</td>
+      <td>Sidewalk Shed/Pipe Scafford - Inadequate Defec...</td>
+      <td>Loud Music/Party</td>
+      <td>Loud Music/Party</td>
+    </tr>
+    <tr>
+      <th>Agency</th>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>DOB</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>DOB</td>
+      <td>NYPD</td>
+      <td>NYPD</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># unique values with DISTINCT (recall pyspark)</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT DISTINCT City FROM data&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+      <th>25</th>
+      <th>26</th>
+      <th>27</th>
+      <th>28</th>
+      <th>29</th>
+      <th>30</th>
+      <th>31</th>
+      <th>32</th>
+      <th>33</th>
+      <th>34</th>
+      <th>35</th>
+      <th>36</th>
+      <th>37</th>
+      <th>38</th>
+      <th>39</th>
+      <th>40</th>
+      <th>41</th>
+      <th>42</th>
+      <th>43</th>
+      <th>44</th>
+      <th>45</th>
+      <th>46</th>
+      <th>47</th>
+      <th>48</th>
+      <th>49</th>
+      <th>50</th>
+      <th>51</th>
+      <th>52</th>
+      <th>53</th>
+      <th>54</th>
+      <th>55</th>
+      <th>56</th>
+      <th>57</th>
+      <th>58</th>
+      <th>59</th>
+      <th>60</th>
+      <th>61</th>
+      <th>62</th>
+      <th>63</th>
+      <th>64</th>
+      <th>65</th>
+      <th>66</th>
+      <th>67</th>
+      <th>68</th>
+      <th>69</th>
+      <th>70</th>
+      <th>71</th>
+      <th>72</th>
+      <th>73</th>
+      <th>74</th>
+      <th>75</th>
+      <th>76</th>
+      <th>77</th>
+      <th>78</th>
+      <th>79</th>
+      <th>80</th>
+      <th>81</th>
+      <th>82</th>
+      <th>83</th>
+      <th>84</th>
+      <th>85</th>
+      <th>86</th>
+      <th>87</th>
+      <th>88</th>
+      <th>89</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>City</th>
+      <td>BRONX</td>
+      <td>BROOKLYN</td>
+      <td>STATEN ISLAND</td>
+      <td>South Richmond Hill</td>
+      <td>NEW YORK</td>
+      <td>Rego Park</td>
+      <td>CORONA</td>
+      <td>Maspeth</td>
+      <td>WOODHAVEN</td>
+      <td>ROCKAWAY PARK</td>
+      <td>None</td>
+      <td>QUEENS VILLAGE</td>
+      <td>FAR ROCKAWAY</td>
+      <td>ASTORIA</td>
+      <td>Jamaica</td>
+      <td>HOLLIS</td>
+      <td>Richmond Hill</td>
+      <td>SAINT ALBANS</td>
+      <td>EAST ELMHURST</td>
+      <td>Corona</td>
+      <td>Astoria</td>
+      <td>Whitestone</td>
+      <td>Queens Village</td>
+      <td>Elmhurst</td>
+      <td>Bayside</td>
+      <td>Fresh Meadows</td>
+      <td>Middle Village</td>
+      <td>Flushing</td>
+      <td>Jackson Heights</td>
+      <td>Arverne</td>
+      <td>Rosedale</td>
+      <td>Saint Albans</td>
+      <td>Woodside</td>
+      <td>Sunnyside</td>
+      <td>Forest Hills</td>
+      <td>FRESH MEADOWS</td>
+      <td>ELMHURST</td>
+      <td>SOUTH OZONE PARK</td>
+      <td>WOODSIDE</td>
+      <td>FLUSHING</td>
+      <td>LONG ISLAND CITY</td>
+      <td>RICHMOND HILL</td>
+      <td>RIDGEWOOD</td>
+      <td>LITTLE NECK</td>
+      <td>OZONE PARK</td>
+      <td>MIDDLE VILLAGE</td>
+      <td>HOWARD BEACH</td>
+      <td>FOREST HILLS</td>
+      <td>South Ozone Park</td>
+      <td>SUNNYSIDE</td>
+      <td>JAMAICA</td>
+      <td>BAYSIDE</td>
+      <td>Far Rockaway</td>
+      <td>KEW GARDENS</td>
+      <td>OAKLAND GARDENS</td>
+      <td>Long Island City</td>
+      <td>Woodhaven</td>
+      <td>Cambria Heights</td>
+      <td>SOUTH RICHMOND HILL</td>
+      <td>FLORAL PARK</td>
+      <td>Springfield Gardens</td>
+      <td>East Elmhurst</td>
+      <td>Bellerose</td>
+      <td>Little Neck</td>
+      <td>Ozone Park</td>
+      <td>MASPETH</td>
+      <td>Ridgewood</td>
+      <td>Glen Oaks</td>
+      <td>WHITESTONE</td>
+      <td>CAMBRIA HEIGHTS</td>
+      <td>JACKSON HEIGHTS</td>
+      <td>SPRINGFIELD GARDENS</td>
+      <td>COLLEGE POINT</td>
+      <td>Oakland Gardens</td>
+      <td>Hollis</td>
+      <td>College Point</td>
+      <td>ROSEDALE</td>
+      <td>GLEN OAKS</td>
+      <td>REGO PARK</td>
+      <td>Howard Beach</td>
+      <td>ARVERNE</td>
+      <td>Kew Gardens</td>
+      <td>BELLEROSE</td>
+      <td>NEW HYDE PARK</td>
+      <td>Rockaway Park</td>
+      <td>NEWARK</td>
+      <td>Floral Park</td>
+      <td>BELLMORE</td>
+      <td>PARSIPPANY</td>
+      <td>PELHAM MANOR</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT Agency, COUNT(*) as `num_complaints`&#39;</span>
+                  <span class="s1">&#39;FROM data &#39;</span>
+                  <span class="s1">&#39;GROUP BY Agency &#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Agency</th>
+      <td>3-1-1</td>
+      <td>DCA</td>
+      <td>DEP</td>
+      <td>DFTA</td>
+      <td>DHS</td>
+      <td>DOB</td>
+      <td>DOE</td>
+      <td>DOF</td>
+      <td>DOHMH</td>
+      <td>DOITT</td>
+      <td>DOT</td>
+      <td>DPR</td>
+      <td>DSNY</td>
+      <td>EDC</td>
+      <td>FDNY</td>
+      <td>HPD</td>
+      <td>HRA</td>
+      <td>NYCEM</td>
+      <td>NYPD</td>
+      <td>OPS</td>
+      <td>TLC</td>
+    </tr>
+    <tr>
+      <th>num_complaints</th>
+      <td>21</td>
+      <td>183</td>
+      <td>1673</td>
+      <td>59</td>
+      <td>514</td>
+      <td>716</td>
+      <td>22</td>
+      <td>503</td>
+      <td>739</td>
+      <td>20</td>
+      <td>2290</td>
+      <td>1053</td>
+      <td>1945</td>
+      <td>4</td>
+      <td>87</td>
+      <td>3230</td>
+      <td>181</td>
+      <td>2</td>
+      <td>8989</td>
+      <td>2</td>
+      <td>267</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+<div class="section" id="k-let-s-do-some-plotly">
+<h2><a class="toc-backref" href="#id3">K, let&#8217;s do some plotly</a></h2>
+</div>
+<div class="section" id="housing-and-development-dept-receives-the-most-complaints">
+<h2><a class="toc-backref" href="#id4">Housing and Development Dept receives the most complaints</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT Agency, COUNT(*) as `num_complaints`&#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;GROUP BY Agency &#39;</span>
+                       <span class="s1">&#39;ORDER BY -num_complaints&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Agency</th>
+      <td>NYPD</td>
+      <td>HPD</td>
+      <td>DOT</td>
+      <td>DSNY</td>
+      <td>DEP</td>
+      <td>DPR</td>
+      <td>DOHMH</td>
+      <td>DOB</td>
+      <td>DHS</td>
+      <td>DOF</td>
+      <td>TLC</td>
+      <td>DCA</td>
+      <td>HRA</td>
+      <td>FDNY</td>
+      <td>DFTA</td>
+      <td>DOE</td>
+      <td>3-1-1</td>
+      <td>DOITT</td>
+      <td>EDC</td>
+      <td>NYCEM</td>
+      <td>OPS</td>
+    </tr>
+    <tr>
+      <th>num_complaints</th>
+      <td>8989</td>
+      <td>3230</td>
+      <td>2290</td>
+      <td>1945</td>
+      <td>1673</td>
+      <td>1053</td>
+      <td>739</td>
+      <td>716</td>
+      <td>514</td>
+      <td>503</td>
+      <td>267</td>
+      <td>183</td>
+      <td>181</td>
+      <td>87</td>
+      <td>59</td>
+      <td>22</td>
+      <td>21</td>
+      <td>20</td>
+      <td>4</td>
+      <td>2</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">Agency</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">num_complaints</span><span class="p">)],</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/most common complaints by agency&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/159.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="heat-hot-water-is-the-most-common-complaint">
+<h2><a class="toc-backref" href="#id5">Heat / Hot Water is the most common complaint</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, COUNT(*) as `num_complaints`, Agency &#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;GROUP BY `ComplaintType` &#39;</span>
+                       <span class="s1">&#39;ORDER BY -num_complaints&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+
+<span class="n">most_common_complaints</span> <span class="o">=</span> <span class="n">df</span> <span class="c1"># used later</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ComplaintType&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">num_complaints</span><span class="p">)],</span>
+    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;margin&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span> <span class="c1"># Make the bottom margin a bit bigger to handle the long text</span>
+        <span class="s1">&#39;xaxis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;tickangle&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">}}</span> <span class="c1"># Angle the labels a bit</span>
+    <span class="p">},</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/most common complaints by complaint type&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/161.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="what-s-the-most-complain-in-each-city">
+<h2><a class="toc-backref" href="#id6">What&#8217;s the most complain in each city?</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># number of cities recorded in the data</span>
+<span class="nb">len</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT DISTINCT City FROM data&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span><span class="mi">90</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT City, COUNT(*) as `num_complaints` &#39;</span>
+                  <span class="s1">&#39;FROM data &#39;</span>
+                  <span class="s1">&#39;GROUP BY `City` &#39;</span>
+                  <span class="s1">&#39;ORDER BY -num_complaints &#39;</span>
+                  <span class="s1">&#39;LIMIT 25 &#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+      <th>24</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>City</th>
+      <td>BROOKLYN</td>
+      <td>NEW YORK</td>
+      <td>BRONX</td>
+      <td>None</td>
+      <td>STATEN ISLAND</td>
+      <td>ASTORIA</td>
+      <td>JAMAICA</td>
+      <td>FLUSHING</td>
+      <td>Jamaica</td>
+      <td>RIDGEWOOD</td>
+      <td>CORONA</td>
+      <td>OZONE PARK</td>
+      <td>Astoria</td>
+      <td>Flushing</td>
+      <td>ELMHURST</td>
+      <td>WOODSIDE</td>
+      <td>SOUTH RICHMOND HILL</td>
+      <td>LONG ISLAND CITY</td>
+      <td>RICHMOND HILL</td>
+      <td>QUEENS VILLAGE</td>
+      <td>Ridgewood</td>
+      <td>SOUTH OZONE PARK</td>
+      <td>EAST ELMHURST</td>
+      <td>FRESH MEADOWS</td>
+      <td>JACKSON HEIGHTS</td>
+    </tr>
+    <tr>
+      <th>num_complaints</th>
+      <td>6793</td>
+      <td>4655</td>
+      <td>3571</td>
+      <td>1071</td>
+      <td>1036</td>
+      <td>296</td>
+      <td>249</td>
+      <td>227</td>
+      <td>215</td>
+      <td>205</td>
+      <td>172</td>
+      <td>153</td>
+      <td>145</td>
+      <td>144</td>
+      <td>125</td>
+      <td>117</td>
+      <td>107</td>
+      <td>106</td>
+      <td>104</td>
+      <td>102</td>
+      <td>96</td>
+      <td>95</td>
+      <td>91</td>
+      <td>91</td>
+      <td>89</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># repeat above but with case insentivitiy</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT City, COUNT(*) as `num_complaints` &#39;</span>
+                        <span class="s1">&#39;FROM data &#39;</span>
+                        <span class="s1">&#39;GROUP BY `City` &#39;</span>
+                        <span class="s1">&#39;COLLATE NOCASE &#39;</span>
+                        <span class="s1">&#39;ORDER BY -num_complaints &#39;</span>
+                        <span class="s1">&#39;LIMIT 11 &#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+<span class="n">df</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>City</th>
+      <th>num_complaints</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BROOKLYN</td>
+      <td>6793</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NEW YORK</td>
+      <td>4655</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>BRONX</td>
+      <td>3571</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>None</td>
+      <td>1071</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>STATEN ISLAND</td>
+      <td>1036</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>JAMAICA</td>
+      <td>464</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ASTORIA</td>
+      <td>441</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>FLUSHING</td>
+      <td>371</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>RIDGEWOOD</td>
+      <td>301</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>CORONA</td>
+      <td>253</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>OZONE PARK</td>
+      <td>221</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">cities</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">City</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">cities</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">u&#39;BROOKLYN&#39;</span><span class="p">,</span> <span class="s1">u&#39;NEW YORK&#39;</span><span class="p">,</span> <span class="s1">u&#39;BRONX&#39;</span><span class="p">,</span> <span class="bp">None</span><span class="p">,</span> <span class="s1">u&#39;STATEN ISLAND&#39;</span><span class="p">,</span> <span class="s1">u&#39;JAMAICA&#39;</span><span class="p">,</span> <span class="s1">u&#39;ASTORIA&#39;</span><span class="p">,</span> <span class="s1">u&#39;FLUSHING&#39;</span><span class="p">,</span> <span class="s1">u&#39;RIDGEWOOD&#39;</span><span class="p">,</span> <span class="s1">u&#39;CORONA&#39;</span><span class="p">,</span> <span class="s1">u&#39;OZONE PARK&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># oh, remove NONE!</span>
+<span class="n">cities</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">cities</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="myliteral highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">u&#39;BROOKLYN&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;NEW YORK&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;BRONX&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;STATEN ISLAND&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;JAMAICA&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;ASTORIA&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;FLUSHING&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;RIDGEWOOD&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;CORONA&#39;</span><span class="p">,</span>
+ <span class="s1">u&#39;OZONE PARK&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># the series in the graph - one trace for each city</span>
+
+<span class="k">for</span> <span class="n">city</span> <span class="ow">in</span> <span class="n">cities</span><span class="p">:</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, COUNT(*) as `num_complaints` &#39;</span>
+                           <span class="s1">&#39;FROM data &#39;</span>
+                           <span class="s1">&#39;WHERE City = &quot;{}&quot; COLLATE NOCASE &#39;</span>
+                           <span class="s1">&#39;GROUP BY `ComplaintType` &#39;</span>
+                           <span class="s1">&#39;ORDER BY -num_complaints&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">city</span><span class="p">),</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+    <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ComplaintType&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">num_complaints</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="n">city</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()))</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">traces</span><span class="p">,</span>
+          <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stack&#39;</span><span class="p">,</span>
+                           <span class="n">xaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tickangle&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">},</span>
+                           <span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">})},</span>
+         <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/complaints by city stacked&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/163.embed" height="525px" width="100%"></iframe><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># normalize the counts</span>
+<span class="k">for</span> <span class="n">trace</span> <span class="ow">in</span> <span class="n">traces</span><span class="p">:</span>
+    <span class="n">trace</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">100.</span><span class="o">*</span><span class="n">trace</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">]</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">trace</span><span class="p">[</span><span class="s1">&#39;y&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span><span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">traces</span><span class="p">,</span>
+          <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span>
+                <span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;group&#39;</span><span class="p">,</span>
+                <span class="n">xaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;tickangle&#39;</span><span class="p">:</span> <span class="mi">40</span><span class="p">,</span> <span class="s1">&#39;autorange&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span> <span class="s1">&#39;range&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">16</span><span class="p">]},</span>
+                <span class="n">yaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Percent of Complaints by City&#39;</span><span class="p">},</span>
+                <span class="n">margin</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">150</span><span class="p">},</span>
+                <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Relative Number of 311 Complaints by City&#39;</span><span class="p">)</span>
+         <span class="p">},</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/relative complaints by city&#39;</span><span class="p">,</span> <span class="n">validate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/165.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="conclusion">
+<h2><a class="toc-backref" href="#id7">Conclusion</a></h2>
+<div class="highlight-python"><div class="highlight"><pre><span></span>New York is loud
+Staten Island is moldy, wet, and vacant
+Flushing&#39;s muni meters are broken
+Trash collection is great in the Bronx
+Woodside doesn&#39;t like its graffiti
+</pre></div>
+</div>
+</div>
+<div class="section" id="part2-slite3-timeseries-with-pandas">
+<h2><a class="toc-backref" href="#id8">Part2: Slite3 timeseries with pandas</a></h2>
+<p>Filter SQLite rows with timestamp strings: YYYY-MM-DD hh:mm:ss</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT ComplaintType, CreatedDate, City &#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;WHERE CreatedDate &lt; &quot;2014-11-16 23:47:00&quot; &#39;</span>
+                       <span class="s1">&#39;AND CreatedDate &gt; &quot;2014-11-16 23:45:00&quot;&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ComplaintType</th>
+      <th>CreatedDate</th>
+      <th>City</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Pull out the hour unit from timestamps with strftime</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT CreatedDate, &#39;</span>
+                              <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="s1">%H</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) as hour, &#39;</span>
+                              <span class="s1">&#39;ComplaintType &#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;LIMIT 5 &#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CreatedDate</th>
+      <th>hour</th>
+      <th>ComplaintType</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2016-06-03 20:51:27.000000</td>
+      <td>20</td>
+      <td>UNSANITARY CONDITION</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2016-06-02 15:55:00.000000</td>
+      <td>15</td>
+      <td>Dirty Conditions</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2016-06-03 06:24:00.000000</td>
+      <td>06</td>
+      <td>Dirty Conditions</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2016-06-03 09:10:00.000000</td>
+      <td>09</td>
+      <td>Missed Collection (All Materials)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2016-06-03 10:39:00.000000</td>
+      <td>10</td>
+      <td>Missed Collection (All Materials)</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT CreatedDate, &#39;</span>
+                       <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="s1">%H</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) as hour,  &#39;</span>
+                       <span class="s1">&#39;count(*) as `Complaints per Hour`&#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;GROUP BY hour&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>10</th>
+      <th>11</th>
+      <th>12</th>
+      <th>13</th>
+      <th>14</th>
+      <th>15</th>
+      <th>16</th>
+      <th>17</th>
+      <th>18</th>
+      <th>19</th>
+      <th>20</th>
+      <th>21</th>
+      <th>22</th>
+      <th>23</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>CreatedDate</th>
+      <td>2016-06-05 00:00:00.000000</td>
+      <td>2016-06-05 01:26:07.000000</td>
+      <td>2016-06-05 02:03:50.000000</td>
+      <td>2016-06-04 03:51:13.000000</td>
+      <td>2016-06-04 04:38:14.000000</td>
+      <td>2016-06-04 05:40:45.000000</td>
+      <td>2016-06-04 06:30:39.000000</td>
+      <td>2016-06-04 07:59:53.000000</td>
+      <td>2016-06-04 08:33:42.000000</td>
+      <td>2016-06-04 09:17:24.000000</td>
+      <td>2016-06-04 10:20:14.000000</td>
+      <td>2016-06-04 11:52:55.000000</td>
+      <td>2016-06-04 12:42:13.000000</td>
+      <td>2016-06-04 13:19:24.000000</td>
+      <td>2016-06-04 14:36:15.000000</td>
+      <td>2016-06-04 15:33:31.000000</td>
+      <td>2016-06-04 16:21:14.000000</td>
+      <td>2016-06-04 17:32:36.000000</td>
+      <td>2016-06-04 18:29:05.000000</td>
+      <td>2016-06-04 19:24:21.000000</td>
+      <td>2016-06-03 20:25:00.000000</td>
+      <td>2016-06-04 21:00:38.000000</td>
+      <td>2016-06-04 22:21:44.000000</td>
+      <td>2016-06-04 23:22:55.000000</td>
+    </tr>
+    <tr>
+      <th>hour</th>
+      <td>00</td>
+      <td>01</td>
+      <td>02</td>
+      <td>03</td>
+      <td>04</td>
+      <td>05</td>
+      <td>06</td>
+      <td>07</td>
+      <td>08</td>
+      <td>09</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+      <td>13</td>
+      <td>14</td>
+      <td>15</td>
+      <td>16</td>
+      <td>17</td>
+      <td>18</td>
+      <td>19</td>
+      <td>20</td>
+      <td>21</td>
+      <td>22</td>
+      <td>23</td>
+    </tr>
+    <tr>
+      <th>Complaints per Hour</th>
+      <td>1622</td>
+      <td>889</td>
+      <td>377</td>
+      <td>186</td>
+      <td>146</td>
+      <td>176</td>
+      <td>287</td>
+      <td>599</td>
+      <td>995</td>
+      <td>1224</td>
+      <td>1613</td>
+      <td>1430</td>
+      <td>1319</td>
+      <td>1027</td>
+      <td>1185</td>
+      <td>1078</td>
+      <td>1241</td>
+      <td>1087</td>
+      <td>870</td>
+      <td>722</td>
+      <td>866</td>
+      <td>1002</td>
+      <td>1262</td>
+      <td>1297</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Complaints per Hour&#39;</span><span class="p">])],</span>
+    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Hour in Day&#39;</span><span class="p">},</span>
+                     <span class="n">yaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Number of Complaints&#39;</span><span class="p">})},</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/complaints per hour&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/167.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="filter-noise-complaints-by-hour">
+<h2><a class="toc-backref" href="#id9">Filter noise complaints by hour</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT CreatedDate, &#39;</span>
+                               <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="s1">%H</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) as `hour`,  &#39;</span>
+                               <span class="s1">&#39;count(*) as `Complaints per Hour`&#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;WHERE ComplaintType IN (&quot;Noise&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - Street/Sidewalk&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - Commercial&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - Vehicle&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - Park&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - House of Worship&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Noise - Helicopter&quot;, &#39;</span>
+                                               <span class="s1">&#39;&quot;Collection Truck Noise&quot;) &#39;</span>
+                       <span class="s1">&#39;GROUP BY hour&#39;</span><span class="p">,</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">n</span><span class="o">=</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Bar</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;hour&#39;</span><span class="p">],</span> <span class="n">y</span><span class="o">=</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Complaints per Hour&#39;</span><span class="p">])],</span>
+    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="n">Layout</span><span class="p">(</span><span class="n">xaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Hour in Day&#39;</span><span class="p">},</span>
+                     <span class="n">yaxis</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Number of Complaints&#39;</span><span class="p">},</span>
+                     <span class="n">title</span><span class="o">=</span><span class="s1">&#39;Number of Noise Complaints in NYC by Hour in Day&#39;</span>
+                    <span class="p">)},</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/noise complaints per hour&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CreatedDate</th>
+      <th>hour</th>
+      <th>Complaints per Hour</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2016-06-05 00:15:44.000000</td>
+      <td>00</td>
+      <td>383</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2016-06-05 01:51:56.000000</td>
+      <td>01</td>
+      <td>291</td>
+    </tr>
+  </tbody>
+</table>
+</div><iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/169.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="segregate-complaints-by-hour">
+<h2><a class="toc-backref" href="#id10">Segregate complaints by hour</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">complaint_traces</span> <span class="o">=</span> <span class="p">{}</span> <span class="c1"># Each series in the graph will represent a complaint</span>
+<span class="n">complaint_traces</span><span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+<span class="k">for</span> <span class="n">hour</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">24</span><span class="p">):</span>
+    <span class="n">hour_str</span> <span class="o">=</span> <span class="s1">&#39;0&#39;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span> <span class="k">if</span> <span class="n">hour</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="k">else</span> <span class="nb">str</span><span class="p">(</span><span class="n">hour</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT  CreatedDate, &#39;</span>
+                                   <span class="s1">&#39;ComplaintType ,&#39;</span>
+                                   <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="s1">%H</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) as `hour`,  &#39;</span>
+                                   <span class="s1">&#39;COUNT(*) as num_complaints &#39;</span>
+                           <span class="s1">&#39;FROM data &#39;</span>
+                           <span class="s1">&#39;WHERE hour = &quot;{}&quot; &#39;</span>
+                           <span class="s1">&#39;GROUP BY ComplaintType &#39;</span>
+                           <span class="s1">&#39;ORDER BY -num_complaints&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">hour_str</span><span class="p">),</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+    <span class="n">complaint_traces</span><span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">][</span><span class="n">hour</span><span class="p">]</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">num_complaints</span><span class="p">)</span>
+
+    <span class="c1"># Grab the 7 most common complaints for that hour</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">7</span><span class="p">):</span>
+        <span class="n">complaint</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;ComplaintType&#39;</span><span class="p">)</span>
+        <span class="n">count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">get_value</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s1">&#39;num_complaints&#39;</span><span class="p">)</span>
+        <span class="n">complaint_traces</span><span class="p">[</span><span class="s1">&#39;Other&#39;</span><span class="p">][</span><span class="n">hour</span><span class="p">]</span> <span class="o">-=</span> <span class="n">count</span>
+        <span class="k">if</span> <span class="n">complaint</span> <span class="ow">in</span> <span class="n">complaint_traces</span><span class="p">:</span>
+            <span class="n">complaint_traces</span><span class="p">[</span><span class="n">complaint</span><span class="p">][</span><span class="n">hour</span><span class="p">]</span> <span class="o">=</span> <span class="n">count</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">complaint_traces</span><span class="p">[</span><span class="n">complaint</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span><span class="n">hour</span><span class="p">:</span> <span class="n">count</span><span class="p">}</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">traces</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">complaint</span> <span class="ow">in</span> <span class="n">complaint_traces</span><span class="p">:</span>
+    <span class="n">traces</span><span class="o">.</span><span class="n">append</span><span class="p">({</span>
+        <span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">),</span>
+        <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">complaint_traces</span><span class="p">[</span><span class="n">complaint</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="bp">None</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">25</span><span class="p">)],</span>
+        <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="n">complaint</span><span class="p">,</span>
+        <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;bar&#39;</span>
+    <span class="p">})</span>
+
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">({</span>
+    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="n">traces</span><span class="p">,</span>
+    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;barmode&#39;</span><span class="p">:</span> <span class="s1">&#39;stack&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;xaxis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Hour in Day&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;yaxis&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Number of Complaints&#39;</span><span class="p">},</span>
+        <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;The 7 Most Common 311 Complaints by Hour in a Day&#39;</span>
+    <span class="p">}},</span> <span class="n">filename</span><span class="o">=</span><span class="s1">&#39;311/most common complaints by hour&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/171.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="aggregate-time-series">
+<h2><a class="toc-backref" href="#id11">Aggregate time series</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># First, create a new column with timestamps rounded to the previous 15 minute interval</span>
+
+
+<span class="n">minutes</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">seconds</span> <span class="o">=</span> <span class="mi">15</span><span class="o">*</span><span class="mi">60</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT CreatedDate, &#39;</span>
+                               <span class="s1">&#39;datetime((&#39;</span>
+                                   <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) / {seconds}) * {seconds}, </span><span class="se">\&#39;</span><span class="s1">unixepoch</span><span class="se">\&#39;</span><span class="s1">) interval &#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;LIMIT 10 &#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">seconds</span><span class="p">),</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CreatedDate</th>
+      <th>interval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2016-06-03 20:51:27.000000</td>
+      <td>2016-06-03 20:45:00</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2016-06-02 15:55:00.000000</td>
+      <td>2016-06-02 15:45:00</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2016-06-03 06:24:00.000000</td>
+      <td>2016-06-03 06:15:00</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2016-06-03 09:10:00.000000</td>
+      <td>2016-06-03 09:00:00</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2016-06-03 10:39:00.000000</td>
+      <td>2016-06-03 10:30:00</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># Then, GROUP BY that interval and COUNT(*)</span>
+
+<span class="n">minutes</span> <span class="o">=</span> <span class="mi">15</span>
+<span class="n">seconds</span> <span class="o">=</span> <span class="n">minutes</span><span class="o">*</span><span class="mi">60</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql_query</span><span class="p">(</span><span class="s1">&#39;SELECT datetime((&#39;</span>
+                                   <span class="s1">&#39;strftime(</span><span class="se">\&#39;</span><span class="si">%s</span><span class="se">\&#39;</span><span class="s1">, CreatedDate) / {seconds}) * {seconds}, </span><span class="se">\&#39;</span><span class="s1">unixepoch</span><span class="se">\&#39;</span><span class="s1">) interval ,&#39;</span>
+                               <span class="s1">&#39;COUNT(*) as &quot;Complaints / interval&quot;&#39;</span>
+                       <span class="s1">&#39;FROM data &#39;</span>
+                       <span class="s1">&#39;GROUP BY interval &#39;</span>
+                       <span class="s1">&#39;ORDER BY interval &#39;</span>
+                       <span class="s1">&#39;LIMIT 500&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">seconds</span><span class="o">=</span><span class="n">seconds</span><span class="p">),</span> <span class="n">disk_engine</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">tail</span><span class="p">())</span>
+</pre></div>
+</div>
+<div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>interval</th>
+      <th>Complaints / interval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2016-05-25 00:00:00</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2016-05-31 20:30:00</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2016-05-31 22:30:00</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2016-06-01 08:00:00</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2016-06-01 08:45:00</td>
+      <td>3</td>
+    </tr>
+  </tbody>
+</table>
+</div><div>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>interval</th>
+      <th>Complaints / interval</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>249</th>
+      <td>2016-06-05 01:30:00</td>
+      <td>103</td>
+    </tr>
+    <tr>
+      <th>250</th>
+      <td>2016-06-05 01:45:00</td>
+      <td>77</td>
+    </tr>
+    <tr>
+      <th>251</th>
+      <td>2016-06-05 02:00:00</td>
+      <td>57</td>
+    </tr>
+    <tr>
+      <th>252</th>
+      <td>2016-06-05 12:45:00</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>253</th>
+      <td>2016-06-05 17:15:00</td>
+      <td>2</td>
+    </tr>
+  </tbody>
+</table>
+</div><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="c1"># === too dense of a data ... ===</span>
+<span class="c1"># py.iplot(</span>
+<span class="c1">#     {</span>
+<span class="c1">#         &#39;data&#39;: [{</span>
+<span class="c1">#             &#39;x&#39;: df.interval,</span>
+<span class="c1">#             &#39;y&#39;: df[&#39;Complaints / interval&#39;],</span>
+<span class="c1">#             &#39;type&#39;: &#39;bar&#39;</span>
+<span class="c1">#         }],</span>
+<span class="c1">#         &#39;layout&#39;: {</span>
+<span class="c1">#             &#39;title&#39;: &#39;Number of 311 Complaints per 15 Minutes&#39;</span>
+<span class="c1">#         }</span>
+<span class="c1"># }, filename=&#39;311/complaints per 15 minutes&#39;)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/plotly_demos/plotly_sqlite.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016 Takanori Watanabe.<br/>
+      Last updated on Nov 01, 2016.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
