@@ -1,24 +1,16 @@
+################
+Steph Curry Demo
+################
 
-**Table of Contents**
 
-.. raw:: html
+Super fun demo from `ModernData <http://moderndata.plot.ly>`__!
 
-   <div id="toc">
+Source codes from: http://moderndata.plot.ly/nba-shots-analysis-using-plotly-shapes/
 
-.. raw:: html
+.. contents:: `Contents`
+   :depth: 2
+   :local:
 
-   </div>
-
-.. raw:: html
-
-   <script type="text/javascript"
-   src="https://raw.github.com/kmahelona/ipython_notebook_goodies/master/ipython_notebook_toc.js">
-   </script>
-
-Super fun demo from moderndata!
-===============================
-
-http://moderndata.plot.ly/nba-shots-analysis-using-plotly-shapes/
 
 .. code:: python
 
@@ -102,6 +94,7 @@ Data Transformation for querying
 
 
 .. parsed-literal::
+    :class: myliteral
 
     array([u'Made Shot', u'Missed Shot'], dtype=object)
 
@@ -631,6 +624,7 @@ Good stuff! let's save in plotly
 
 
 .. parsed-literal::
+    :class: myliteral
 
     u'https://plot.ly/~takanori/175'
 

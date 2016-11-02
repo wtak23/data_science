@@ -10,3 +10,5 @@ Some example usage of `Plotly <https://plot.ly/>`__, a fantastic tool for creati
     google_big_query
     mysql_plotly
     plotly_sqlite
+    steph_curry_demo
+    spark-plotly

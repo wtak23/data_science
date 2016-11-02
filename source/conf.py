@@ -92,7 +92,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'pytak'
+project = u'Data Science'
 copyright = u'2016 Takanori Watanabe'
 author = u'Takanori Watanabe'
 
@@ -196,7 +196,7 @@ html_theme_options = {
     'navbar_links': [
 
 
-        ('<i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github', "https://github.com/wtak23/pytak", True),
+        ('<i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github', "https://github.com/wtak23", True),
         # ("Link", "http://example.com", True),
     ],
 

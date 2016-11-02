@@ -1,15 +1,21 @@
-Python --- pytak package
-========================
-A few illustrative examples from ``pytak`` -- my personal python package.
+Data Science Notebook
+=====================
+My notebook pertaining to Data Science.
+
 
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
    :caption: Table of Contents
 
-   file1.rst
-   distributions
-   plotly_demos/plotly_demos.rst
-
+   pytak
+   plotly_demos/top-plotly.rst
+   plotly_FF/top-plotly-FF.rst
+   plotly_layout/top-plotly-layout.rst
+   plotly_demos_api/top-plotly-api.rst
+   sqlite-whirlwind
+   spark-config
+   pnc-mean-analysis
+   pnc_study_feature_1104_onesession.rst
 
 .. These substitutions are predefined in Sphinx
 

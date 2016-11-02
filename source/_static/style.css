@@ -51,10 +51,19 @@ div.topic {
   /*font-size:12px;*/
   /*font-size:22px;*/
   color:black;
-  background-color:rgba(0,255,0,0.15);
-  /*font-family:"Incosolata","Consolata","Monaco",monospace; */
+  background-color:rgba(0,255,0,0.08);
+  padding-left:45px;
+  font-style:italic;
+  font-family:"Incosolata","Consolata","Monaco",monospace; 
 }
 
+
+/* Center images */
+/*http://www.w3schools.com/css/css_align.asp*/
+img {
+    display: block;
+    margin: auto;
+}
 /*=============================================================================
     To style output from pandas
     (these are assigned class "dataframe")
