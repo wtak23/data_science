@@ -196,6 +196,7 @@ html_theme_options = {
     'navbar_links': [
 
 
+        ('<i class="fa fa-home" aria-hidden="true"></i>&nbsp; takwatanabe.me', "http://takwatanabe.me", True),
         ('<i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github', "https://github.com/wtak23/data_science", True),
         # ("Link", "http://example.com", True),
     ],
