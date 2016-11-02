@@ -1,1 +1,1 @@
-My data science notebook at takwatanabe.me/data_science
+My data science notebook at `takwatanabe.me/data_science <takwatanabe.me/data_science>`__
