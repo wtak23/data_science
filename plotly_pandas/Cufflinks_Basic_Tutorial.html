@@ -1,0 +1,1149 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cufflinks_Basic_Tutorial</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-3.3.6/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="" href="../index.html" />
+    <link rel="up" title="Plotly – pandas" href="top-plotly-pandas.html" />
+    <link rel="next" title="color-lover" href="color-lover.html" />
+    <link rel="prev" title="Cufflinks - tutorial from plotly (best)" href="Cufflinks - tutorial from plotly (best).html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../index.html">
+          Data Science</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://github.com/wtak23/data_science"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Contents (Top) <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../pytak.html"><code class="docutils literal"><span class="pre">pytak</span></code> &#8212; my personal python package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../supervised_nmf.html">Supervised NMF (<code class="docutils literal"><span class="pre">supervised_nmf</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../supervised_nmf.html#non-negative-matrix-factorization">Non-negative Matrix Factorization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#nmf-ls-pnmf-admm">nmf.ls_pnmf_admm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#nmf-ls-sgpnmf-admm">nmf.LS_SGPNMF_ADMM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised_nmf.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#imconnmat">imconnmat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../supervised_nmf.html#data-io">Data IO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#data-tob-pnc-load-bct-measures">data.tob_pnc.load_bct_measures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#data-tob-pnc-load-diffusion-volume-matfile">data.tob_pnc.load_diffusion_volume_matfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../supervised_nmf.html#data-tob-pnc-load-connectome-matfile">data.tob_pnc.load_connectome_matfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../sqlite-whirlwind.html">A whirlwind tour to sqlite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#beginning">Beginning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#insert-data">Insert data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#get-data">Get data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-factory">Row factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#iterdump">iterdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#cursor-object">Cursor object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../sqlite-whirlwind.html#row-objects">Row objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../spark-config.html">Spark Configuration Setup for Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#about">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#self-contained-applications">self-contained applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../spark-config.html#note">Note</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc-mean-analysis.html">Brain Connectivity - PNC Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-relevant-packages">Load relevant packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#load-clinical-scores-dataframe">Load clinical-scores (DataFrame)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#handle-nan-values">Handle nan values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-histogram-of-numeric-scores">Create histogram of numeric scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#display-mean-connectome-heatmap">Display mean connectome heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-let-s-repeat-using-plotly">Nice, let&#8217;s repeat using plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#create-plotly-trace-object">Create plotly <code class="docutils literal"><span class="pre">trace</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#bunch-of-layout-objects">Bunch of layout objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#nice-but-we-can-do-better-by-defining-a-layout-object">Nice, but we can do better by defining a <code class="docutils literal"><span class="pre">layout</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc-mean-analysis.html#try-again">Try again</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html">PNC classification experiment results (old)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#what-is-this">What is this?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#load-data">Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#show-classification-result">Show classification result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-coefficients">Display median coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#display-median-connmat">Display median connmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glass-brain">Glass-brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#thresholded-median-value-experimental">Thresholded median value (experimental)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#trinarized-median-connmat-after-thresholding">Trinarized median connmat after thresholding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../pnc_study_feature_1104_onesession.html#glassbrain">Glassbrain</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Plotly demos</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../plotly_demos/top-plotly.html">Plotly demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html">Choose my Geolocator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#try-to-pinpoint-huntsman-hall">Try to pinpoint Huntsman Hall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#hmmm-that-s-pretty-off">Hmmm...that&#8217;s pretty off...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#url-request-using-freegeopi">URL Request using freegeopi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#that-s-also-quite-off">That&#8217;s also quite off....</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#try-geolocation-python">Try geolocation-python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#success">Success!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/google_big_query.html">Google Big Query Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/google_big_query.html#top-10-hacker-news-submissions-by-score">Top 10 Hacker News Submissions (by score)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/google_big_query.html#from-which-top-level-domain-tld-most-of-the-stories-come">From which Top-level domain (TLD) most of the stories come?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/google_big_query.html#public-response-to-the-who-is-hiring-posts">Public response to the &#8220;Who Is Hiring?&#8221; posts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/google_big_query.html#submission-traffic-volume-in-a-week">Submission Traffic Volume in a Week</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/google_big_query.html#programming-language-trend-on-hackernews">Programming Language Trend on HackerNews</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/mysql_plotly.html">MySQL with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#first-download-the-world-database">First download the world database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#install-database-in-mysql">Install database in mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#for-this-demo-create-user-with-all-privileges-to-this-world-database">For this demo, create user with all privileges to this <code class="docutils literal"><span class="pre">world</span></code> database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#alright-we-are-in-business-let-s-analyze-this-database">Alright, we are in business. Let&#8217;s analyze this database!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#create-pandas-dataframe">create pandas DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#a-bit-of-data-cleansing">A bit of data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#plot-interactive-scatterplots">Plot interactive scatterplots!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/mysql_plotly.html#prettify-the-above">prettify the above :)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html">Plotly and SQLite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#create-database-file-on-disk-by-reading-in-subset-of-data">Create database file on disk by reading in subset of data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#alright-let-s-preview-the-table">Alright, let&#8217;s preview the table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#k-let-s-do-some-plotly">K, let&#8217;s do some plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#housing-and-development-dept-receives-the-most-complaints">Housing and Development Dept receives the most complaints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#heat-hot-water-is-the-most-common-complaint">Heat / Hot Water is the most common complaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#what-s-the-most-complain-in-each-city">What&#8217;s the most complain in each city?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#part2-slite3-timeseries-with-pandas">Part2: Slite3 timeseries with pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#filter-noise-complaints-by-hour">Filter noise complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#segregate-complaints-by-hour">Segregate complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/plotly_sqlite.html#aggregate-time-series">Aggregate time series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html">Steph Curry Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#data-transformation-for-querying">Data Transformation for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#shot-locations">Shot locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#create-the-court">Create the court</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#outer-lines">Outer Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#basketball-hoop">2. basketball hoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#basket-backboard">Basket Backboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#outer-box-of-three-second-area">Outer box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#inner-box-of-three-second-area">Inner box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#three-point-line-left">Three-point line (left)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#three-point-line-right">Three-point line (right)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#three-point-arc">Three-point arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#center-circle">Center circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#restraining-circe">Restraining circe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#free-throw-circle">Free-throw circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#restricted-area">Restricted area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#chart-the-shots">Chart the shots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/steph_curry_demo.html#good-stuff-let-s-save-in-plotly">Good stuff! let&#8217;s save in plotly</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos/spark-plotly.html">Spark demo with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/spark-plotly.html#check-pyspark-is-loaded-correctly">Check pyspark is loaded correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/spark-plotly.html#download-bike-data">Download bike data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/spark-plotly.html#register-dataframe-as-table-to-use-sql-commands">Register dataframe as table to use SQL commands!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/spark-plotly.html#now-let-s-visualize">Now let&#8217;s visualize!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos/spark-plotly.html#pyspark-dataframe-to-pandas-dataframe">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="top-plotly-pandas.html">Plotly &#8211; pandas</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html">Cufflinks - Pandas Like Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#themes">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#basic-line-plots-time-series">Basic line plots (time series)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#bar-plots">Bar Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#multiple-bars">Multiple bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#stacked-bars">Stacked bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#horizontal-bars-kind-barh">Horizontal bars (kind=&#8217;barh&#8217;)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#normalized-over-probability">Normalized over probability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#subplots">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#boxplots">Boxplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#grouping-values">Grouping values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#area-plots">Area Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#assign-color-via-dict-or-list">Assign color via dict or list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#use-size-to-set-bubble-size">Use size to set bubble size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#scattermatrix">Scattermatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#id3">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#irregular-shaped-subplots">irregular shaped subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#shapes">Shapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - Pandas Like Visualization.html#other-shapes">Other shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Cufflinks - chart gallery.html">Cufflinks - chart gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#line-chart">Line Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#basic">Basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#filled-line-plot">Filled line plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#with-best-fit-line">With best fit line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#scatter-chart">Scatter Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#spread-chart">Spread Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#bar-chart">Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#default">Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#stacked-bars">Stacked bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#box-plot">Box Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#historgram">Historgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#heatmap-plot">Heatmap Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#bubble-chart">Bubble Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#scatter-3d">Scatter 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#bubble-3d">Bubble 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - chart gallery.html#surface">Surface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Cufflinks - color management.html">Cufflinks - color management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#cufflinks-colors">Cufflinks Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#color-conversions">Color Conversions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#normalization">Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#color-ranges">Color Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#color-tables">Color Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - color management.html#color-generators">Color Generators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html">Cufflinks - tutorial from plotly (best)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#intro">Intro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#python-version">Python version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#cufflinks-version">Cufflinks version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#scatter-matrix">scatter_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#offline-mode">Offline mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#change-default-config">Change default config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#chart-types">Chart Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#line-charts">Line charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#bar-charts">Bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#plot-series-directly">Plot series directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#plot-a-dataframe-row-as-a-bar">Plot a dataframe row as a bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#grouped-bar-chart">Grouped bar chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#stacked">Stacked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#horizontal">Horizontal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#themes">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#customizing-histogram-style">Customizing histogram style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#subplots">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#area-charts">Area charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#stacked-area-chart">Stacked area chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#non-stacked-area-charts">Non-stacked area charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#demo1">Demo1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#multiple-scatter-plot-use-python">++Multiple scatter plot? Use python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#grouping-use-python">+++Grouping? Use python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#bubble-charts">BUBBLE CHARTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#id1">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#id2">Scatter matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#lines-and-shaded-areas">LINES AND SHADED AREAS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#hline-vline">hline, vline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#hspan-vspan-for-shaded-region">hspan, vspan for shaded region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#extra-param-as-dict">Extra param as dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#customizing-figures">+++Customizing Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="Cufflinks - tutorial from plotly (best).html#crux">+++Crux</a></li>
+</ul>
+</li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">Cufflinks_Basic_Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-themes">Customizing Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bestfit-lines">Bestfit Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#customizing-colors">Customizing Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#filled-traces">Filled Traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#bar-charts">Bar Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#spread-and-ratio-charts">Spread and Ratio charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#annotations">Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#output-as-image">Output as Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#advanced-use">++Advanced Use</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#get-figure-object">Get figure object</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#get-data-object">Get Data object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#get-layout-object">Get Layout object</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="color-lover.html">color-lover</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="color-lover.html#using-colorlover-to-easily-access-colorscale">Using Colorlover to easily access colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-lover.html#binding-plotly-to-pandas-dataframes-cufflinks">Binding Plotly to Pandas Dataframes ( Cufflinks )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-lover.html#plotting-the-data-using-plotly">Plotting the data using Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="color-lover.html#adding-colorscales-using-colorlover">Adding Colorscales using Colorlover</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="pandas-boxplots.html">pandas-boxplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="pandas-boxplots.html#pandas-boxplot-with-cufflinks">Pandas boxplot with cufflinks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plotly-configs.html">plotly-configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="plotly-pandas-basic-charts.html">plotly-pandas-basic-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#pandas-subplots">Pandas subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#overlaying-trace-should-be-done-in-python">Overlaying trace should be done in python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#sync-hover-text">Sync hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#bubble-charts-pandas">Bubble charts pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#multiple-axes">Multiple axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#use-secondary-y">Use secondary_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#secondary-y-axis-with-multiple-chart-types">SECONDARY Y AXIS WITH MULTIPLE CHART TYPES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#line-charts">Line-charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#cufflinks-demo">Cufflinks demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#set-line-color-and-style-in-cufflinks">+++Set Line Color and Style in Cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#updating-cufflinks-plots">Updating cufflinks plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#demo1">Demo1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-basic-charts.html#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="plotly-pandas-statistical-charts.html">plotly-pandas-statistical-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#d-density-plots">2d density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#d-histogram">2D Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#histograms">Histograms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plotly-pandas-statistical-charts.html#basic-histogram-in-pandas">Basic Histogram in Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#multiple-histograms-in-pandas-cufflinks">Multiple histograms in Pandas (cufflinks)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#histograms-binning-and-normalization-in-pandas">Histograms binning and normalization in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#histograms-subplots-in-pandas">Histograms subplots in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#box-plots">Box-plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#basic-box-plot">Basic Box Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#use-cufflinks">Use cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#error-bars">Error bars</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="plotly-pandas-statistical-charts.html#discrete-fixed-error-bars">Discrete, fixed error bars</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#discrete-variable-error-bars">Discrete, variable error bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#asymmetric-error-bars-with-a-constant-offset">Asymmetric Error Bars with a Constant Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="plotly-pandas-statistical-charts.html#bar-chart-with-error-bars">Bar Chart with Error Bars</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_FF/top-plotly-FF.html">Plotly FigureFactory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html">Figure Factory &#8211; my favorites!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-2d-density">Simple 2d Density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#add-colorscale">add colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#with-heatmap">With heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-distplot">simple distplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#normal-distribution-plot-with-no-rug">normal distribution plot with no rug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#diagonal-boxplots">Diagonal boxplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#using-pandas">Using pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory-favorites.html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html">Figure Factory Demos (a-o)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-2d-density-plot">Simple 2D Density plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#using-parameters">Using Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-annotated-heatmap">create_annotated_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-candlestick">create_candlestick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-candlestick-chart-from-a-pandas-dataframe">Simple candlestick chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-candlestick-chart">Add text and annotations to the candlestick chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-candlestick-colors">Customize the candlestick colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#candlestick-chart-with-datetime-objects">Candlestick chart with datetime objects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-distplot-of-1-dataset">Simple distplot of 1 dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#plot-with-normal-curve-and-hide-rug-plot">Plot with normal curve and hide rug plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-gantt">create_gantt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-gantt-chart">Simple Gantt Chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-numerical-entries">Index by Column with Numerical Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#index-by-column-with-string-entries">Index by Column with String Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-dictionary-for-colors">Use a dictionary for colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#use-a-pandas-dataframe">Use a pandas dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#create-ohlc">create_ohlc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#simple-ohlc-chart-from-a-pandas-dataframe">Simple OHLC chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-ohlc-chart">Add text and annotations to the OHLC chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#customize-the-ohlc-colors">Customize the OHLC colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactories (a-o).html#ohlc-chart-with-datetime-objects">OHLC chart with datetime objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html">Figure Factory Demos (q-z)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-quiver">create_quiver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#trivial-quiver">Trivial Quiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#quiver-plot-using-meshgrid">Quiver plot using meshgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-quiver-plot">Styling the quiver plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#vanilla-scatterplot-matrix">Vanilla Scatterplot Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#indexing-a-column">Indexing a Column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#styling-the-diagonal-subplots">Styling the Diagonal Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-streamline">create_streamline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#from-aeropython">from AeroPython</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#simple-plotly-table-with-pandas">Simple Plotly Table with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-trisurf">create_trisurf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#torus">Torus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#mobius-band">Mobius Band</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#using-a-custom-colormap-function-with-light-cone">Using a Custom Colormap Function with Light Cone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#enter-color-func-as-a-list-of-colors">Enter color_func as a list of colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#single-violin-plot">Single Violin Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_FF/FigureFactory (q-z).html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_layout/top-plotly-layout.html">Plotly layout options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html">plotly-layout-options-axes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#toggling-axes-lines-ticks-labels-and-autorange">Toggling Axes Lines, Ticks, Labels, and Autorange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#tick-placement-color-and-style">Tick Placement, Color, and Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#set-and-style-axes-title-labels-and-ticks">Set and Style Axes Title Labels and Ticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#styling-and-coloring-axes-and-the-zero-line">Styling and Coloring Axes and the Zero-Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#setting-the-range-of-axes-manually">Setting the Range of Axes Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#logarithmic-axes">Logarithmic Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes">Reversed Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#reversed-axes-with-range-min-max-specified">Reversed Axes with Range ( Min/Max ) Specified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#nonnegative-tozero-and-normal-rangemode">nonnegative, tozero, and normal Rangemode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes.html#enumerated-ticks-with-tickvals-and-ticktext">Enumerated Ticks with Tickvals and Ticktext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html">plotly-layout-options-axes3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#range-of-axes">Range of Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#set-axes-title">Set Axes Title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#ticks-formatting">Ticks Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-axes3d.html#background-color-and-grid-color">Background color and grid color</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html">plotly-layout-options-legend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#basic-legend">Basic legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#positioning-the-legend">Positioning the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#grouped-legends">Grouped legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#styling-and-coloring-the-legend">Styling and Coloring the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#selectively-hide-legend-entries">Selectively hide legend entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#hiding-legend-entries-in-grouped-legends">Hiding Legend Entries In Grouped Legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-legend.html#horizontal-legends">Horizontal legends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html">plotly-layout-options-subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#simple-subplots">Simple subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-subplots-with-titles">Multiple Subplots With Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#customizing-subplot-axes">Customizing Subplot Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-y-axes">Subplots with Shared Y-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#stacked-subplots">Stacked Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#custom-sized-subplot-with-subplot-titles">+++Custom Sized Subplot with Subplot Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-x-axes">Subplots with Shared X-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-axes">Subplots with shared Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#multiple-custom-sized-subplots">Multiple Custom Sized Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-subplots.html#subplot-with-custom-sizes">++Subplot with custom sizes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html">plotly-layout-options-text-and-annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-text-to-data-in-line-and-scatter-plots">Adding Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-hover-text-to-data-in-line-and-scatter-plots">Adding Hover Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#simple-annotation">Simple Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#multiple-annotations">Multiple Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#custom-text-color-and-styling">Custom Text Color and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#disabling-hover-text">Disabling Hover Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#styling-and-coloring-annotations">Styling and Coloring Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#text-font-as-an-array-styling-each-text-element">Text Font as an Array - Styling Each Text Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-annotations-with-xref-and-yref-as-paper">Adding Annotations with xref and yref as Paper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html">plotly-layout-options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#adding-logos">Adding logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#add-background-image">Add background image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#latex">Latex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#text-and-font-styling-global-font-properties">Text and Font Styling (global font properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-graph-size">Setting graph size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#setting-the-title-legend-entries-and-axis-titles">Setting the Title, Legend Entries, and Axis Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-axes">Multiple Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#two-y-axes">Two y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#multiple-y-axes">Multiple y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_layout/plotly-layout-options.html#inset-plots">Inset Plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_demos_api/top-plotly-api.html">Plotly &#8211; API demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html">3d-plot-demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#plot">Plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-trace">Set trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-layout">set layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#finally-plot">finally, plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh">3d mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html">annotated-heatmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bar-charts.html">bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html">bubble-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#note">note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html">chord-diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-nodes">Define nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-edges">Define edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#node-position">Node position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#finally-plot">Finally, plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/dendrograms.html">dendrograms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#basic-dendrogram">Basic Dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#set-orientation-and-add-labels">Set orientation and add labels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#plot-a-dendrogram-with-a-heatmap">Plot a Dendrogram with a Heatmap</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#get-data">get data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#initialize-figure-by-creating-upper-dendrogram">Initialize figure by creating upper dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#create-heatmap">Create heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#edit-layout">Edit layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#plot">Plot!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html">dropdowns (daiji)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html#simple-dropdown-menu">Simple Dropdown Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html#add-multiple-dropdown-menus">Add Multiple Dropdown Menus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html">filled-area-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#basic-overlaid-area-chart">Basic Overlaid Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#overlaid-area-chart-without-boundary-lines">Overlaid Area Chart Without Boundary Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#interior-filling-for-area-chart">Interior Filling for Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-cumulative-values">Stacked Area Chart with Cumulative Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-original-values">Stacked Area Chart with Original Values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmaps.html">heatmaps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-traces">Define traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html">igraph-networkx-comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#download-data-from-uci">Download data from UCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#igraph">igraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#networkx">Networkx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#repeat-with-different-pos">Repeat with different pos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/line-charts.html">line-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#simple-line-charts">Simple line charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#line-plot-models">Line plot models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#style-line-plots">Style Line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#the-traces">The traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#annotation-content">Annotation content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/networkx-demo.html">networkx-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/pie-charts.html">pie-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#basic-pie-chart">Basic pie chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#donut-chart">Donut Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-subplots">Pie Chart Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/range-slider.html">range-slider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html">scatter-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#simple-scatter-plot">Simple scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#line-and-scatter-plots">Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#style-scatter-plots">Style Scatter Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/tables.html">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#simple-table">Simple table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#add-links">Add Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-latex">Use LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#include-and-index-column">Include and Index Column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-table-colors">Custom Table Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-font-colors">Custom Font Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#change-font-size">Change Font Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#tables-with-graphs">Tables with Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#horizontal-subplots">Horizontal subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#vertical-subplots">Vertical subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_maps/top-plotly-maps.html">Plotly &#8211; map demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html">Choropleth Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#united-states-choropleth-map">United States Choropleth Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#define-data-object">Define data object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#world-choropleth-map">World choropleth map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#define-data">Define data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/Choropleth Maps.html#choropleth-inset-map">Choropleth Inset Map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html">plotly-mapbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#basic-example">Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#define-trace-scattermapbox-object">Define trace (Scattermapbox object)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#plot">Plot!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#multiple-markers">Multiple Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#county-level">County-level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#color-the-counties">Color the Counties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#create-json-files">Create JSON Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#define-data-easy-part">Define data (easy part)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_maps/plotly-mapbox.html#define-layout-hard-part">Define layout (hard part)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Contents (current page) <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Cufflinks_Basic_Tutorial</a><ul>
+<li><a class="reference internal" href="#customizing-themes">Customizing Themes</a></li>
+<li><a class="reference internal" href="#bestfit-lines">Bestfit Lines</a></li>
+<li><a class="reference internal" href="#customizing-colors">Customizing Colors</a></li>
+<li><a class="reference internal" href="#filled-traces">Filled Traces</a></li>
+<li><a class="reference internal" href="#bar-charts">Bar Charts</a></li>
+<li><a class="reference internal" href="#spread-and-ratio-charts">Spread and Ratio charts</a></li>
+<li><a class="reference internal" href="#annotations">Annotations</a></li>
+<li><a class="reference internal" href="#output-as-image">Output as Image</a></li>
+<li><a class="reference internal" href="#advanced-use">++Advanced Use</a><ul>
+<li><a class="reference internal" href="#get-figure-object">Get figure object</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-data-object">Get Data object</a></li>
+<li><a class="reference internal" href="#get-layout-object">Get Layout object</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <div class="section" id="cufflinks-basic-tutorial">
+<h1>Cufflinks_Basic_Tutorial</h1>
+<div class="contents local topic" id="contents">
+<p class="topic-title first"><cite>Contents</cite></p>
+<ul class="simple">
+<li><a class="reference internal" href="#customizing-themes" id="id1">Customizing Themes</a></li>
+<li><a class="reference internal" href="#bestfit-lines" id="id2">Bestfit Lines</a></li>
+<li><a class="reference internal" href="#customizing-colors" id="id3">Customizing Colors</a></li>
+<li><a class="reference internal" href="#filled-traces" id="id4">Filled Traces</a></li>
+<li><a class="reference internal" href="#bar-charts" id="id5">Bar Charts</a></li>
+<li><a class="reference internal" href="#spread-and-ratio-charts" id="id6">Spread and Ratio charts</a></li>
+<li><a class="reference internal" href="#annotations" id="id7">Annotations</a></li>
+<li><a class="reference internal" href="#output-as-image" id="id8">Output as Image</a></li>
+<li><a class="reference internal" href="#advanced-use" id="id9">++Advanced Use</a><ul>
+<li><a class="reference internal" href="#get-figure-object" id="id10">Get figure object</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#get-data-object" id="id11">Get Data object</a></li>
+<li><a class="reference internal" href="#get-layout-object" id="id12">Get Layout object</a></li>
+</ul>
+</div>
+<p><a class="reference external" href="http://nbviewer.jupyter.org/gist/santosjorge/f3b07b2be8094deea8c6">http://nbviewer.jupyter.org/gist/santosjorge/f3b07b2be8094deea8c6</a></p>
+<p>This library binds the power of <a class="reference external" href="http://www.plot.ly">plotly</a> with the
+flexibility of <a class="reference external" href="http://pandas.pydata.org/">pandas</a> for easy plotting.</p>
+<p>This library is available on <a class="reference external" href="https://github.com/santosjorge/cufflinks">https://github.com/santosjorge/cufflinks</a></p>
+<p>This tutorial assumes that the plotly user credentials have already been
+configured as stated on the <a class="reference external" href="https://plot.ly/python/getting-started/">getting
+started</a> guide.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">cufflinks</span> <span class="kn">as</span> <span class="nn">cf</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="kn">as</span> <span class="nn">py</span>
+<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="kn">as</span> <span class="nn">go</span>
+<span class="kn">import</span> <span class="nn">plotly.tools</span> <span class="kn">as</span> <span class="nn">tls</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span>%reload_ext autoreload
+%autoreload 2
+</pre></div>
+</div>
+<p>We make all charts public and set a global theme</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">cf</span><span class="o">.</span><span class="n">set_config_file</span><span class="p">(</span><span class="n">world_readable</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">theme</span><span class="o">=</span><span class="s1">&#39;pearl&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We create a set of timeseries</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">5</span><span class="p">),</span><span class="n">index</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">date_range</span><span class="p">(</span><span class="s1">&#39;1/1/15&#39;</span><span class="p">,</span><span class="n">periods</span><span class="o">=</span><span class="mi">100</span><span class="p">),</span>
+                <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">,</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;VERZ&#39;</span><span class="p">,</span><span class="s1">&#39;APPL&#39;</span><span class="p">])</span>
+<span class="n">df</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">cumsum</span><span class="p">()</span>
+</pre></div>
+</div>
+<p><strong>iplot</strong> can be used on any DataFrame to plot on a plotly chart. If no
+filename is specified then a generic <em>Plotly Playground</em> file is
+created.</p>
+<p>All the charts are created as private by default. To make them public
+you can use <strong>world_readable=True</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial 1&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/717.embed" height="525px" width="100%"></iframe><div class="section" id="customizing-themes">
+<h2><a class="toc-backref" href="#id1">Customizing Themes</a></h2>
+<p>We can pass a <strong>theme</strong> to the <strong>iplot</strong> function. 3 themes are
+available, but you can create your own * Solar * Pearl (Default) *
+White</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;APPL&#39;</span><span class="p">,</span><span class="s1">&#39;IBM&#39;</span><span class="p">,</span><span class="s1">&#39;VERZ&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial White&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/719.embed" height="525px" width="100%"></iframe><p>We can also pass common metadata for the chart</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">theme</span><span class="o">=</span><span class="s1">&#39;pearl&#39;</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Metadata&#39;</span><span class="p">,</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;Stock Returns&#39;</span><span class="p">,</span><span class="n">xTitle</span><span class="o">=</span><span class="s1">&#39;Dates&#39;</span><span class="p">,</span><span class="n">yTitle</span><span class="o">=</span><span class="s1">&#39;Returns&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/721.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="bestfit-lines">
+<h2><a class="toc-backref" href="#id2">Bestfit Lines</a></h2>
+<p>We can easily add a bestfit line to any Series</p>
+<p>This will automatically add a best fit approximation and the equation as
+the legend.</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;IBM Returns&#39;</span><span class="p">,</span><span class="n">bestfit</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>/home/takanori/.local/lib/python2.7/site-packages/cufflinks/plotlytools.py:164: FutureWarning:
+
+The pandas.stats.ols module is deprecated and will be removed in a future version. We refer to external packages like statsmodels, see some examples here: http://www.statsmodels.org/stable/regression.html
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/723.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="customizing-colors">
+<h2><a class="toc-backref" href="#id3">Customizing Colors</a></h2>
+<p>We can pass any color (either by Hex, RGB or Text *)</p>
+<p>*Text values are specified in the cufflinks.colors modules</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;IBM Returns - colors&#39;</span><span class="p">,</span><span class="n">bestfit</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pink&#39;</span><span class="p">],</span><span class="n">bestfit_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/725.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="filled-traces">
+<h2><a class="toc-backref" href="#id4">Filled Traces</a></h2>
+<p>We can add a fill to a trace with <strong>fill=True</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;IBM&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Microsoft&#39;</span><span class="p">,</span><span class="n">fill</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/727.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="bar-charts">
+<h2><a class="toc-backref" href="#id5">Bar Charts</a></h2>
+<p>We can easily create a bar chart with the parameter <strong>kind</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Barchart&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/729.embed" height="525px" width="100%"></iframe><p>Bars can also be stacked by a given dimension</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">tmp</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">resample</span><span class="p">(</span><span class="s1">&#39;M&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;bar&#39;</span><span class="p">,</span><span class="n">barmode</span><span class="o">=</span><span class="s1">&#39;stacked&#39;</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Bar Stacked&#39;</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">tmp</span>
+<span class="k">print</span> <span class="n">tmp</span><span class="o">.</span><span class="n">url</span>
+<span class="n">tmp</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>/home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:1: FutureWarning:
+
+
+.resample() is now a deferred operation
+You called iplot(...) on this deferred object which materialized it into a dataframe
+by implicitly taking the mean.  Use .resample(...).mean() instead
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span>&lt;plotly.tools.PlotlyDisplay object&gt;
+None
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/731.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="spread-and-ratio-charts">
+<h2><a class="toc-backref" href="#id6">Spread and Ratio charts</a></h2>
+<p>We can also create spread and ratio charts on the fly with
+<strong>kind=&#8217;spread&#8217;</strong> and <strong>kind=&#8217;ratio&#8217;</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;VERZ&#39;</span><span class="p">,</span><span class="s1">&#39;IBM&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Spread&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;spread&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/733.embed" height="525px" width="100%"></iframe><div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]]</span><span class="o">+</span><span class="mi">20</span><span class="p">)</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Ratio&#39;</span><span class="p">,</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;ratio&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="s1">&#39;red&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/735.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="annotations">
+<h2><a class="toc-backref" href="#id7">Annotations</a></h2>
+<p>Annotations can be added to the chart and these are automatically
+positioned correctly.</p>
+<p><strong>Annotations</strong> should be specified in a dictionary form</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">annotations</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;2015-01-15&#39;</span><span class="p">:</span><span class="s1">&#39;Dividends&#39;</span><span class="p">,</span><span class="s1">&#39;2015-03-31&#39;</span><span class="p">:</span><span class="s1">&#39;Split Announced&#39;</span><span class="p">}</span>
+<span class="n">df</span><span class="p">[</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Annotations&#39;</span><span class="p">,</span><span class="n">annotations</span><span class="o">=</span><span class="n">annotations</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/737.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="output-as-image">
+<h2><a class="toc-backref" href="#id8">Output as Image</a></h2>
+<p>The output of a chart can be in an image mode as well.</p>
+<p>For this we can use <strong>asImage=True</strong></p>
+<p>We can also set the dimensions (optional) with
+<strong>dimensions=(width,height)</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;VERZ&#39;</span><span class="p">,</span><span class="s1">&#39;MSFT&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Image&#39;</span><span class="p">,</span><span class="n">theme</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;pink&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">],</span><span class="n">asImage</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span><span class="n">dimensions</span><span class="o">=</span><span class="p">(</span><span class="mi">800</span><span class="p">,</span><span class="mi">500</span><span class="p">))</span>
+</pre></div>
+</div>
+<img alt="plotly_pandas/Cufflinks_Basic_Tutorial_files/Cufflinks_Basic_Tutorial_30_0.png" src="plotly_pandas/Cufflinks_Basic_Tutorial_files/Cufflinks_Basic_Tutorial_30_0.png" />
+</div>
+<div class="section" id="advanced-use">
+<h2><a class="toc-backref" href="#id9">++Advanced Use</a></h2>
+<div class="section" id="get-figure-object">
+<h3><a class="toc-backref" href="#id10">Get figure object</a></h3>
+<p>It is also possible to get the Plotly Figure as an output to tweak it
+manually</p>
+<p>We can achieve this with <strong>asFigure=True</strong></p>
+<p>Or with <code class="docutils literal"><span class="pre">df.figure()</span></code></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;GOOG&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">asFigure</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="k">print</span> <span class="n">fig</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="k">print</span> <span class="n">df</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;layout&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">]</span>
+<span class="p">[</span><span class="s1">&#39;layout&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/743.embed" height="525px" width="100%"></iframe></div>
+</div>
+<div class="section" id="get-data-object">
+<h2><a class="toc-backref" href="#id11">Get Data object</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_iplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>We can also get the <strong>Data</strong> object directly</p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">to_iplot</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;name&#39;</span><span class="p">]</span><span class="o">=</span><span class="s1">&#39;My Custom Name&#39;</span>
+</pre></div>
+</div>
+<p>And pass this directly to <strong>iplot</strong></p>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span><span class="n">filename</span><span class="o">=</span><span class="s1">&#39;Tutorial Custom Name&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/741.embed" height="525px" width="100%"></iframe></div>
+<div class="section" id="get-layout-object">
+<h2><a class="toc-backref" href="#id12">Get Layout object</a></h2>
+<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">layout</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;legend&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;bgcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#F5F6F9&#39;</span><span class="p">,</span> <span class="s1">&#39;font&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">}},</span>
+ <span class="s1">&#39;paper_bgcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#F5F6F9&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;plot_bgcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#F5F6F9&#39;</span><span class="p">,</span>
+ <span class="s1">&#39;titlefont&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;xaxis1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gridcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#E1E5ED&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;showgrid&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s1">&#39;tickfont&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;titlefont&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;zerolinecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#E1E5ED&#39;</span><span class="p">},</span>
+ <span class="s1">&#39;yaxis1&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;gridcolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#E1E5ED&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;showgrid&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">,</span>
+  <span class="s1">&#39;tickfont&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+  <span class="s1">&#39;titlefont&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;color&#39;</span><span class="p">:</span> <span class="s1">&#39;#4D5663&#39;</span><span class="p">},</span>
+  <span class="s1">&#39;zerolinecolor&#39;</span><span class="p">:</span> <span class="s1">&#39;#E1E5ED&#39;</span><span class="p">}}</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+<div id="sourcelink">
+  <a href="../_sources/plotly_pandas/Cufflinks_Basic_Tutorial.txt"
+     rel="nofollow">Source</a>
+</div>
+      
+    </p>
+    <p>
+        &copy; Copyright 2016 Takanori Watanabe.<br/>
+      Last updated on Nov 02, 2016.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

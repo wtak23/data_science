@@ -18,9 +18,11 @@ My notebook pertaining to Data Science.
    :caption: Plotly demos 
 
    plotly_demos/top-plotly.rst
+   plotly_pandas/top-plotly-pandas.rst
    plotly_FF/top-plotly-FF.rst
    plotly_layout/top-plotly-layout.rst
    plotly_demos_api/top-plotly-api.rst
+   plotly_maps/top-plotly-maps.rst
 
 
 .. These substitutions are predefined in Sphinx

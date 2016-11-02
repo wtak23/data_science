@@ -1,0 +1,1589 @@
+
+
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>tak.data.tob_pnc</title>
+    
+    <link rel="stylesheet" href="../../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/style.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/font-awesome-4.7.0/css/font-awesome.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootswatch-3.3.6/flatly/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/copybutton.js"></script>
+    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="" href="../../../index.html" />
+    <link rel="up" title="Module code" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="../../../index.html">
+          Data Science</a>
+        <span class="navbar-text navbar-version pull-left"><b></b></span>
+      </div>
+
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
+            
+                <li><a href="https://github.com/wtak23/data_science"><i class="fa fa-github" aria-hidden="true"></i>&nbsp; Github</a></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../../index.html">Contents (Top) <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><p class="caption"><span class="caption-text">Table of Contents</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../pytak.html"><code class="docutils literal"><span class="pre">pytak</span></code> &#8212; my personal python package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../supervised_nmf.html">Supervised NMF (<code class="docutils literal"><span class="pre">supervised_nmf</span></code>)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../supervised_nmf.html#non-negative-matrix-factorization">Non-negative Matrix Factorization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#nmf-ls-pnmf-admm">nmf.ls_pnmf_admm</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#nmf-ls-sgpnmf-admm">nmf.LS_SGPNMF_ADMM</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../supervised_nmf.html#visualization">Visualization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#imconnmat">imconnmat</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../supervised_nmf.html#data-io">Data IO</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#data-tob-pnc-load-bct-measures">data.tob_pnc.load_bct_measures</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#data-tob-pnc-load-diffusion-volume-matfile">data.tob_pnc.load_diffusion_volume_matfile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../supervised_nmf.html#data-tob-pnc-load-connectome-matfile">data.tob_pnc.load_connectome_matfile</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../sqlite-whirlwind.html">A whirlwind tour to sqlite</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#beginning">Beginning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#insert-data">Insert data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#get-data">Get data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#row-factory">Row factory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#iterdump">iterdump</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#cursor-object">Cursor object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../sqlite-whirlwind.html#row-objects">Row objects</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../spark-config.html">Spark Configuration Setup for Jupyter</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../spark-config.html#about">about</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../spark-config.html#self-contained-applications">self-contained applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../spark-config.html#note">Note</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pnc-mean-analysis.html">Brain Connectivity - PNC Data</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#load-relevant-packages">Load relevant packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#load-clinical-scores-dataframe">Load clinical-scores (DataFrame)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#handle-nan-values">Handle nan values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#create-histogram-of-numeric-scores">Create histogram of numeric scores</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#display-mean-connectome-heatmap">Display mean connectome heatmap</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#nice-let-s-repeat-using-plotly">Nice, let&#8217;s repeat using plotly</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#create-plotly-trace-object">Create plotly <code class="docutils literal"><span class="pre">trace</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#bunch-of-layout-objects">Bunch of layout objects</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#nice-but-we-can-do-better-by-defining-a-layout-object">Nice, but we can do better by defining a <code class="docutils literal"><span class="pre">layout</span></code> object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc-mean-analysis.html#try-again">Try again</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html">PNC classification experiment results (old)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#what-is-this">What is this?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#load-data">Load data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#show-classification-result">Show classification result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#display-median-coefficients">Display median coefficients</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#display-median-connmat">Display median connmat</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#glass-brain">Glass-brain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#thresholded-median-value-experimental">Thresholded median value (experimental)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#trinarized-median-connmat-after-thresholding">Trinarized median connmat after thresholding</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../pnc_study_feature_1104_onesession.html#glassbrain">Glassbrain</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption"><span class="caption-text">Plotly demos</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_demos/top-plotly.html">Plotly demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html">Choose my Geolocator</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#try-to-pinpoint-huntsman-hall">Try to pinpoint Huntsman Hall</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#hmmm-that-s-pretty-off">Hmmm...that&#8217;s pretty off...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#url-request-using-freegeopi">URL Request using freegeopi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#that-s-also-quite-off">That&#8217;s also quite off....</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#try-geolocation-python">Try geolocation-python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/choose_my_geolocator.html#success">Success!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/google_big_query.html">Google Big Query Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/google_big_query.html#top-10-hacker-news-submissions-by-score">Top 10 Hacker News Submissions (by score)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/google_big_query.html#from-which-top-level-domain-tld-most-of-the-stories-come">From which Top-level domain (TLD) most of the stories come?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/google_big_query.html#public-response-to-the-who-is-hiring-posts">Public response to the &#8220;Who Is Hiring?&#8221; posts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/google_big_query.html#submission-traffic-volume-in-a-week">Submission Traffic Volume in a Week</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/google_big_query.html#programming-language-trend-on-hackernews">Programming Language Trend on HackerNews</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html">MySQL with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#first-download-the-world-database">First download the world database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#install-database-in-mysql">Install database in mysql</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#for-this-demo-create-user-with-all-privileges-to-this-world-database">For this demo, create user with all privileges to this <code class="docutils literal"><span class="pre">world</span></code> database</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#alright-we-are-in-business-let-s-analyze-this-database">Alright, we are in business. Let&#8217;s analyze this database!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#create-pandas-dataframe">create pandas DataFrame</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#a-bit-of-data-cleansing">A bit of data cleansing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#plot-interactive-scatterplots">Plot interactive scatterplots!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/mysql_plotly.html#prettify-the-above">prettify the above :)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html">Plotly and SQLite</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#create-database-file-on-disk-by-reading-in-subset-of-data">Create database file on disk by reading in subset of data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#alright-let-s-preview-the-table">Alright, let&#8217;s preview the table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#k-let-s-do-some-plotly">K, let&#8217;s do some plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#housing-and-development-dept-receives-the-most-complaints">Housing and Development Dept receives the most complaints</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#heat-hot-water-is-the-most-common-complaint">Heat / Hot Water is the most common complaint</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#what-s-the-most-complain-in-each-city">What&#8217;s the most complain in each city?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#conclusion">Conclusion</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#part2-slite3-timeseries-with-pandas">Part2: Slite3 timeseries with pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#filter-noise-complaints-by-hour">Filter noise complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#segregate-complaints-by-hour">Segregate complaints by hour</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/plotly_sqlite.html#aggregate-time-series">Aggregate time series</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html">Steph Curry Demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#data-transformation-for-querying">Data Transformation for querying</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#shot-locations">Shot locations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#create-the-court">Create the court</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#outer-lines">Outer Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#basketball-hoop">2. basketball hoop</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#basket-backboard">Basket Backboard</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#outer-box-of-three-second-area">Outer box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#inner-box-of-three-second-area">Inner box of three-second area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#three-point-line-left">Three-point line (left)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#three-point-line-right">Three-point line (right)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#three-point-arc">Three-point arc</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#center-circle">Center circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#restraining-circe">Restraining circe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#free-throw-circle">Free-throw circle</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#restricted-area">Restricted area</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#chart-the-shots">Chart the shots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/steph_curry_demo.html#good-stuff-let-s-save-in-plotly">Good stuff! let&#8217;s save in plotly</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html">Spark demo with Plotly</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html#check-pyspark-is-loaded-correctly">Check pyspark is loaded correctly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html#download-bike-data">Download bike data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html#register-dataframe-as-table-to-use-sql-commands">Register dataframe as table to use SQL commands!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html#now-let-s-visualize">Now let&#8217;s visualize!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos/spark-plotly.html#pyspark-dataframe-to-pandas-dataframe">PySpark Dataframe to Pandas Dataframe</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_pandas/top-plotly-pandas.html">Plotly &#8211; pandas</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html">Cufflinks - Pandas Like Visualization</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#themes">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#basic-line-plots-time-series">Basic line plots (time series)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#bar-plots">Bar Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#multiple-bars">Multiple bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#stacked-bars">Stacked bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#horizontal-bars-kind-barh">Horizontal bars (kind=&#8217;barh&#8217;)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#normalized-over-probability">Normalized over probability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#subplots">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#boxplots">Boxplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#grouping-values">Grouping values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#area-plots">Area Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#assign-color-via-dict-or-list">Assign color via dict or list</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#use-size-to-set-bubble-size">Use size to set bubble size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#scattermatrix">Scattermatrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#id3">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#irregular-shaped-subplots">irregular shaped subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#shapes">Shapes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - Pandas Like Visualization.html#other-shapes">Other shapes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html">Cufflinks - chart gallery</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#line-chart">Line Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#basic">Basic</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#filled-line-plot">Filled line plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#with-best-fit-line">With best fit line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#scatter-chart">Scatter Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#spread-chart">Spread Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#bar-chart">Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#default">Default</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#stacked-bars">Stacked bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#box-plot">Box Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#historgram">Historgram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#heatmap-plot">Heatmap Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#bubble-chart">Bubble Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#scatter-3d">Scatter 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#bubble-3d">Bubble 3D</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - chart gallery.html#surface">Surface</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html">Cufflinks - color management</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#cufflinks-colors">Cufflinks Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#color-conversions">Color Conversions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#normalization">Normalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#color-ranges">Color Ranges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#color-tables">Color Tables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - color management.html#color-generators">Color Generators</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html">Cufflinks - tutorial from plotly (best)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#intro">Intro</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#python-version">Python version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#cufflinks-version">Cufflinks version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#scatter-matrix">scatter_matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#offline-mode">Offline mode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#change-default-config">Change default config</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#chart-types">Chart Types</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#line-charts">Line charts</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#bar-charts">Bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#plot-series-directly">Plot series directly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#plot-a-dataframe-row-as-a-bar">Plot a dataframe row as a bar</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#grouped-bar-chart">Grouped bar chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#stacked">Stacked</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#horizontal">Horizontal</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#themes">Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#histograms">Histograms</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#customizing-histogram-style">Customizing histogram style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#subplots">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#area-charts">Area charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#stacked-area-chart">Stacked area chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#non-stacked-area-charts">Non-stacked area charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#scatter-plot">Scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#demo1">Demo1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#multiple-scatter-plot-use-python">++Multiple scatter plot? Use python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#grouping-use-python">+++Grouping? Use python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#bubble-charts">BUBBLE CHARTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#id1">Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#id2">Scatter matrix</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#heatmaps">Heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#lines-and-shaded-areas">LINES AND SHADED AREAS</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#hline-vline">hline, vline</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#hspan-vspan-for-shaded-region">hspan, vspan for shaded region</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#extra-param-as-dict">Extra param as dict</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#customizing-figures">+++Customizing Figures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks - tutorial from plotly (best).html#crux">+++Crux</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html">Cufflinks_Basic_Tutorial</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#customizing-themes">Customizing Themes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#bestfit-lines">Bestfit Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#customizing-colors">Customizing Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#filled-traces">Filled Traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#bar-charts">Bar Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#spread-and-ratio-charts">Spread and Ratio charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#annotations">Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#output-as-image">Output as Image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#advanced-use">++Advanced Use</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#get-figure-object">Get figure object</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#get-data-object">Get Data object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/Cufflinks_Basic_Tutorial.html#get-layout-object">Get Layout object</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/color-lover.html">color-lover</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/color-lover.html#using-colorlover-to-easily-access-colorscale">Using Colorlover to easily access colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/color-lover.html#binding-plotly-to-pandas-dataframes-cufflinks">Binding Plotly to Pandas Dataframes ( Cufflinks )</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/color-lover.html#plotting-the-data-using-plotly">Plotting the data using Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/color-lover.html#adding-colorscales-using-colorlover">Adding Colorscales using Colorlover</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/pandas-boxplots.html">pandas-boxplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/pandas-boxplots.html#pandas-boxplot-with-cufflinks">Pandas boxplot with cufflinks</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/plotly-configs.html">plotly-configs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html">plotly-pandas-basic-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#pandas-subplots">Pandas subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#overlaying-trace-should-be-done-in-python">Overlaying trace should be done in python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#sync-hover-text">Sync hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#bubble-charts-pandas">Bubble charts pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#multiple-axes">Multiple axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#use-secondary-y">Use secondary_y</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#secondary-y-axis-with-multiple-chart-types">SECONDARY Y AXIS WITH MULTIPLE CHART TYPES</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#line-charts">Line-charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#cufflinks-demo">Cufflinks demo</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#set-line-color-and-style-in-cufflinks">+++Set Line Color and Style in Cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#updating-cufflinks-plots">Updating cufflinks plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#demo1">Demo1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-basic-charts.html#subplots">Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html">plotly-pandas-statistical-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#d-density-plots">2d density plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#d-histogram">2D Histogram</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#histograms">Histograms</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#basic-histogram-in-pandas">Basic Histogram in Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#multiple-histograms-in-pandas-cufflinks">Multiple histograms in Pandas (cufflinks)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#histograms-binning-and-normalization-in-pandas">Histograms binning and normalization in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#histograms-subplots-in-pandas">Histograms subplots in Pandas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#box-plots">Box-plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#basic-box-plot">Basic Box Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#use-cufflinks">Use cufflinks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#error-bars">Error bars</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#discrete-fixed-error-bars">Discrete, fixed error bars</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#discrete-variable-error-bars">Discrete, variable error bars</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#asymmetric-error-bars-with-a-constant-offset">Asymmetric Error Bars with a Constant Offset</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_pandas/plotly-pandas-statistical-charts.html#bar-chart-with-error-bars">Bar Chart with Error Bars</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_FF/top-plotly-FF.html">Plotly FigureFactory</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html">Figure Factory &#8211; my favorites!</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#simple-2d-density">Simple 2d Density</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#add-colorscale">add colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#with-heatmap">With heatmap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#simple-distplot">simple distplot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#normal-distribution-plot-with-no-rug">normal distribution plot with no rug</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#diagonal-boxplots">Diagonal boxplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#using-pandas">Using pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory-favorites.html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html">Figure Factory Demos (a-o)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-2d-density">create_2D_density</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-2d-density-plot">Simple 2D Density plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#using-parameters">Using Parameters</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-annotated-heatmap">create_annotated_heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-candlestick">create_candlestick</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-candlestick-chart-from-a-pandas-dataframe">Simple candlestick chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-candlestick-chart">Add text and annotations to the candlestick chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#customize-the-candlestick-colors">Customize the candlestick colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#candlestick-chart-with-datetime-objects">Candlestick chart with datetime objects</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-dendrogram">create_dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-bottom-oriented-dendrogram">Simple bottom oriented dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#dendrogram-to-put-on-the-left-of-the-heatmap">Dendrogram to put on the left of the heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#dendrogram-with-pandas">Dendrogram with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-distplot">create_distplot</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-distplot-of-1-dataset">Simple distplot of 1 dataset</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#two-data-sets-and-added-rug-text">Two data sets and added rug text</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#plot-with-normal-curve-and-hide-rug-plot">Plot with normal curve and hide rug plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#distplot-with-pandas">Distplot with pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-gantt">create_gantt</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-gantt-chart">Simple Gantt Chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#index-by-column-with-numerical-entries">Index by Column with Numerical Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#index-by-column-with-string-entries">Index by Column with String Entries</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#use-a-dictionary-for-colors">Use a dictionary for colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#use-a-pandas-dataframe">Use a pandas dataframe</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#create-ohlc">create_ohlc</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#simple-ohlc-chart-from-a-pandas-dataframe">Simple OHLC chart from a Pandas DataFrame</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#add-text-and-annotations-to-the-ohlc-chart">Add text and annotations to the OHLC chart</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#customize-the-ohlc-colors">Customize the OHLC colors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactories (a-o).html#ohlc-chart-with-datetime-objects">OHLC chart with datetime objects</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html">Figure Factory Demos (q-z)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-quiver">create_quiver</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#trivial-quiver">Trivial Quiver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#quiver-plot-using-meshgrid">Quiver plot using meshgrid</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#styling-the-quiver-plot">Styling the quiver plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-scatterplotmatrix">create_scatterplotmatrix</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#vanilla-scatterplot-matrix">Vanilla Scatterplot Matrix</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#indexing-a-column">Indexing a Column</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#styling-the-diagonal-subplots">Styling the Diagonal Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#use-a-theme-to-style-the-subplots">Use a Theme to Style the Subplots</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#example-4-with-interval-factoring">Example 4 with Interval Factoring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#using-the-colormap-as-a-dictionary">Using the colormap as a Dictionary</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-streamline">create_streamline</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#from-aeropython">from AeroPython</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-table">create_table</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#simple-plotly-table">Simple Plotly Table</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#table-with-custom-coloring">Table with Custom Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#simple-plotly-table-with-pandas">Simple Plotly Table with Pandas</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-trisurf">create_trisurf</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#torus">Torus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#mobius-band">Mobius Band</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#using-a-custom-colormap-function-with-light-cone">Using a Custom Colormap Function with Light Cone</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#enter-color-func-as-a-list-of-colors">Enter color_func as a list of colors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#create-violin">create_violin</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#single-violin-plot">Single Violin Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#multiple-violin-plots-with-qualitative-coloring">Multiple Violin Plots with Qualitative Coloring</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_FF/FigureFactory (q-z).html#violin-plots-with-colorscale">Violin Plots with Colorscale</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_layout/top-plotly-layout.html">Plotly layout options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html">plotly-layout-options-axes</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#toggling-axes-lines-ticks-labels-and-autorange">Toggling Axes Lines, Ticks, Labels, and Autorange</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#tick-placement-color-and-style">Tick Placement, Color, and Style</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#set-and-style-axes-title-labels-and-ticks">Set and Style Axes Title Labels and Ticks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#styling-and-coloring-axes-and-the-zero-line">Styling and Coloring Axes and the Zero-Line</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#setting-the-range-of-axes-manually">Setting the Range of Axes Manually</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#logarithmic-axes">Logarithmic Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#reversed-axes">Reversed Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#reversed-axes-with-range-min-max-specified">Reversed Axes with Range ( Min/Max ) Specified</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#nonnegative-tozero-and-normal-rangemode">nonnegative, tozero, and normal Rangemode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes.html#enumerated-ticks-with-tickvals-and-ticktext">Enumerated Ticks with Tickvals and Ticktext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes3d.html">plotly-layout-options-axes3d</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes3d.html#range-of-axes">Range of Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes3d.html#set-axes-title">Set Axes Title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes3d.html#ticks-formatting">Ticks Formatting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-axes3d.html#background-color-and-grid-color">Background color and grid color</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html">plotly-layout-options-legend</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#basic-legend">Basic legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#positioning-the-legend">Positioning the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#grouped-legends">Grouped legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#styling-and-coloring-the-legend">Styling and Coloring the Legend</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#selectively-hide-legend-entries">Selectively hide legend entries</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#hiding-legend-entries-in-grouped-legends">Hiding Legend Entries In Grouped Legends</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-legend.html#horizontal-legends">Horizontal legends</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html">plotly-layout-options-subplots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#simple-subplots">Simple subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#multiple-subplots-with-titles">Multiple Subplots With Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#customizing-subplot-axes">Customizing Subplot Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-y-axes">Subplots with Shared Y-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#stacked-subplots">Stacked Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#custom-sized-subplot-with-subplot-titles">+++Custom Sized Subplot with Subplot Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-x-axes">Subplots with Shared X-Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#subplots-with-shared-axes">Subplots with shared Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#multiple-custom-sized-subplots">Multiple Custom Sized Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-subplots.html#subplot-with-custom-sizes">++Subplot with custom sizes</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html">plotly-layout-options-text-and-annotations</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-text-to-data-in-line-and-scatter-plots">Adding Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-hover-text-to-data-in-line-and-scatter-plots">Adding Hover Text to Data in Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#simple-annotation">Simple Annotation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#multiple-annotations">Multiple Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#custom-text-color-and-styling">Custom Text Color and Styling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#disabling-hover-text">Disabling Hover Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#styling-and-coloring-annotations">Styling and Coloring Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#text-font-as-an-array-styling-each-text-element">Text Font as an Array - Styling Each Text Element</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options-text-and-annotations.html#adding-annotations-with-xref-and-yref-as-paper">Adding Annotations with xref and yref as Paper</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html">plotly-layout-options</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#adding-logos">Adding logos</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#add-background-image">Add background image</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#latex">Latex</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#text-and-font-styling-global-font-properties">Text and Font Styling (global font properties)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#setting-graph-size">Setting graph size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#setting-the-title-legend-entries-and-axis-titles">Setting the Title, Legend Entries, and Axis Titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#multiple-axes">Multiple Axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#two-y-axes">Two y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#multiple-y-axes">Multiple y-axes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_layout/plotly-layout-options.html#inset-plots">Inset Plots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_demos_api/top-plotly-api.html">Plotly &#8211; API demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html">3d-plot-demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#plot">Plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#set-trace">Set trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#set-layout">set layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#finally-plot">finally, plot</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-mesh">3d mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html">annotated-heatmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html">bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html">bubble-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#note">note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html">chord-diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#define-nodes">Define nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#define-edges">Define edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#node-position">Node position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/chord-diagram.html#finally-plot">Finally, plot!</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html">dendrograms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#basic-dendrogram">Basic Dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#set-orientation-and-add-labels">Set orientation and add labels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#plot-a-dendrogram-with-a-heatmap">Plot a Dendrogram with a Heatmap</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#get-data">get data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#initialize-figure-by-creating-upper-dendrogram">Initialize figure by creating upper dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#create-heatmap">Create heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#edit-layout">Edit layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../../../plotly_demos_api/dendrograms.html#plot">Plot!</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/dropdowns (daiji).html">dropdowns (daiji)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/dropdowns (daiji).html#simple-dropdown-menu">Simple Dropdown Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/dropdowns (daiji).html#add-multiple-dropdown-menus">Add Multiple Dropdown Menus</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html">filled-area-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html#basic-overlaid-area-chart">Basic Overlaid Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html#overlaid-area-chart-without-boundary-lines">Overlaid Area Chart Without Boundary Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html#interior-filling-for-area-chart">Interior Filling for Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-cumulative-values">Stacked Area Chart with Cumulative Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-original-values">Stacked Area Chart with Original Values</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html">heatmaps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#define-traces">Define traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/igraph-networkx-comparison.html">igraph-networkx-comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/igraph-networkx-comparison.html#download-data-from-uci">Download data from UCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/igraph-networkx-comparison.html#igraph">igraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/igraph-networkx-comparison.html#networkx">Networkx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/igraph-networkx-comparison.html#repeat-with-different-pos">Repeat with different pos</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html">line-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#simple-line-charts">Simple line charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#line-plot-models">Line plot models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#style-line-plots">Style Line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#the-traces">The traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#annotation-content">Annotation content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/networkx-demo.html">networkx-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/pie-charts.html">pie-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/pie-charts.html#basic-pie-chart">Basic pie chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/pie-charts.html#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/pie-charts.html#donut-chart">Donut Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/pie-charts.html#pie-chart-subplots">Pie Chart Subplots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/range-slider.html">range-slider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/scatter-plots.html">scatter-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/scatter-plots.html#simple-scatter-plot">Simple scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/scatter-plots.html#line-and-scatter-plots">Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/scatter-plots.html#style-scatter-plots">Style Scatter Plots</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_demos_api/tables.html">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#simple-table">Simple table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#add-links">Add Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#use-latex">Use LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#include-and-index-column">Include and Index Column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#custom-table-colors">Custom Table Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#custom-font-colors">Custom Font Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#change-font-size">Change Font Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#tables-with-graphs">Tables with Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#horizontal-subplots">Horizontal subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_demos_api/tables.html#vertical-subplots">Vertical subplots</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../plotly_maps/top-plotly-maps.html">Plotly &#8211; map demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html">Choropleth Maps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#united-states-choropleth-map">United States Choropleth Map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#define-data-object">Define data object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#world-choropleth-map">World choropleth map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#define-data">Define data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/Choropleth Maps.html#choropleth-inset-map">Choropleth Inset Map</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html">plotly-mapbox</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#basic-example">Basic Example</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#define-trace-scattermapbox-object">Define trace (Scattermapbox object)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#plot">Plot!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#multiple-markers">Multiple Markers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#county-level">County-level</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#color-the-counties">Color the Counties</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#create-json-files">Create JSON Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#define-data-easy-part">Define data (easy part)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../../plotly_maps/plotly-mapbox.html#define-layout-hard-part">Define layout (hard part)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Contents (current page) <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"></ul>
+</li>
+              
+            
+            
+            
+            
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 content">
+      
+  <h1>Source code for tak.data.tob_pnc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># -*- coding: utf-8 -*-</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">===============================================================================</span>
+<span class="sd">For pnc/tob matched subjects</span>
+
+<span class="sd">-------------------------------------------------------------------------------</span>
+<span class="sd">06/22/2016</span>
+<span class="sd">- filename changed from ``pnc_tob.py`` to ``tob_pnc.py``</span>
+<span class="sd">===============================================================================</span>
+<span class="sd">Created on June 14th, 2016</span>
+
+<span class="sd">@author: takanori</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">loadmat</span>
+
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">nibabel</span> <span class="kn">as</span> <span class="nn">nib</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="c1">#import sys</span>
+
+<span class="kn">import</span> <span class="nn">tak</span> <span class="kn">as</span> <span class="nn">tw</span>
+
+
+<span class="kn">from</span> <span class="nn">.util_data</span> <span class="kn">import</span> <span class="n">get_data_path</span><span class="p">,</span> <span class="n">fix_file_list</span>
+<span class="c1">#from .pnc import get_pnc_tob_matched_subjects_0608</span>
+<span class="c1">#%% === path definitions ===</span>
+<span class="c1">#datapath_tobpnc = os.path.expanduser(&#39;~/data/PNC_Tobacco_Merged&#39;)</span>
+<span class="n">datapath_tobpnc</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">get_data_path</span><span class="p">(),</span><span class="s1">&#39;PNC_Tobacco_Merged&#39;</span><span class="p">)</span>
+<span class="c1">#%% === new functions created on 07/05/2016 ===</span>
+<span class="k">def</span> <span class="nf">load_datasheet</span><span class="p">():</span>
+    <span class="sd">&quot;&quot;&quot; Get updated spreadsheet for Tobacco/PNC-merged phenotypes.</span>
+<span class="sd">    </span>
+<span class="sd">    Here, minimal amount of processing of spreadsheet is applied:</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df : pandas DataFrame of size (n_samples, n_fields)</span>
+<span class="sd">        Dataframe containing subject phenotypes</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; df = tw.data.tob_pnc.load_datasheet()</span>
+<span class="sd">    </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/05/2016 -- Created.</span>
+<span class="sd">    - 07/18/2016 -- renamed column &#39;Age_years&#39; to &#39;age&#39;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1">#%% === cleanup spreadsheet ====</span>
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span>
+                             <span class="s1">&#39;Resources&#39;</span><span class="p">,</span><span class="s1">&#39;PNC_Tobacco_Merged_Dataset2.xlsx&#39;</span><span class="p">)</span>
+    <span class="n">df_in</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="n">data_path</span><span class="p">)</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,:</span><span class="mi">8</span><span class="p">]</span>
+    
+    <span class="n">df_in</span> <span class="o">=</span> <span class="n">df_in</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+    <span class="c1"># rename column    </span>
+    <span class="n">df_in</span> <span class="o">=</span> <span class="n">df_in</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Age_years&#39;</span><span class="p">:</span><span class="s1">&#39;age&#39;</span><span class="p">})</span>
+    <span class="k">return</span> <span class="n">df_in</span>
+    
+    
+<span class="k">def</span> <span class="nf">load_connectome_matfile</span><span class="p">(</span><span class="n">file_list_only</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">pruned</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load design matrix for the structural connectome saved as .mat file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    file_list_only : bool</span>
+<span class="sd">        Just return list of file-names (to save time)</span>
+<span class="sd">    pruned : bool</span>
+<span class="sd">        Get connectomes pruned at density 15%</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : ndarray of shape (n_samples,n_features)=(n,p)</span>
+<span class="sd">        Data matrix with rows as data points</span>
+<span class="sd">    fileList : list of shape (n_samples)</span>
+<span class="sd">        List containing the name of the original image file. </span>
+<span class="sd">        Contains subject&#39;s ID, which will be used as merge-keys with the</span>
+<span class="sd">        spreadsheet info.</span>
+<span class="sd">    </span>
+
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; X, fileList = tw.data.tob_pnc.load_connectome_matfile()</span>
+<span class="sd">            </span>
+<span class="sd">    **History**</span>
+<span class="sd">    </span>
+<span class="sd">    - 07/05/2016 -- Created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">pruned</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tob_pnc_connectome_PROB_pruned_0705_2016.mat&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tob_pnc_connectome_PROB_0705_2016.mat&#39;</span>
+        
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    
+    <span class="n">fileList</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="n">variable_names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;fileList&#39;</span><span class="p">))[</span><span class="s1">&#39;fileList&#39;</span><span class="p">]</span>
+    <span class="n">fileList</span> <span class="o">=</span> <span class="n">fix_file_list</span><span class="p">(</span><span class="n">fileList</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fileList</span><span class="p">)</span> <span class="o">==</span> <span class="n">fileList</span>
+    
+    <span class="k">if</span> <span class="n">file_list_only</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fileList</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="n">variable_names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;connMatrix&#39;</span><span class="p">))[</span><span class="s1">&#39;connMatrix&#39;</span><span class="p">]</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">tw</span><span class="o">.</span><span class="n">conn2design</span><span class="p">(</span><span class="n">X</span><span class="p">)</span> <span class="c1"># convert (nROI x nROI x nsubj) to (nsub x nEdges)</span>
+    
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">fileList</span>
+
+<div class="viewcode-block" id="load_diffusion_volume_matfile"><a class="viewcode-back" href="../../../supervised_nmf.html#tak.data.load_diffusion_volume_matfile">[docs]</a><span class="k">def</span> <span class="nf">load_diffusion_volume_matfile</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;FA&#39;</span><span class="p">,</span><span class="n">downsample</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+                                  <span class="n">file_list_only</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load design matrix for the diffusion volume saved as .mat file.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    modality : string</span>
+<span class="sd">        Type of diffusion measure: ``&#39;FA&#39;,&#39;TR&#39;,&#39;RD&#39;,&#39;AX&#39;``</span>
+<span class="sd">    downsample : bool</span>
+<span class="sd">        Downsampled volume or not.</span>
+<span class="sd">    file_list_only : bool</span>
+<span class="sd">        Just return list of file-names (to save time)</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : ndarray of shape (n_samples,n_features)=(n,p)</span>
+<span class="sd">        Data matrix with rows as data points</span>
+<span class="sd">    fileList : list of shape (n_samples)</span>
+<span class="sd">        List containing the name of the original image file. </span>
+<span class="sd">        Contains subject&#39;s ID, which will be used as merge-keys with the</span>
+<span class="sd">        spreadsheet info.</span>
+<span class="sd">        </span>
+<span class="sd">    Examples</span>
+<span class="sd">    --------</span>
+<span class="sd">    &gt;&gt;&gt; X, fileList = tw.data.tob_pnc.load_diffusion_volume_matfile()</span>
+<span class="sd">            </span>
+<span class="sd">    Notes</span>
+<span class="sd">    -----</span>
+<span class="sd">    - 07/06/2016 -- Created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">date_str</span><span class="o">=</span><span class="s1">&#39;0706_2016&#39;</span>
+    <span class="k">if</span> <span class="n">downsample</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tobpnc_dsamp_{}_{}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">modality</span><span class="p">,</span><span class="n">date_str</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;tobpnc_full_{}_{}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">modality</span><span class="p">,</span><span class="n">date_str</span><span class="p">)</span>
+        
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    
+    <span class="n">fileList</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="n">variable_names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;fileList&#39;</span><span class="p">))[</span><span class="s1">&#39;fileList&#39;</span><span class="p">]</span>
+    <span class="n">fileList</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="n">_file</span><span class="p">)</span> <span class="k">for</span> <span class="n">_file</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">]</span>
+    <span class="k">assert</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">fileList</span><span class="p">)</span> <span class="o">==</span> <span class="n">fileList</span>
+    
+    <span class="k">if</span> <span class="n">file_list_only</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">fileList</span>
+    
+    <span class="n">X</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="n">variable_names</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;X&#39;</span><span class="p">))[</span><span class="s1">&#39;X&#39;</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span> <span class="n">fileList</span></div>
+    
+<span class="k">def</span> <span class="nf">load_diffusion_volume</span><span class="p">(</span><span class="n">modality</span><span class="o">=</span><span class="s1">&#39;FA&#39;</span><span class="p">,</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">downsample</span><span class="o">=</span><span class="bp">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load design matrix for the diffusion volume.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    modality : string</span>
+<span class="sd">        ``&#39;FA&#39;,&#39;TR&#39;,&#39;AX&#39;,&#39;RD&#39;``</span>
+<span class="sd">    dataset : string</span>
+<span class="sd">        ``&#39;both&#39;,&#39;pnc&#39;,&#39;tob&#39;``</span>
+<span class="sd">    downsample : bool</span>
+<span class="sd">        Downsampled volume</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : ndarray of shape (n_samples,n_features)=(n,p)</span>
+<span class="sd">        Data matrix with rows as data points</span>
+<span class="sd">    df : pandas DataFrame of size (n_samples, n_fields)</span>
+<span class="sd">        Dataframe containing subject phenotypes</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; X, df = tw.data.tob_pnc.load_connectome()</span>
+<span class="sd">    &gt;&gt;&gt; age = df[&#39;Age_years&#39;].values</span>
+<span class="sd">    </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/06/2016 -- Created </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X</span><span class="p">,</span><span class="n">fileList</span> <span class="o">=</span> <span class="n">load_diffusion_volume_matfile</span><span class="p">(</span><span class="n">modality</span><span class="p">,</span><span class="n">downsample</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">load_datasheet</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">file_list_to_id</span><span class="p">():</span>
+        <span class="c1"># select substring containing subject id</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_subj</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="o">+</span><span class="n">modality</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">_subj</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">]</span>
+    <span class="c1">#%% everything below identical to ``load_connectome``</span>
+    <span class="n">subj_id</span> <span class="o">=</span> <span class="n">file_list_to_id</span><span class="p">()</span>
+    
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">subj</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subj_id</span><span class="p">)])</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">fileList</span> <span class="o">=</span> <span class="p">[</span><span class="n">fileList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="k">if</span> <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">subj_id</span>  <span class="o">=</span> <span class="p">[</span><span class="n">subj_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="k">if</span> <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="k">assert</span> <span class="n">subj_id</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    
+    <span class="c1">#--- append ``file_name`` onto second column</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fileList</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">cols</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">cols</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="c1"># insert last column at 2nd column</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;both&#39;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tob&#39;</span><span class="p">:</span>
+        <span class="n">mask_tob</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pnc&#39;</span><span class="p">:</span>
+        <span class="n">mask_pnc</span> <span class="o">=</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">df</span>
+    
+<span class="k">def</span> <span class="nf">load_connectome</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">,</span><span class="n">pruned</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load design matrix for the structural connectome.</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset : string</span>
+<span class="sd">        ``&#39;both&#39;,&#39;pnc&#39;,&#39;tob&#39;``</span>
+<span class="sd">    pruned : bool</span>
+<span class="sd">        Get connectomes pruned at density 15%</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    X : ndarray of shape (n_samples,n_features)=(n,p)</span>
+<span class="sd">        Data matrix with rows as data points</span>
+<span class="sd">    df : pandas DataFrame of size (n_samples, n_fields)</span>
+<span class="sd">        Dataframe containing subject phenotypes</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; X, df = tw.data.tob_pnc.load_connectome()</span>
+<span class="sd">    &gt;&gt;&gt; age = df[&#39;age&#39;].values</span>
+<span class="sd">    </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/05/2016 -- Created </span>
+<span class="sd">      (``dev_0705_tob_pnc_get_connectome.py``)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">X</span><span class="p">,</span><span class="n">fileList</span> <span class="o">=</span> <span class="n">load_connectome_matfile</span><span class="p">()</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">load_datasheet</span><span class="p">()</span>
+    
+    <span class="k">def</span> <span class="nf">file_list_to_id</span><span class="p">():</span>
+        <span class="c1"># select substring containing subject id</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">_subj</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_connmat&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">_subj</span> <span class="ow">in</span> <span class="n">fileList</span><span class="p">]</span>
+    
+    <span class="n">subj_id</span> <span class="o">=</span> <span class="n">file_list_to_id</span><span class="p">()</span>
+    
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">subj</span> <span class="ow">in</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">subj</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">subj_id</span><span class="p">)])</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    <span class="n">fileList</span> <span class="o">=</span> <span class="p">[</span><span class="n">fileList</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="k">if</span> <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+    <span class="n">subj_id</span>  <span class="o">=</span> <span class="p">[</span><span class="n">subj_id</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>  <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">_</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">mask</span><span class="p">)</span> <span class="k">if</span> <span class="n">mask</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span>
+
+    <span class="k">assert</span> <span class="n">subj_id</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    
+    <span class="c1">#--- append ``file_name`` onto second column</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;file_name&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">fileList</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    <span class="n">cols</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">cols</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span> <span class="c1"># insert last column at 2nd column</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">cols</span><span class="p">]</span>
+    
+    <span class="c1">#--- add which dataset the index corresponds to ---</span>
+    <span class="c1">#%%</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;site&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[:</span><span class="mi">105</span><span class="p">,</span><span class="s1">&#39;site&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;pnc&#39;</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="mi">105</span><span class="p">:,</span><span class="s1">&#39;site&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;tob&#39;</span>
+    <span class="c1">#df[&#39;site&#39;][:105] = &#39;pnc&#39; </span>
+    <span class="c1">#df[&#39;site&#39;][105:] = &#39;tob&#39; # &lt;- this triggers warning</span>
+    <span class="c1">#see http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy</span>
+    <span class="c1">#%%</span>
+    
+    
+    <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;both&#39;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tob&#39;</span><span class="p">:</span>
+        <span class="n">mask_tob</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pnc&#39;</span><span class="p">:</span>
+        <span class="n">mask_pnc</span> <span class="o">=</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span>
+        <span class="n">X</span> <span class="o">=</span> <span class="n">X</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">X</span><span class="p">,</span><span class="n">df</span>
+    
+<span class="k">def</span> <span class="nf">load_bct_measures</span><span class="p">(</span><span class="n">density</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span><span class="n">log_tx</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">return_dict</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span><span class="n">normalized</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load network measures of interest.</span>
+<span class="sd">    </span>
+<span class="sd">    BCT scores saved via ``save_0721_bct_weighted_tobpnc.py`` using</span>
+<span class="sd">    :func:`bct_network_measures`</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    density : float</span>
+<span class="sd">        Target edge density upon threhsolding (value between (0,1))</span>
+<span class="sd">    log_tx : bool</span>
+<span class="sd">        Log transformation</span>
+<span class="sd">    return_dict : bool</span>
+<span class="sd">        Return results as dictionary</span>
+<span class="sd">    normalized : bool</span>
+<span class="sd">        Return result from *mean-max-edge* normalized connectomes</span>
+<span class="sd">        </span>
+<span class="sd">    Usage</span>
+<span class="sd">    -----</span>
+<span class="sd">    &gt;&gt;&gt; X = tw.data.pnc.load_connectome()[0]</span>
+<span class="sd">    &gt;&gt;&gt; BC,CC,deg,eff,ASS,CPL,EFF,TRA = tw.data.pnc.load_bct_measures(log_tx=True)</span>
+<span class="sd">    </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    The following are **nodal measures** of shape (n_subj,n_nodes)</span>
+<span class="sd">    </span>
+<span class="sd">    BC : ndarray of shape=(n_subject,n_nodes)</span>
+<span class="sd">        Betweenness centrality (global measure)</span>
+<span class="sd">    CC : ndarray of shape=(n_subject,n_nodes)</span>
+<span class="sd">        Clustering coefficient</span>
+<span class="sd">    deg : ndarray of shape=(n_subject,n_nodes)</span>
+<span class="sd">        Degree</span>
+<span class="sd">    eff : ndarray of shape=(n_subject,n_nodes)</span>
+<span class="sd">        Local efficiency</span>
+<span class="sd">        </span>
+<span class="sd">    The following are **global measures** of shape (n_subj,)</span>
+<span class="sd">    </span>
+<span class="sd">    ASS : </span>
+<span class="sd">        assortativity</span>
+<span class="sd">    CPL :</span>
+<span class="sd">        characteristic path length</span>
+<span class="sd">    EFF : </span>
+<span class="sd">        global efficiency</span>
+<span class="sd">    TRA :</span>
+<span class="sd">        transitivity</span>
+<span class="sd">        </span>
+<span class="sd">    </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/21/2016 -- Created </span>
+<span class="sd">    - 07/26/2016 -- Updated with option ``normalized``</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">normalized</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">log_tx</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;bct_meanMaxNormalized_log_weighted_density{:.1f}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">density</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;bct_meanMaxNormalized_weighted_density{:.1f}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">density</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">log_tx</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;bct_logweighted_density{:.1f}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">density</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">file_name</span> <span class="o">=</span> <span class="s1">&#39;bct_weighted_density{:.1f}.mat&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="mi">100</span><span class="o">*</span><span class="n">density</span><span class="p">)</span>
+    
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="s1">&#39;bct&#39;</span><span class="p">,</span><span class="n">file_name</span><span class="p">)</span>
+    
+    <span class="n">in_data</span> <span class="o">=</span> <span class="n">loadmat</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+    
+    <span class="c1"># -- global measures ---</span>
+    <span class="c1"># flattening applied since shape=(1,nsubj) when saved via savemat</span>
+    <span class="n">ASS</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;ASS&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">CPL</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;CPL&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">EFF</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;EFF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    <span class="n">TRA</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;TRA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">ravel</span><span class="p">()</span>
+    
+    <span class="c1"># -- local measures ---</span>
+    <span class="n">BC</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;BC&#39;</span><span class="p">]</span>
+    <span class="n">CC</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;CC&#39;</span><span class="p">]</span>
+    <span class="n">deg</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;deg&#39;</span><span class="p">]</span>
+    <span class="n">eff</span> <span class="o">=</span> <span class="n">in_data</span><span class="p">[</span><span class="s1">&#39;eff&#39;</span><span class="p">]</span>
+    
+    <span class="k">if</span> <span class="n">return_dict</span><span class="p">:</span>
+        <span class="k">return</span> <span class="nb">dict</span><span class="p">(</span><span class="n">BC</span><span class="o">=</span><span class="n">BC</span><span class="p">,</span><span class="n">CC</span><span class="o">=</span><span class="n">CC</span><span class="p">,</span><span class="n">deg</span><span class="o">=</span><span class="n">deg</span><span class="p">,</span><span class="n">eff</span><span class="o">=</span><span class="n">eff</span><span class="p">,</span><span class="n">ASS</span><span class="o">=</span><span class="n">ASS</span><span class="p">,</span><span class="n">CPL</span><span class="o">=</span><span class="n">CPL</span><span class="p">,</span><span class="n">EFF</span><span class="o">=</span><span class="n">EFF</span><span class="p">,</span><span class="n">TRA</span><span class="o">=</span><span class="n">TRA</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">BC</span><span class="p">,</span><span class="n">CC</span><span class="p">,</span><span class="n">deg</span><span class="p">,</span><span class="n">eff</span><span class="p">,</span><span class="n">ASS</span><span class="p">,</span><span class="n">CPL</span><span class="p">,</span><span class="n">EFF</span><span class="p">,</span><span class="n">TRA</span>
+        
+<span class="k">def</span> <span class="nf">load_176roi</span><span class="p">(</span><span class="n">dataset</span><span class="o">=</span><span class="s1">&#39;both&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Load design matrix for the 176 ROI.</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    dataset : string</span>
+<span class="sd">        ``&#39;both&#39;,&#39;pnc&#39;,&#39;tob&#39;``</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    df176 : pandas DataFrame of shape (n_samples,n_features)=(n,p)</span>
+<span class="sd">        Data matrix with rows as data points.</span>
+<span class="sd">        p = 176*(4 FA/TR/AX/RD) * (2 Mean/Std) = 1408.</span>
+<span class="sd">    df : pandas DataFrame of size (n_samples, n_fields)</span>
+<span class="sd">        Dataframe containing subject phenotypes</span>
+<span class="sd">        </span>
+<span class="sd">    &gt;&gt;&gt; X, df = tw.data.tob_pnc.load_176roi()</span>
+<span class="sd">    &gt;&gt;&gt; age = df[&#39;Age_years&#39;].values</span>
+<span class="sd">    </span>
+<span class="sd">    To use only the FA Mean features:</span>
+<span class="sd">    </span>
+<span class="sd">    &gt;&gt;&gt; X,df = tw.data.tob_pnc.load_176roi()</span>
+<span class="sd">    &gt;&gt;&gt; mask = X.columns.str.contains(&#39;NZMean.*FA&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; mask += X.columns.str.contains(&#39;NZSigma.*FA&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; X = X.iloc[:,mask].values</span>
+<span class="sd">    </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/05/2016 -- Created </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="s1">&#39;Results&#39;</span><span class="p">,</span><span class="s1">&#39;roistats&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;PNC_Tobacco_Merged_roistats.csv&#39;</span><span class="p">)</span>
+    <span class="n">df176</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">data_path</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">df176</span> <span class="o">=</span> <span class="n">df176</span><span class="o">.</span><span class="n">sort_index</span><span class="p">()</span>
+    
+    <span class="n">df</span><span class="o">=</span><span class="n">tw</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">tob_pnc</span><span class="o">.</span><span class="n">load_datasheet</span><span class="p">()</span>
+    
+    <span class="c1"># remove subjects not contained in the phenotypic spreadsheet</span>
+    <span class="n">mask</span> <span class="o">=</span> <span class="n">df176</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">])</span>
+    <span class="n">df176</span> <span class="o">=</span> <span class="n">df176</span><span class="p">[</span><span class="n">mask</span><span class="p">]</span>
+    
+    <span class="k">assert</span> <span class="n">df176</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span> <span class="o">==</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;ID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">tolist</span><span class="p">()</span>
+    
+    <span class="k">if</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span><span class="o">==</span><span class="s1">&#39;both&#39;</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;tob&#39;</span><span class="p">:</span>
+        <span class="n">mask_tob</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span>
+        <span class="n">df176</span> <span class="o">=</span> <span class="n">df176</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">,:]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_tob</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">dataset</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="s1">&#39;pnc&#39;</span><span class="p">:</span>
+        <span class="n">mask_pnc</span> <span class="o">=</span> <span class="o">~</span><span class="n">df</span><span class="o">.</span><span class="n">ID</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;R&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">values</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span>
+        <span class="n">df176</span> <span class="o">=</span> <span class="n">df176</span><span class="o">.</span><span class="n">ix</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">,:]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">mask_pnc</span><span class="p">]</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">df176</span><span class="p">,</span> <span class="n">df</span>
+
+
+<span class="k">def</span> <span class="nf">load_brainmask</span><span class="p">(</span><span class="n">downsampled</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get brain mask</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    downsampled : bool</span>
+<span class="sd">        Downsampled resolution</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    mask_vol : ndarray of shape=(nx,ny,nz)</span>
+<span class="sd">        Binary brain mask</span>
+<span class="sd">        </span>
+<span class="sd">    Usage</span>
+<span class="sd">    -----</span>
+<span class="sd">    &gt;&gt;&gt; mask_vol = load_brainmask()</span>
+<span class="sd">        </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/06/2016 -- Created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">downsampled</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;intersection_mask_dsamp.nii.gz&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;intersection_mask.nii.gz&#39;</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">brainmask</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">brainmask</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">bool</span><span class="p">)</span>
+    
+    
+<span class="k">def</span> <span class="nf">load_eve176</span><span class="p">(</span><span class="n">downsampled</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get eve176 template volume</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    downsampled : bool</span>
+<span class="sd">        Downsampled resolution</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    eve176 : ndarray of shape=(nx,ny,nz)</span>
+<span class="sd">        Eve176 segmentation atlas</span>
+<span class="sd">        </span>
+<span class="sd">    Usage</span>
+<span class="sd">    -----</span>
+<span class="sd">    &gt;&gt;&gt; eve176 = load_eve176()</span>
+<span class="sd">        </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/06/2016 -- Created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">downsampled</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;JHU_2m_lps_WMPM1_dsamp.nii.gz&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;JHU_2m_lps_WMPM1.nii.gz&#39;</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">eve176</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">eve176</span>
+    
+    
+<span class="k">def</span> <span class="nf">load_template</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="s1">&#39;FA&#39;</span><span class="p">,</span><span class="n">downsampled</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; Get T1 template volume</span>
+<span class="sd">    </span>
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    downsampled : bool</span>
+<span class="sd">        Downsampled resolution</span>
+<span class="sd">        </span>
+<span class="sd">    Returns</span>
+<span class="sd">    -------</span>
+<span class="sd">    template: ndarray of shape=(nx,ny,nz)</span>
+<span class="sd">        Template volume</span>
+<span class="sd">        </span>
+<span class="sd">    Usage</span>
+<span class="sd">    -----</span>
+<span class="sd">    &gt;&gt;&gt; FA_template = load_template(&#39;FA&#39;)</span>
+<span class="sd">    &gt;&gt;&gt; T1_template = load_template(&#39;T1&#39;)</span>
+<span class="sd">        </span>
+<span class="sd">    History</span>
+<span class="sd">    -------</span>
+<span class="sd">    - 07/06/2016 -- Created.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;FA&#39;</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;JHU_2m_lps_nii_FA&#39;</span>
+    <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;T1&#39;</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">=</span> <span class="s1">&#39;JHU_2m_lps_T1&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">pass</span>
+    
+    <span class="k">if</span> <span class="n">downsampled</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">+=</span> <span class="s1">&#39;_dsamp.nii.gz&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">filename</span> <span class="o">+=</span> <span class="s1">&#39;.nii.gz&#39;</span>
+    <span class="n">filepath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">datapath_tobpnc</span><span class="p">,</span><span class="n">filename</span><span class="p">)</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">nib</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span><span class="o">.</span><span class="n">get_data</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">template</span>
+<span class="c1">#%% === everything below deprecated on 07/05/2016 ====</span>
+<span class="c1">#%% print module-name warning</span>
+<span class="c1">#def print_warning(fn):</span>
+<span class="c1">#    def wrapper():</span>
+<span class="c1">#        #from warnings import warn</span>
+<span class="c1">#        #warn(&#39;module-name changed from &quot;pnc_tob&quot; to &quot;tob_pnc&quot; on 06/22/2016&#39;)</span>
+<span class="c1">#        &quot;&quot;&quot;ipython only prints warning the first call time...so just use print</span>
+<span class="c1">#           to make sure i get the message&quot;&quot;&quot;</span>
+<span class="c1">#        print(&#39;module-name changed from &quot;pnc_tob&quot; to &quot;tob_pnc&quot; on 06/22/2016&#39;)</span>
+<span class="c1">#    return wrapper</span>
+<span class="c1">##%%</span>
+<span class="c1">#def get_tob_pnc_path():</span>
+<span class="c1">#    return os.path.join(get_data_path(),&#39;tob_pnc_matched&#39;)</span>
+<span class="c1">#</span>
+<span class="c1">##@print_warning</span>
+<span class="c1">#def get_matched_subjects():</span>
+<span class="c1">#    &quot;&quot;&quot; Get list of *matched* pnc/tob subjects</span>
+<span class="c1">#    </span>
+<span class="c1">#    </span>
+<span class="c1">#    Usage</span>
+<span class="c1">#    -----</span>
+<span class="c1">#    &gt;&gt;&gt; df_pnc, df_tob = get_matched_subjects_0614()</span>
+<span class="c1">#    </span>
+<span class="c1">#    History</span>
+<span class="c1">#    -------</span>
+<span class="c1">#    - Created 06/14/2016</span>
+<span class="c1">#    - 06/22/2016 -- update on spreadsheet data location.</span>
+<span class="c1">#      also changed filename from ``get_matched_subjects_0614`` to </span>
+<span class="c1">#      ``get_matched_subjects``.</span>
+<span class="c1">#    &quot;&quot;&quot;</span>
+<span class="c1">#    xls_path = os.path.join(get_tob_pnc_path(),&#39;PNC_Tobacco_Merged_Dataset.xlsx&#39;)</span>
+<span class="c1">#    df = pd.read_excel(xls_path).iloc[:,:8] # only the first 8 columns are relevant</span>
+<span class="c1">#    </span>
+<span class="c1">#    # first 111 subjects are tobacco, last 111 subj are from pnc</span>
+<span class="c1">#    df_tob = df[:111]</span>
+<span class="c1">#    df_pnc = df[111:]</span>
+<span class="c1">#    </span>
+<span class="c1">#    # sort rows of each dataframes by ID</span>
+<span class="c1">#    df_tob = df_tob.sort_values(by=[&#39;ID&#39;])</span>
+<span class="c1">#    df_pnc = df_pnc.sort_values(by=[&#39;ID&#39;])</span>
+<span class="c1">#    </span>
+<span class="c1">#    # reset index (my preference, so the pandas index can be used as counterse</span>
+<span class="c1">#    df_tob.reset_index(drop=True,inplace=True)</span>
+<span class="c1">#    df_pnc.reset_index(drop=True,inplace=True)</span>
+<span class="c1">#    </span>
+<span class="c1">#    #_,_,df_ = get_pnc_0523()</span>
+<span class="c1">#    #%%</span>
+<span class="c1">#    return df_pnc, df_tob</span>
+<span class="c1">#    </span>
+<span class="c1">#    </span>
+<span class="c1">#def get_176roi():</span>
+<span class="c1">#    &quot;&quot;&quot;Get 176roi diffusion for **matched** pnc/tob subjects.</span>
+<span class="c1">#    </span>
+<span class="c1">#    Usage</span>
+<span class="c1">#    -----</span>
+<span class="c1">#    &gt;&gt;&gt; tob176, pnc176, roi_name = tw.data.tob_pnc.get_176roi()</span>
+<span class="c1">#    </span>
+<span class="c1">#    Get mean-FA 176 ROIs</span>
+<span class="c1">#    </span>
+<span class="c1">#    &gt;&gt;&gt; mask_fa=pnc176.columns.str.startswith(&#39;mean_FA&#39;)</span>
+<span class="c1">#    &gt;&gt;&gt; pnc_meanFA = pnc176.iloc[:,mask_fa]</span>
+<span class="c1">#    </span>
+<span class="c1">#    Sanity check on ID matching</span>
+<span class="c1">#    </span>
+<span class="c1">#    &gt;&gt;&gt; df_pnc, df_tob = tw.data.tob_pnc.get_matched_subjects()</span>
+<span class="c1">#    &gt;&gt;&gt; tob176, pnc176, roi_name = tw.data.tob_pnc.get_176roi()</span>
+<span class="c1">#    &gt;&gt;&gt; print pd.Series.equals( df_pnc[&#39;ID&#39;], pnc176.reset_index()[&#39;ID&#39;])</span>
+<span class="c1">#    &gt;&gt;&gt; print pd.Series.equals( df_tob[&#39;ID&#39;], tob176.reset_index()[&#39;ID&#39;])</span>
+<span class="c1">#    </span>
+<span class="c1">#    History</span>
+<span class="c1">#    -------</span>
+<span class="c1">#    - Created 06/14/2016</span>
+<span class="c1">#    - 06/22/2016 -- update on spreadsheet data location.</span>
+<span class="c1">#      also changed filename from ``get_176roi_0614`` to ``get_176roi``</span>
+<span class="c1">#    &quot;&quot;&quot;</span>
+<span class="c1">#    data_dir = os.path.join(get_tob_pnc_path(),&#39;176roi&#39;)</span>
+<span class="c1">#    fname = &#39;PNC_Tobacco_Merged_roistats.csv&#39;</span>
+<span class="c1">#    fpath = os.path.join(data_dir,fname)</span>
+<span class="c1">#    df = pd.read_csv(fpath)</span>
+<span class="c1">#    </span>
+<span class="c1">#    # set 1st column name to &#39;ID&#39;</span>
+<span class="c1">#    cols = df.columns.tolist()</span>
+<span class="c1">#    cols[0] = &#39;ID&#39;</span>
+<span class="c1">#    df.columns = cols</span>
+<span class="c1">#    </span>
+<span class="c1">#    # first 111 subjects are pnc, last 111 subj are from tob</span>
+<span class="c1">#    &quot;&quot;&quot;WARNING: opposite of the convention in PNC_Tobacco_Merged_Dataset.xlsx&quot;&quot;&quot;</span>
+<span class="c1">#    pnc176 = df[:111]</span>
+<span class="c1">#    tob176 = df[111:]</span>
+<span class="c1">#    </span>
+<span class="c1">#    # sort rows of each dataframes by ID</span>
+<span class="c1">#    #tob176.sort_values(by=[&#39;ID&#39;],inplace=True)</span>
+<span class="c1">#    #pnc176.sort_values(by=[&#39;ID&#39;],inplace=True) #&lt;- inplace=True raises warnings...</span>
+<span class="c1">#    tob176=tob176.sort_values(by=[&#39;ID&#39;])</span>
+<span class="c1">#    pnc176=pnc176.sort_values(by=[&#39;ID&#39;])</span>
+<span class="c1">#    </span>
+<span class="c1">#    # reset index (my preference, so the pandas index can be used as counters</span>
+<span class="c1">#    tob176.reset_index(drop=True,inplace=True)</span>
+<span class="c1">#    pnc176.reset_index(drop=True,inplace=True)</span>
+<span class="c1">#    </span>
+<span class="c1">#    </span>
+<span class="c1">#    # set ID as index</span>
+<span class="c1">#    tob176.set_index([&#39;ID&#39;],inplace=True)</span>
+<span class="c1">#    pnc176.set_index([&#39;ID&#39;],inplace=True)</span>
+<span class="c1">#    </span>
+<span class="c1">#    #return tob176,pnc176</span>
+<span class="c1">#    &quot;&quot;&quot;</span>
+<span class="c1">#    from pprint import pprint</span>
+<span class="c1">#    pprint(set([str_[:tw.str_find_nth(str_,&#39;_&#39;,2)] for str_ in pnc176.columns.tolist()]))</span>
+<span class="c1">#        set([</span>
+<span class="c1">#         &#39;NZMean_AX&#39;,</span>
+<span class="c1">#         &#39;NZMean_FA&#39;,</span>
+<span class="c1">#         &#39;NZMean_RAD&#39;,</span>
+<span class="c1">#         &#39;NZMean_TR&#39;,</span>
+<span class="c1">#         &#39;NZSigma_AX&#39;,</span>
+<span class="c1">#         &#39;NZSigma_FA&#39;,</span>
+<span class="c1">#         &#39;NZSigma_RAD&#39;,</span>
+<span class="c1">#         &#39;NZSigma_TR&#39;])</span>
+<span class="c1">#     &quot;&quot;&quot;</span>
+<span class="c1">#    #%% extract ROI-names</span>
+<span class="c1">#    # err...pandas str.replace supports regular expressions...wish i knew that earlier...</span>
+<span class="c1">#    roi_name = pnc176.columns[:176]</span>
+<span class="c1">#    </span>
+<span class="c1">#    #http://stackoverflow.com/questions/493819/python-join-why-is-it-string-joinlist-instead-of-list-joinstring</span>
+<span class="c1">#    #roi_name = roi_name.str.split(&#39;(_)&#39;) # split string but also keep underscore (via paranthesis capturer)</span>
+<span class="c1">#    roi_name = roi_name.str.split(&#39;_&#39;) </span>
+<span class="c1">#    roi_name = roi_name.str[-2:] # take last 2 items in list</span>
+<span class="c1">#    roi_name = roi_name.str.join(&#39;_&#39;).tolist() # join strings with &#39;_&#39; concatenating the strings</span>
+<span class="c1">#    #%% cleanup column names</span>
+<span class="c1">#    def rename_columns(dataframe):</span>
+<span class="c1">#        &quot;&quot;&quot; rename names like ``mean_AX_111_SMG_R`` to ``mean_AX_111_SMG_R``&quot;&quot;&quot;</span>
+<span class="c1">#        # ``tmp_`` here represents a Pandas Index class</span>
+<span class="c1">#        colname = dataframe.columns</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZMean_FA&#39;,  &#39;mean_FA&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZMean_AX&#39;,  &#39;mean_AX&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZMean_TR&#39;,  &#39;mean_TR&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZMean_RAD&#39;, &#39;mean_RD&#39;)</span>
+<span class="c1">#        </span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZSigma_FA&#39;,  &#39;sigma_FA&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZSigma_AX&#39;,  &#39;sigma_AX&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZSigma_TR&#39;,  &#39;sigma_TR&#39;)</span>
+<span class="c1">#        colname=colname.str.replace(&#39;NZSigma_RAD&#39;, &#39;sigma_RD&#39;)</span>
+<span class="c1">#        </span>
+<span class="c1">#        # only extract the first 3 &quot;parts&quot; broken up by &#39;_&#39;</span>
+<span class="c1">#        colname = colname.str.split(&#39;_&#39;).str[:3].str.join(&#39;_&#39;).tolist()</span>
+<span class="c1">#        dataframe.columns = colname</span>
+<span class="c1">#        return dataframe</span>
+<span class="c1">#    </span>
+<span class="c1">#    # rename columns </span>
+<span class="c1">#    tob176 = rename_columns(tob176)</span>
+<span class="c1">#    pnc176 = rename_columns(pnc176)</span>
+<span class="c1">#    return tob176, pnc176, roi_name</span>
+<span class="c1">#    #%% create dataframes for each modality</span>
+<span class="c1">##    tob_mean_FA = df_tob.iloc[:,tob176.columns.str.startswith(&#39;NZMean_FA&#39;)]</span>
+<span class="c1">##    pnc_mean_FA = df_tob.iloc[:,pnc176.columns.str.startswith(&#39;NZMean_FA&#39;)]</span>
+<span class="c1">##    </span>
+<span class="c1">##    return pnc176, tob176</span>
+</pre></div>
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+        <br/>
+        
+      
+    </p>
+    <p>
+        &copy; Copyright 2016 Takanori Watanabe.<br/>
+      Last updated on Nov 02, 2016.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
