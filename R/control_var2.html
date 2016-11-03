@@ -8,7 +8,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>pie-charts</title>
+    <title>2 Controlling Confounds (with xtable)</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -36,9 +36,9 @@
     <script type="text/javascript" src="../_static/bootstrap-3.3.6/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="" href="../index.html" />
-    <link rel="up" title="Plotly – API demos" href="top-plotly-api.html" />
-    <link rel="next" title="range-slider" href="range-slider.html" />
-    <link rel="prev" title="networkx-demo" href="networkx-demo.html" />
+    <link rel="up" title="R notes (ds-R.rst)" href="ds-R.html" />
+    <link rel="next" title="Plotly demos" href="../plotly_demos/top-plotly.html" />
+    <link rel="prev" title="1 Controlling Confounds" href="control_var.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -142,25 +142,25 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">R Notes</span></p>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="../R/ds-R.html">R notes (<code class="docutils literal"><span class="pre">ds-R.rst</span></code>)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../R/control_var.html">1 Controlling Confounds</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../R/control_var.html#set-seed">1.1 Set seed</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../R/control_var.html#set-variables">1.2 set variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../R/control_var.html#regression">1.3 regression</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var.html#lm1-without-controlling-for-weight-weight">1.3.1 lm1: without controlling for weight(weight)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var.html#lm2-here-we-control-for-weight">1.3.2 lm2: here we control for weight</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var.html#in-case-you-want-to-add-the-fitted-lines-to-the-plot">1.3.3 In case you want to add the fitted lines to the plot</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="ds-R.html">R notes (<code class="docutils literal"><span class="pre">ds-R.rst</span></code>)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="control_var.html">1 Controlling Confounds</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="control_var.html#set-seed">1.1 Set seed</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control_var.html#set-variables">1.2 set variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="control_var.html#regression">1.3 regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="control_var.html#lm1-without-controlling-for-weight-weight">1.3.1 lm1: without controlling for weight(weight)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="control_var.html#lm2-here-we-control-for-weight">1.3.2 lm2: here we control for weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="control_var.html#in-case-you-want-to-add-the-fitted-lines-to-the-plot">1.3.3 In case you want to add the fitted lines to the plot</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../R/control_var2.html">2 Controlling Confounds (with xtable)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../R/control_var2.html#set-variables">2.1 set variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../R/control_var2.html#regression">2.2 regression</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var2.html#lm1-without-controlling-for-weight-weight">2.2.1 lm1: without controlling for weight(weight)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var2.html#lm2-here-we-control-for-weight">2.2.2 lm2: here we control for weight</a></li>
-<li class="toctree-l4"><a class="reference internal" href="../R/control_var2.html#in-case-you-want-to-add-the-fitted-lines-to-the-plot">2.2.3 In case you want to add the fitted lines to the plot</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="">2 Controlling Confounds (with xtable)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#set-variables">2.1 set variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#regression">2.2 regression</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#lm1-without-controlling-for-weight-weight">2.2.1 lm1: without controlling for weight(weight)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lm2-here-we-control-for-weight">2.2.2 lm2: here we control for weight</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-case-you-want-to-add-the-fitted-lines-to-the-plot">2.2.3 In case you want to add the fitted lines to the plot</a></li>
 </ul>
 </li>
 </ul>
@@ -169,7 +169,7 @@
 </li>
 </ul>
 <p class="caption"><span class="caption-text">Plotly demos</span></p>
-<ul class="current">
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="../plotly_demos/top-plotly.html">Plotly demos</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html">Choose my Geolocator</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../plotly_demos/choose_my_geolocator.html#try-to-pinpoint-huntsman-hall">Try to pinpoint Huntsman Hall</a></li>
@@ -607,236 +607,236 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1 current"><a class="reference internal" href="top-plotly-api.html">Plotly &#8211; API demos</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../plotly_demos_api/top-plotly-api.html">Plotly &#8211; API demos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html">3d-plot-demos-camera-and-lighting</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-camera-controls">3d camera controls</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#default-parameters-eye-x-1-25-y-1-25-z-1-25">Default parameters: eye=(x=1.25, y=1.25, z=1.25)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#lower-the-view-point-eye-x-2-y-2-z-0-1">Lower the View Point: eye=(x=2, y=2, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#x-z-plane-eye-x-0-1-y-2-5-z-0-1">X-Z plane: eye=(x=0.1, y=2.5, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#y-z-plane-eye-x-2-5-y-0-1-z-0-1">Y-Z plane: eye=(x=2.5, y=0.1, z=0.1)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#view-from-above-eye-x-0-1-y-0-1-z-2-5">View from Above - eye=(x=0.1, y=0.1, z=2.5)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#zooming-in-eye-x-0-1-y-0-1-z-1">Zooming In: eye=(x=0.1, y=0.1, z=1)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#d-surface-lighting">3d surface lighting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#ambient">Ambient</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#roughness">Roughness</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#diffuse">Diffuse</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#fresnel">Fresnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#specular">Specular</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos-camera-and-lighting.html#combined-effects">Combined effects</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="3d-plot-demos.html">3d-plot-demos</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#define-layout-object">Define layout object</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#plot">Plot!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html">3d-plot-demos</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-subplots">3D Surface Subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-coloring-subplots-too">3D Surface Coloring (subplots too!)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-point-clustering">3d point clustering</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-network-graph">3d network graph</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#assign-node-posibion">Assign node posibion</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-data-for-the-plotly-plot-of-the-graph">Set data for the Plotly plot of the graph:</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-trace-objects">Define trace objects</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-layout-object">Define layout object</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#plot">Plot!</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-filled-line-plots">3d filled line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plots">3d scatter plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-scatter-plot-with-colorscaling">3D Scatter Plot with Colorscaling</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#set-trace">Set trace</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#set-layout">set layout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#finally-plot">finally, plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#projection-of-3d-surface">Projection of 3D surface</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-trace">Set trace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#set-layout">set layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#discretization-of-each-plane">Discretization of each Plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#define-color-for-each-xyz-plane">Define color for each xyz plane</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#finally-plot">finally, plot</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-mesh">3d mesh</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh">3d mesh</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#simple-3d-mesh-example">Simple 3D Mesh example</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-mesh-example-with-alphahull">3D Mesh example with Alphahull</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-tetrahedron">Mesh Tetrahedron</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#mesh-cube">Mesh Cube</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-wireframe-plot">3d-wireframe plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-surface-plots">3d-surface plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#topographical-3d-surface-plot">Topographical 3D Surface Plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#multiple-3d-surface-plots">Multiple 3D Surface Plots</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
-<li class="toctree-l4"><a class="reference internal" href="3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#d-parametric-plots">3d Parametric plots</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#basic-parametric-plot">Basic parametric plot</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#parameteric-plot-with-colorscale">Parameteric Plot with Colorscale</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/3d-plot-demos.html#ribbon-plots">Ribbon plots</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="annotated-heatmap.html">annotated-heatmap</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html">annotated-heatmap</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#simple-annotated-heatmp">Simple annotated heatmp</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#defined-colorscale">Defined Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-colorscale">Custom Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-text-and-x-y-labels">Custom Text and X &amp; Y Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#annotated-heatmap-with-numpy">Annotated Heatmap with numpy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/annotated-heatmap.html#custom-hovertext">Custom Hovertext</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="bar-charts.html">bar-charts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bar-charts.html">bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#basic-bar-charts">Basic bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#grouped-bar-charts">Grouped bar charts</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-group-in-layout">Set barmode=group in layout</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#stacked-bar-chart">Stacked Bar Chart</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#set-barmode-stack-in-layout">Set <code class="docutils literal"><span class="pre">barmode=stack</span></code> in layout</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#styled-bar-chart-with-direct-labels">Styled Bar Chart with Direct Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#rotated-bar-chart-labels">Rotated Bar Chart Labels</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#xaxis-dict-tickangle-45">xaxis=dict(tickangle=-45)</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#customizing-individual-bar-colors">Customizing Individual Bar Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-hover-text">Bar chart with hover text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#waterfall-bar-chart">Waterfall Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bar-charts.html#bar-chart-with-relative-barmode">Bar Chart with Relative Barmode</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="bubble-charts.html">bubble-charts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#note">note</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html">bubble-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#note">note</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#simple-bubblecharts">Simple bubblecharts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#setting-marker-size-and-color">Setting Marker Size and Color</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#hover-text-with-bubble-charts">Hover Text with Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#scaling-the-size-of-bubble-charts">Scaling the Size of Bubble Charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#bubble-charts-with-colorscale">Bubble Charts with Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/bubble-charts.html#categorical-bubble-charts">Categorical Bubble Charts</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="chord-diagram.html">chord-diagram</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#define-nodes">Define nodes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#define-edges">Define edges</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#node-position">Node position</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="chord-diagram.html#finally-plot">Finally, plot!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html">chord-diagram</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#chord-diagram-example-from-plotly">Chord Diagram example from Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-nodes">Define nodes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#define-edges">Define edges</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#node-position">Node position</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#exotic-bezier-curve-stuffs">Exotic Bezier curve stuffs...</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#set-data-and-layout-for-plotly">Set data and layout for Plotly</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#more-bezier-curve-stuffs">more Bezier curve stuffs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/chord-diagram.html#finally-plot">Finally, plot!</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dendrograms.html">dendrograms</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dendrograms.html#basic-dendrogram">Basic Dendrogram</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#set-orientation-and-add-labels">Set orientation and add labels</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/dendrograms.html">dendrograms</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#basic-dendrogram">Basic Dendrogram</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#set-orientation-and-add-labels">Set orientation and add labels</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="dendrograms.html#plot-a-dendrogram-with-a-heatmap">Plot a Dendrogram with a Heatmap</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#get-data">get data</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#initialize-figure-by-creating-upper-dendrogram">Initialize figure by creating upper dendrogram</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#create-heatmap">Create heatmap</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#edit-layout">Edit layout</a></li>
-<li class="toctree-l4"><a class="reference internal" href="dendrograms.html#plot">Plot!</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#plot-a-dendrogram-with-a-heatmap">Plot a Dendrogram with a Heatmap</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#get-data">get data</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#initialize-figure-by-creating-upper-dendrogram">Initialize figure by creating upper dendrogram</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#create-heatmap">Create heatmap</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#edit-layout">Edit layout</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../plotly_demos_api/dendrograms.html#plot">Plot!</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="dropdowns (daiji).html">dropdowns (daiji)</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="dropdowns (daiji).html#simple-dropdown-menu">Simple Dropdown Menu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="dropdowns (daiji).html#add-multiple-dropdown-menus">Add Multiple Dropdown Menus</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html">dropdowns (daiji)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html#simple-dropdown-menu">Simple Dropdown Menu</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/dropdowns (daiji).html#add-multiple-dropdown-menus">Add Multiple Dropdown Menus</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="filled-area-plots.html">filled-area-plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="filled-area-plots.html#basic-overlaid-area-chart">Basic Overlaid Area Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filled-area-plots.html#overlaid-area-chart-without-boundary-lines">Overlaid Area Chart Without Boundary Lines</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filled-area-plots.html#interior-filling-for-area-chart">Interior Filling for Area Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filled-area-plots.html#stacked-area-chart-with-cumulative-values">Stacked Area Chart with Cumulative Values</a></li>
-<li class="toctree-l3"><a class="reference internal" href="filled-area-plots.html#stacked-area-chart-with-original-values">Stacked Area Chart with Original Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html">filled-area-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#basic-overlaid-area-chart">Basic Overlaid Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#overlaid-area-chart-without-boundary-lines">Overlaid Area Chart Without Boundary Lines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#interior-filling-for-area-chart">Interior Filling for Area Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-cumulative-values">Stacked Area Chart with Cumulative Values</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/filled-area-plots.html#stacked-area-chart-with-original-values">Stacked Area Chart with Original Values</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html">heatmap-and-contour-colorscales</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-discretized-heatmap-colorscale">Custom Discretized Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-scatter-plots">Colorscale for Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#colorscale-for-contour-plot">Colorscale for Contour Plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-heatmap-colorscale">Custom Heatmap Colorscale</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmap-and-contour-colorscales.html#custom-contour-plot-colorscale">Custom Contour Plot Colorscale</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="heatmaps.html">heatmaps</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
-<li class="toctree-l3"><a class="reference internal" href="heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/heatmaps.html">heatmaps</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#basic-heatmaps">Basic heatmaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-categorical-axis-labels">Heatmap with Categorical Axis Labels</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#annotated-heatmap">Annotated Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-unequal-block-sizes">Heatmap with Unequal Block Sizes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/heatmaps.html#heatmap-with-datetime-axis">Heatmap with Datetime Axis</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#define-traces">Define traces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#define-layout">Define layout</a></li>
-<li class="toctree-l3"><a class="reference internal" href="horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html">horizontal-bar-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#basic-horizontal-bar-charts">Basic horizontal bar charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#colored-horizontal-bar-chart">Colored Horizontal Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#color-palette-for-bar-chart">Color Palette for Bar Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-traces">Define traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#define-layout">Define layout</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/horizontal-bar-charts.html#bar-chart-with-line-plot">Bar Chart with Line Plot</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="igraph-networkx-comparison.html">igraph-networkx-comparison</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="igraph-networkx-comparison.html#download-data-from-uci">Download data from UCI</a></li>
-<li class="toctree-l3"><a class="reference internal" href="igraph-networkx-comparison.html#igraph">igraph</a></li>
-<li class="toctree-l3"><a class="reference internal" href="igraph-networkx-comparison.html#networkx">Networkx</a></li>
-<li class="toctree-l3"><a class="reference internal" href="igraph-networkx-comparison.html#repeat-with-different-pos">Repeat with different pos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html">igraph-networkx-comparison</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#download-data-from-uci">Download data from UCI</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#igraph">igraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#networkx">Networkx</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/igraph-networkx-comparison.html#repeat-with-different-pos">Repeat with different pos</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#box-plots">Box plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#time-series">Time series</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html">ipython-notebooks-demo</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#scatter-plots">Scatter plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#box-plots">Box plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap">Heatmap</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#sized-bubble-plots">Sized bubble plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#time-series">Time series</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#heatmap-again">heatmap again</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#airflight-map">Airflight map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/ipython-notebooks-demo.html#use-of-py-get-figure">Use of py.get_figure</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="line-charts.html">line-charts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#simple-line-charts">Simple line charts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#line-plot-models">Line plot models</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#style-line-plots">Style Line plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#the-traces">The traces</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#annotation-content">Annotation content</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/line-charts.html">line-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#simple-line-charts">Simple line charts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#line-plot-models">Line plot models</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#style-line-plots">Style Line plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#connect-data-gaps">Connect Data Gaps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#interpolation-with-line-plots">Interpolation with Line Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#label-lines-with-annotations">Label Lines with Annotations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#the-traces">The traces</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#annotation-content">Annotation content</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#filled-lines-shaded-lines">Filled lines (shaded lines)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/line-charts.html#this-created-the-shading-part">This created the shading part</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="networkx-demo.html">networkx-demo</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="">pie-charts</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#basic-pie-chart">Basic pie chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#donut-chart">Donut Chart</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pie-chart-subplots">Pie Chart Subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/networkx-demo.html">networkx-demo</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/pie-charts.html">pie-charts</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#basic-pie-chart">Basic pie chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#donut-chart">Donut Chart</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/pie-charts.html#pie-chart-subplots">Pie Chart Subplots</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="range-slider.html">range-slider</a></li>
-<li class="toctree-l2"><a class="reference internal" href="scatter-plots.html">scatter-plots</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="scatter-plots.html#simple-scatter-plot">Simple scatter plot</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scatter-plots.html#line-and-scatter-plots">Line and Scatter Plots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="scatter-plots.html#style-scatter-plots">Style Scatter Plots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/range-slider.html">range-slider</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html">scatter-plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#simple-scatter-plot">Simple scatter plot</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#line-and-scatter-plots">Line and Scatter Plots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/scatter-plots.html#style-scatter-plots">Style Scatter Plots</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="tables.html">tables</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#simple-table">Simple table</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#add-links">Add Links</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#use-latex">Use LaTeX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#include-and-index-column">Include and Index Column</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#custom-table-colors">Custom Table Colors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#custom-font-colors">Custom Font Colors</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#change-font-size">Change Font Size</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#tables-with-graphs">Tables with Graphs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#horizontal-subplots">Horizontal subplots</a></li>
-<li class="toctree-l3"><a class="reference internal" href="tables.html#vertical-subplots">Vertical subplots</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../plotly_demos_api/tables.html">tables</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#simple-table">Simple table</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#add-links">Add Links</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-latex">Use LaTeX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#use-a-panda-s-dataframe">Use a Panda&#8217;s Dataframe</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#include-and-index-column">Include and Index Column</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-table-colors">Custom Table Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#custom-font-colors">Custom Font Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#change-font-size">Change Font Size</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#tables-with-graphs">Tables with Graphs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#horizontal-subplots">Horizontal subplots</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../plotly_demos_api/tables.html#vertical-subplots">Vertical subplots</a></li>
 </ul>
 </li>
 </ul>
@@ -880,11 +880,14 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">pie-charts</a><ul>
-<li><a class="reference internal" href="#basic-pie-chart">Basic pie chart</a></li>
-<li><a class="reference internal" href="#pie-chart-using-pie-object">Pie Chart using Pie object</a></li>
-<li><a class="reference internal" href="#donut-chart">Donut Chart</a></li>
-<li><a class="reference internal" href="#pie-chart-subplots">Pie Chart Subplots</a></li>
+<li><a class="reference internal" href="#">2 Controlling Confounds (with xtable)</a><ul>
+<li><a class="reference internal" href="#set-variables">2.1 set variables</a></li>
+<li><a class="reference internal" href="#regression">2.2 regression</a><ul>
+<li><a class="reference internal" href="#lm1-without-controlling-for-weight-weight">2.2.1 lm1: without controlling for weight(weight)</a></li>
+<li><a class="reference internal" href="#lm2-here-we-control-for-weight">2.2.2 lm2: here we control for weight</a></li>
+<li><a class="reference internal" href="#in-case-you-want-to-add-the-fitted-lines-to-the-plot">2.2.3 In case you want to add the fitted lines to the plot</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -916,186 +919,302 @@
   <div class="row">
     <div class="col-md-12 content">
       
-  <div class="section" id="pie-charts">
-<h1>pie-charts</h1>
-<p><a class="reference external" href="https://plot.ly/python/pie-charts/">https://plot.ly/python/pie-charts/</a></p>
+  <div class="section" id="controlling-confounds-with-xtable">
+<h1>2 Controlling Confounds (with xtable)</h1>
+<p>The source R script available <a class="reference download internal" href="../_downloads/control_var2.R"><code class="xref download docutils literal"><span class="pre">here</span></code></a></p>
 <div class="contents local topic" id="contents">
 <p class="topic-title first"><cite>Contents</cite></p>
 <ul class="simple">
-<li><a class="reference internal" href="#basic-pie-chart" id="id1">Basic pie chart</a></li>
-<li><a class="reference internal" href="#pie-chart-using-pie-object" id="id2">Pie Chart using Pie object</a></li>
-<li><a class="reference internal" href="#donut-chart" id="id3">Donut Chart</a></li>
-<li><a class="reference internal" href="#pie-chart-subplots" id="id4">Pie Chart Subplots</a></li>
+<li><a class="reference internal" href="#set-variables" id="id1">set variables</a></li>
+<li><a class="reference internal" href="#regression" id="id2">regression</a><ul>
+<li><a class="reference internal" href="#lm1-without-controlling-for-weight-weight" id="id3">lm1: without controlling for weight(weight)</a></li>
+<li><a class="reference internal" href="#lm2-here-we-control-for-weight" id="id4">lm2: here we control for weight</a></li>
+<li><a class="reference internal" href="#in-case-you-want-to-add-the-fitted-lines-to-the-plot" id="id5">In case you want to add the fitted lines to the plot</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<div class="section" id="basic-pie-chart">
-<h2><a class="toc-backref" href="#id1">Basic pie chart</a></h2>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="kn">as</span> <span class="nn">py</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="kn">as</span> <span class="nn">go</span>
-
-<span class="n">fig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[{</span><span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;Residential&#39;</span><span class="p">,</span> <span class="s1">&#39;Non-Residential&#39;</span><span class="p">,</span> <span class="s1">&#39;Utility&#39;</span><span class="p">],</span>
-              <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">19</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">55</span><span class="p">],</span>
-              <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;pie&#39;</span><span class="p">}],</span>
-    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Forcasted 2014 U.S. PV Installations by Market Segment&#39;</span><span class="p">}</span>
-     <span class="p">}</span>
-
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<div class="line-block">
+<div class="line">Takanori Watanabe</div>
+<div class="line">Nov 1, 2016</div>
+</div>
+<p>Demo from
+<a class="reference external" href="http://stats.stackexchange.com/questions/3944/explain-model-adjustment-in-plain-english">http://stats.stackexchange.com/questions/3944/explain-model-adjustment-in-plain-english</a></p>
+<p>Here I&#8217;ll use <code class="docutils literal"><span class="pre">xtable</span></code> to format output from <code class="docutils literal"><span class="pre">summary</span></code></p>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span>xtable<span class="p">)</span>
+<span class="kp">set.seed</span><span class="p">(</span><span class="m">69</span><span class="p">)</span>
 </pre></div>
 </div>
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/536.embed" height="525px" width="100%"></iframe></div>
-<div class="section" id="pie-chart-using-pie-object">
-<h2><a class="toc-backref" href="#id2">Pie Chart using Pie object</a></h2>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">plotly.plotly</span> <span class="kn">as</span> <span class="nn">py</span>
-<span class="kn">import</span> <span class="nn">plotly.graph_objs</span> <span class="kn">as</span> <span class="nn">go</span>
+<style type="text/css">
+    table {
+        overflow-x:auto;
+        width:100%;
+        table-layout:fixed;
+        display: block;
+        border-collapse: collapse;
+        padding-top: 12px;
+        padding-bottom: 12px;
+    }
 
-<span class="n">labels</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Oxygen&#39;</span><span class="p">,</span><span class="s1">&#39;Hydrogen&#39;</span><span class="p">,</span><span class="s1">&#39;Carbon_Dioxide&#39;</span><span class="p">,</span><span class="s1">&#39;Nitrogen&#39;</span><span class="p">]</span>
-<span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">4500</span><span class="p">,</span><span class="mi">2500</span><span class="p">,</span><span class="mi">1053</span><span class="p">,</span><span class="mi">500</span><span class="p">]</span>
+    table>tbody>tr>td  {
+        border: 2px solid rgba(255,128,128,0.1);
+    }
 
-<span class="n">trace</span><span class="o">=</span><span class="n">go</span><span class="o">.</span><span class="n">Pie</span><span class="p">(</span><span class="n">labels</span><span class="o">=</span><span class="n">labels</span><span class="p">,</span><span class="n">values</span><span class="o">=</span><span class="n">values</span><span class="p">)</span>
+    table>tbody>tr>th {
+        border: 1px solid rgba(255,128,128,0.1);
+    }
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">([</span><span class="n">trace</span><span class="p">])</span>
+    table th, td {
+        padding: 14px;
+        /*border: 1px solid #ecf0f1;*/
+
+        /*border: 1px solid black;*/
+        /*border: 2px solid #ecf0f1;*/
+        /*border-bottom: 2px solid #ddd;*/
+        /*border-bottom: 2px solid #aaa;*/
+    }
+
+    th {
+        font-size:16px;
+        text-align: center;
+        font-weight:bold;
+        /*border: 2px solid #aaa;*/
+        background-color: rgba(255,0,0,0.15);
+        border: 1px solid;
+        /*background: #E3E3E3;  Light grey background */
+    }
+
+    td {
+        font-size:14px;
+        text-align: center;
+        border: 1px solid;
+        /*border: 1px solid #ecf0f1;*/
+        /*border: 1px solid rgba(0,0,0,0.1);*/
+    }
+
+    /*table.dataframe tr:hover{background-color:#CCF6FF}*/
+    table tr:hover{background-color:rgba(0,128,255,0.1)}
+
+</style><div class="section" id="set-variables">
+<h2><a class="toc-backref" href="#id1">2.1 set variables</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># set variables -----------------------------------------------------------</span>
+<span class="c1"># x = weight, y = height</span>
+weight <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span><span class="m">2</span><span class="p">)</span>
+height <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="kp">jitter</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> factor<span class="o">=</span><span class="m">4</span><span class="p">),</span> <span class="p">(</span><span class="kp">jitter</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">,</span> factor<span class="o">=</span><span class="m">4</span><span class="p">)</span><span class="m">+2</span><span class="p">))</span>
+sex <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;f&quot;</span><span class="p">,</span> <span class="s">&quot;m&quot;</span><span class="p">),</span> each<span class="o">=</span><span class="m">10</span><span class="p">)</span>
+df1 <span class="o">&lt;-</span> <span class="kt">data.frame</span><span class="p">(</span>weight<span class="p">,</span>height<span class="p">,</span>sex<span class="p">)</span>
 </pre></div>
 </div>
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/538.embed" height="525px" width="100%"></iframe></div>
-<div class="section" id="donut-chart">
-<h2><a class="toc-backref" href="#id3">Donut Chart</a></h2>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="s2">&quot;US&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;China&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;European Union&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Russian Federation&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Brazil&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;India&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Rest of World&quot;</span>
-      <span class="p">]</span>
+</div>
+<div class="section" id="regression">
+<h2><a class="toc-backref" href="#id2">2.2 regression</a></h2>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">with</span><span class="p">(</span>df1<span class="p">,</span> plot<span class="p">(</span>height<span class="o">~</span>weight<span class="p">,</span> col<span class="o">=</span><span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span><span class="m">2</span><span class="p">)[</span>sex<span class="p">]))</span>
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">[</span><span class="s1">&#39;data&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">16</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">42</span><span class="p">],</span>
-      <span class="s2">&quot;labels&quot;</span><span class="p">:</span><span class="n">labels</span><span class="p">,</span>
-      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">48</span><span class="p">]},</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;GHG Emissions&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hoverinfo&quot;</span><span class="p">:</span><span class="s2">&quot;label+percent+name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hole&quot;</span><span class="p">:</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pie&quot;</span>
-    <span class="p">},</span>
-    <span class="p">{</span>
-      <span class="s2">&quot;values&quot;</span><span class="p">:</span> <span class="p">[</span><span class="mi">27</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">25</span><span class="p">],</span>
-      <span class="s2">&quot;labels&quot;</span><span class="p">:</span> <span class="n">labels</span><span class="p">,</span>
-      <span class="s2">&quot;text&quot;</span><span class="p">:</span><span class="s2">&quot;CO2&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;textposition&quot;</span><span class="p">:</span><span class="s2">&quot;inside&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;domain&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">52</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
-      <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;CO2 Emissions&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hoverinfo&quot;</span><span class="p">:</span><span class="s2">&quot;label+percent+name&quot;</span><span class="p">,</span>
-      <span class="s2">&quot;hole&quot;</span><span class="p">:</span> <span class="o">.</span><span class="mi">4</span><span class="p">,</span>
-      <span class="s2">&quot;type&quot;</span><span class="p">:</span> <span class="s2">&quot;pie&quot;</span>
-    <span class="p">}]</span>
+<p><img alt="image0" src="../_images/unnamed-chunk-3-11.png" /></p>
+<div class="section" id="lm1-without-controlling-for-weight-weight">
+<h3><a class="toc-backref" href="#id3">2.2.1 lm1: without controlling for weight(weight)</a></h3>
+<p>(so according to this result, gender has no impact on height...which
+likely isn&#8217;t true)</p>
+<div class="highlight-R"><div class="highlight"><pre><span></span>lm1 <span class="o">&lt;-</span> lm<span class="p">(</span>height<span class="o">~</span>sex<span class="p">,</span> data<span class="o">=</span>df1<span class="p">)</span>
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">[</span><span class="s1">&#39;layout&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
-        <span class="s2">&quot;title&quot;</span><span class="p">:</span><span class="s2">&quot;Global Emissions 1990-2011&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;annotations&quot;</span><span class="p">:</span> <span class="p">[</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;font&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
-                <span class="s2">&quot;showarrow&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;GHG&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">0.20</span><span class="p">,</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">0.5</span>
-            <span class="p">},</span>
-            <span class="p">{</span>
-                <span class="s2">&quot;font&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;size&quot;</span><span class="p">:</span> <span class="mi">20</span><span class="p">},</span>
-                <span class="s2">&quot;showarrow&quot;</span><span class="p">:</span> <span class="bp">False</span><span class="p">,</span>
-                <span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="s2">&quot;CO2&quot;</span><span class="p">,</span>
-                <span class="s2">&quot;x&quot;</span><span class="p">:</span> <span class="mf">0.8</span><span class="p">,</span>
-                <span class="s2">&quot;y&quot;</span><span class="p">:</span> <span class="mf">0.5</span>
-            <span class="p">}</span>
-        <span class="p">]</span>
-    <span class="p">}</span>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">print</span><span class="p">(</span>xtable<span class="p">(</span>anova<span class="p">(</span>lm1<span class="p">)),</span> type<span class="o">=</span><span class="s">&#39;html&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package --><!-- Wed Nov  2 23:57:50 2016 --><table border="1"><tr><th></th><th><p>Df</p>
+</th><th><p>Sum Sq</p>
+</th><th><p>Mean Sq</p>
+</th><th><p>F value</p>
+</th><th><p>Pr(&gt;F)</p>
+</th></tr><tr><td><p>sex</p>
+</td><td align="right"><p>1</p>
+</td><td align="right"><p>17.73</p>
+</td><td align="right"><p>17.73</p>
+</td><td align="right"><p>2.17</p>
+</td><td align="right"><p>0.1577</p>
+</td></tr><tr><td><p>Residuals</p>
+</td><td align="right"><p>18</p>
+</td><td align="right"><p>146.84</p>
+</td><td align="right"><p>8.16</p>
+</td><td align="right"></td><td align="right"></td></tr></table><div class="highlight-R"><div class="highlight"><pre><span></span>anova<span class="p">(</span>lm1<span class="p">)</span>
 </pre></div>
 </div>
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/546.embed" height="525px" width="100%"></iframe></div>
-<div class="section" id="pie-chart-subplots">
-<h2><a class="toc-backref" href="#id4">Pie Chart Subplots</a></h2>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">trace1</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;3rd&#39;</span><span class="p">,</span> <span class="s1">&#39;4th&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">7</span><span class="p">],</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;pie&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Starry Night&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rgb(56, 75, 126)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(18, 36, 37)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(34, 53, 101)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(36, 55, 57)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(6, 4, 4)&#39;</span><span class="p">]},</span>
-            <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">48</span><span class="p">],</span>
-                       <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">49</span><span class="p">]},</span>
-            <span class="s1">&#39;hoverinfo&#39;</span><span class="p">:</span><span class="s1">&#39;label+percent+name&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;textinfo&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span>
-<span class="p">}</span>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">## Analysis of Variance Table</span>
+<span class="c1">##</span>
+<span class="c1">## Response: height</span>
+<span class="c1">##           Df Sum Sq Mean Sq F value Pr(&gt;F)</span>
+<span class="c1">## sex        1  17.73 17.7301  2.1734 0.1577</span>
+<span class="c1">## Residuals 18 146.84  8.1578</span>
+</pre></div>
+</div>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">print</span><span class="p">(</span>xtable<span class="p">(</span><span class="kp">summary</span><span class="p">(</span>lm1<span class="p">)),</span> type<span class="o">=</span><span class="s">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package --><!-- Wed Nov  2 23:57:50 2016 --><table border="1"><tr><th></th><th><p>Estimate</p>
+</th><th><p>Std. Error</p>
+</th><th><p>t value</p>
+</th><th><p>Pr(&gt;|t|)</p>
+</th></tr><tr><td align="right"><p>(Intercept)</p>
+</td><td align="right"><p>5.5324</p>
+</td><td align="right"><p>0.9032</p>
+</td><td align="right"><p>6.13</p>
+</td><td align="right"><p>0.0000</p>
+</td></tr><tr><td align="right"><p>sexm</p>
+</td><td align="right"><p>1.8831</p>
+</td><td align="right"><p>1.2773</p>
+</td><td align="right"><p>1.47</p>
+</td><td align="right"><p>0.1577</p>
+</td></tr></table><div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>lm1<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">##</span>
+<span class="c1">## Call:</span>
+<span class="c1">## lm(formula = height ~ sex, data = df1)</span>
+<span class="c1">##</span>
+<span class="c1">## Residuals:</span>
+<span class="c1">##     Min      1Q  Median      3Q     Max</span>
+<span class="c1">## -4.4832 -1.9247 -0.2676  2.8126  5.0501</span>
+<span class="c1">##</span>
+<span class="c1">## Coefficients:</span>
+<span class="c1">##             Estimate Std. Error t value Pr(&gt;|t|)</span>
+<span class="c1">## (Intercept)   5.5324     0.9032   6.125 8.73e-06 ***</span>
+<span class="c1">## sexm          1.8831     1.2773   1.474    0.158</span>
+<span class="c1">## ---</span>
+<span class="c1">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span>
+<span class="c1">##</span>
+<span class="c1">## Residual standard error: 2.856 on 18 degrees of freedom</span>
+<span class="c1">## Multiple R-squared:  0.1077, Adjusted R-squared:  0.05817</span>
+<span class="c1">## F-statistic: 2.173 on 1 and 18 DF,  p-value: 0.1577</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="lm2-here-we-control-for-weight">
+<h3><a class="toc-backref" href="#id4">2.2.2 lm2: here we control for weight</a></h3>
+<p>(now gender should have an effect on height as expected)</p>
+<div class="highlight-R"><div class="highlight"><pre><span></span>lm2 <span class="o">&lt;-</span> lm<span class="p">(</span>height<span class="o">~</span>sex<span class="o">+</span>weight<span class="p">,</span> data<span class="o">=</span>df1<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">print</span><span class="p">(</span>xtable<span class="p">(</span>anova<span class="p">(</span>lm2<span class="p">)),</span> type<span class="o">=</span><span class="s">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package --><!-- Wed Nov  2 23:57:50 2016 --><table border="1"><tr><th></th><th><p>Df</p>
+</th><th><p>Sum Sq</p>
+</th><th><p>Mean Sq</p>
+</th><th><p>F value</p>
+</th><th><p>Pr(&gt;F)</p>
+</th></tr><tr><td><p>sex</p>
+</td><td align="right"><p>1</p>
+</td><td align="right"><p>17.73</p>
+</td><td align="right"><p>17.73</p>
+</td><td align="right"><p>75.24</p>
+</td><td align="right"><p>0.0000</p>
+</td></tr><tr><td><p>weight</p>
+</td><td align="right"><p>1</p>
+</td><td align="right"><p>142.83</p>
+</td><td align="right"><p>142.83</p>
+</td><td align="right"><p>606.15</p>
+</td><td align="right"><p>0.0000</p>
+</td></tr><tr><td><p>Residuals</p>
+</td><td align="right"><p>17</p>
+</td><td align="right"><p>4.01</p>
+</td><td align="right"><p>0.24</p>
+</td><td align="right"></td><td align="right"></td></tr></table><div class="highlight-R"><div class="highlight"><pre><span></span>anova<span class="p">(</span>lm2<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">## Analysis of Variance Table</span>
+<span class="c1">##</span>
+<span class="c1">## Response: height</span>
+<span class="c1">##           Df  Sum Sq Mean Sq F value    Pr(&gt;F)</span>
+<span class="c1">## sex        1  17.730  17.730  75.242 1.193e-07 ***</span>
+<span class="c1">## weight     1 142.834 142.834 606.146 9.784e-15 ***</span>
+<span class="c1">## Residuals 17   4.006   0.236</span>
+<span class="c1">## ---</span>
+<span class="c1">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span>
+</pre></div>
+</div>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">print</span><span class="p">(</span>xtable<span class="p">(</span><span class="kp">summary</span><span class="p">(</span>lm2<span class="p">)),</span> type<span class="o">=</span><span class="s">&#39;html&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package --><!-- Wed Nov  2 23:57:50 2016 --><table border="1"><tr><th></th><th><p>Estimate</p>
+</th><th><p>Std. Error</p>
+</th><th><p>t value</p>
+</th><th><p>Pr(&gt;|t|)</p>
+</th></tr><tr><td align="right"><p>(Intercept)</p>
+</td><td align="right"><p>0.4152</p>
+</td><td align="right"><p>0.2584</p>
+</td><td align="right"><p>1.61</p>
+</td><td align="right"><p>0.1265</p>
+</td></tr><tr><td align="right"><p>sexm</p>
+</td><td align="right"><p>1.8831</p>
+</td><td align="right"><p>0.2171</p>
+</td><td align="right"><p>8.67</p>
+</td><td align="right"><p>0.0000</p>
+</td></tr><tr><td align="right"><p>weight</p>
+</td><td align="right"><p>0.9304</p>
+</td><td align="right"><p>0.0378</p>
+</td><td align="right"><p>24.62</p>
+</td><td align="right"><p>0.0000</p>
+</td></tr></table><div class="highlight-R"><div class="highlight"><pre><span></span><span class="kp">summary</span><span class="p">(</span>lm2<span class="p">)</span>
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">##</span>
+<span class="c1">## Call:</span>
+<span class="c1">## lm(formula = height ~ sex + weight, data = df1)</span>
+<span class="c1">##</span>
+<span class="c1">## Residuals:</span>
+<span class="c1">##     Min      1Q  Median      3Q     Max</span>
+<span class="c1">## -0.4840 -0.3921 -0.2676  0.4519  0.8633</span>
+<span class="c1">##</span>
+<span class="c1">## Coefficients:</span>
+<span class="c1">##             Estimate Std. Error t value Pr(&gt;|t|)</span>
+<span class="c1">## (Intercept)  0.41520    0.25839   1.607    0.126</span>
+<span class="c1">## sexm         1.88309    0.21709   8.674 1.19e-07 ***</span>
+<span class="c1">## weight       0.93041    0.03779  24.620 9.78e-15 ***</span>
+<span class="c1">## ---</span>
+<span class="c1">## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</span>
+<span class="c1">##</span>
+<span class="c1">## Residual standard error: 0.4854 on 17 degrees of freedom</span>
+<span class="c1">## Multiple R-squared:  0.9757, Adjusted R-squared:  0.9728</span>
+<span class="c1">## F-statistic: 340.7 on 2 and 17 DF,  p-value: 1.923e-14</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="in-case-you-want-to-add-the-fitted-lines-to-the-plot">
+<h3><a class="toc-backref" href="#id5">2.2.3 In case you want to add the fitted lines to the plot</a></h3>
+<div class="highlight-R"><div class="highlight"><pre><span></span>coefs2 <span class="o">&lt;-</span> coef<span class="p">(</span>lm2<span class="p">)</span>
+<span class="c1"># abline(coefs2[1], coefs2[3], col=1)</span>
+<span class="c1"># abline(coefs2[1]+coefs2[2], coefs2[3], col=2)</span>
 
-<span class="n">trace2</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;3rd&#39;</span><span class="p">,</span> <span class="s1">&#39;4th&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">28</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">10</span><span class="p">],</span>
-            <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rgb(177, 127, 38)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(205, 152, 36)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(99, 79, 37)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(129, 180, 179)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(124, 103, 37)&#39;</span><span class="p">]},</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;pie&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Sunflowers&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">52</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                       <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">49</span><span class="p">]},</span>
-            <span class="s1">&#39;hoverinfo&#39;</span><span class="p">:</span><span class="s1">&#39;label+percent+name&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;textinfo&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span>
-
-<span class="p">}</span>
-
-<span class="n">trace3</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;3rd&#39;</span><span class="p">,</span> <span class="s1">&#39;4th&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">38</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">13</span><span class="p">],</span>
-            <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rgb(33, 75, 99)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(79, 129, 102)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(151, 179, 100)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(175, 49, 35)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(36, 73, 147)&#39;</span><span class="p">]},</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;pie&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;Irises&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="o">.</span><span class="mi">48</span><span class="p">],</span>
-                       <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
-            <span class="s1">&#39;hoverinfo&#39;</span><span class="p">:</span><span class="s1">&#39;label+percent+name&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;textinfo&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span>
-        <span class="p">}</span>
-<span class="n">trace4</span> <span class="o">=</span> <span class="p">{</span>
-            <span class="s1">&#39;labels&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;1st&#39;</span><span class="p">,</span> <span class="s1">&#39;2nd&#39;</span><span class="p">,</span> <span class="s1">&#39;3rd&#39;</span><span class="p">,</span> <span class="s1">&#39;4th&#39;</span><span class="p">,</span> <span class="s1">&#39;5th&#39;</span><span class="p">],</span>
-            <span class="s1">&#39;values&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">31</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-            <span class="s1">&#39;marker&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;colors&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;rgb(146, 123, 21)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(177, 180, 34)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(206, 206, 40)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(175, 51, 21)&#39;</span><span class="p">,</span>
-                                  <span class="s1">&#39;rgb(35, 36, 21)&#39;</span><span class="p">]},</span>
-            <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;pie&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;name&#39;</span><span class="p">:</span><span class="s1">&#39;The Night Café&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;domain&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;x&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">52</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
-                       <span class="s1">&#39;y&#39;</span><span class="p">:</span> <span class="p">[</span><span class="o">.</span><span class="mi">51</span><span class="p">,</span> <span class="mi">1</span><span class="p">]},</span>
-            <span class="s1">&#39;hoverinfo&#39;</span><span class="p">:</span><span class="s1">&#39;label+percent+name&#39;</span><span class="p">,</span>
-            <span class="s1">&#39;textinfo&#39;</span><span class="p">:</span><span class="s1">&#39;none&#39;</span>
-        <span class="p">}</span>
+<span class="c1"># below dash controls table header level</span>
 </pre></div>
 </div>
-<div class="code python highlight-python"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;data&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">trace1</span><span class="p">,</span><span class="n">trace2</span><span class="p">,</span><span class="n">trace3</span><span class="p">,</span><span class="n">trace4</span><span class="p">],</span>
-    <span class="s1">&#39;layout&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;title&#39;</span><span class="p">:</span> <span class="s1">&#39;Van Gogh: 5 Most Prominent Colors Shown Proportionally&#39;</span><span class="p">,</span>
-               <span class="s1">&#39;showlegend&#39;</span><span class="p">:</span> <span class="bp">False</span><span class="p">}</span>
-<span class="p">}</span>
+<div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># Try test --------------------------------------------------------------------</span>
 
-<span class="n">py</span><span class="o">.</span><span class="n">iplot</span><span class="p">(</span><span class="n">fig</span><span class="p">)</span>
+
+plot<span class="p">(</span>weight<span class="p">,</span><span class="kt">c</span><span class="p">(</span>height<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span>height<span class="p">[</span><span class="m">11</span><span class="o">:</span><span class="m">20</span><span class="p">]</span> <span class="o">-</span> coefs2<span class="p">[</span><span class="m">2</span><span class="p">]))</span>
 </pre></div>
 </div>
-<iframe id="igraph" scrolling="no" style="border:none;" seamless="seamless" src="https://plot.ly/~takanori/550.embed" height="525px" width="100%"></iframe></div>
+<p><img alt="image1" src="../_images/unnamed-chunk-15-1.png" /></p>
+<div class="highlight-R"><div class="highlight"><pre><span></span>yy <span class="o">=</span> <span class="kt">c</span><span class="p">(</span>height<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span>height<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)]</span> <span class="o">-</span> coefs2<span class="p">[</span><span class="m">2</span><span class="p">])</span>
+plot<span class="p">(</span>weight<span class="p">,</span>yy<span class="p">,</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image2" src="../_images/unnamed-chunk-15-2.png" /></p>
+<div class="highlight-R"><div class="highlight"><pre><span></span>plot<span class="p">(</span>weight<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span>height<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span>ylim<span class="o">=</span><span class="kp">range</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">12</span><span class="p">)))</span>
+par<span class="p">(</span>new<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+plot<span class="p">(</span>weight<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)],</span>height<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)]</span> <span class="o">-</span> coefs2<span class="p">[</span><span class="m">2</span><span class="p">],</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>ylim<span class="o">=</span><span class="kp">range</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="m">12</span><span class="p">)))</span>
+</pre></div>
+</div>
+<p><img alt="image3" src="../_images/unnamed-chunk-15-3.png" /></p>
+<div class="highlight-R"><div class="highlight"><pre><span></span>plot<span class="p">(</span>weight<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">],</span>height<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">])</span>
+par<span class="p">(</span>new<span class="o">=</span><span class="kc">TRUE</span><span class="p">)</span>
+plot<span class="p">(</span>weight<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)],</span>height<span class="p">[</span><span class="o">-</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">10</span><span class="p">)],</span>col<span class="o">=</span><span class="s">&#39;red&#39;</span><span class="p">,</span>axes<span class="o">=</span><span class="kc">FALSE</span><span class="p">,</span>xlab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">,</span>ylab<span class="o">=</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><img alt="image4" src="../_images/unnamed-chunk-15-4.png" /></p>
+</div>
+</div>
 </div>
 
 
@@ -1111,7 +1230,7 @@
         <br/>
         
 <div id="sourcelink">
-  <a href="../_sources/plotly_demos_api/pie-charts.txt"
+  <a href="../_sources/R/control_var2.txt"
      rel="nofollow">Source</a>
 </div>
       
