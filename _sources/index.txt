@@ -13,6 +13,16 @@ My notebook pertaining to Data Science.
    pnc-mean-analysis
    pnc_study_feature_1104_onesession.rst
 
+
+
+
+.. toctree::
+   :maxdepth: 1
+   :caption: R Notes
+
+   R/ds-R.rst
+
+
 .. toctree::
    :maxdepth: 1
    :caption: Plotly demos 
