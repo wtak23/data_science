@@ -9,6 +9,7 @@ The notes here are created using ``knitr``, ``RMarkDown``, ``pandoc``, ``sed``, 
     :name: ds-R
 
     control_var
+    control_var2
 
 .. rubric:: How the notebooks are created
 
