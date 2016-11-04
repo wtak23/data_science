@@ -48,6 +48,9 @@ summary(lm1)
 #' (now gender should have an effect on height as expected)
 lm2 <- lm(height~sex+weight, data=df1)
 
+#+ results='asis'
+print(xtable(anova(lm2)), type='html')
+
 #' ```{r, results = 'asis'}
 #' print(xtable(anova(lm2)), type='html')
 #' ```   

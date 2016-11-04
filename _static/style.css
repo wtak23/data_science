@@ -29,7 +29,7 @@ code {
     /* i prefer the body to not be TOOOO huge in full screen mode */
     /*http://stackoverflow.com/questions/18548453/how-to-change-navbar-container-width-bootstrap-3*/
     .container{
-        max-width: 1000px;
+        max-width: 1050px;
     }
 }
 
@@ -39,7 +39,7 @@ div.topic {
     padding-top: 18px;
     padding-bottom: 10px;
     border-radius: 8px;
-    max-width:500px;
+    max-width:700px;
 }
 
 /*

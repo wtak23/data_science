@@ -21,6 +21,7 @@ My notebook pertaining to Data Science.
    :caption: R Notes
 
    R/ds-R.rst
+   R/lattice-R-book/lattice-R-book
 
 
 .. toctree::

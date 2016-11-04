@@ -1,0 +1,180 @@
+Ch14 - New Trellis Displays
+"""""""""""""""""""""""""""
+The source R script available :download:`here <ch14.R>`
+
+.. contents:: `Contents`
+    :depth: 2
+    :local:
+
+
+.. code-block:: R
+
+    library(lattice)
+
+Topics covered:
+
+-  Examples of S3 and S4 methods
+-  Examples of new high level functions
+
+.. code-block:: R
+
+    library("latticeExtra")
+
+::
+
+    ## Loading required package: RColorBrewer
+
+Figure 14.1
+-----------
+
+.. code-block:: R
+
+    xyplot(sunspot.year, aspect = "xy", 
+           strip = FALSE, strip.left = TRUE,
+           cut = list(number = 4, overlap = 0.05))
+
+|image0|\ 
+
+.. code-block:: R
+
+    data(biocAccess, package = "latticeExtra")
+    ssd <- stl(ts(biocAccess$counts[1:(24 * 30 * 2)], frequency = 24), 
+               "periodic")
+
+Figure 14.2
+-----------
+
+.. code-block:: R
+
+    xyplot(ssd, xlab = "Time (Days)")
+
+|image1|\ 
+
+.. code-block:: R
+
+    library("flowViz")
+
+::
+
+    ## Loading required package: flowCore
+
+.. code-block:: R
+
+    data(GvHD, package = "flowCore")
+
+Figure 14.3
+-----------
+
+.. code-block:: R
+
+    densityplot(Visit ~ `FSC-H` | Patient, data = GvHD)
+
+|image2|\ 
+
+.. code-block:: R
+
+    library("hexbin")
+    data(NHANES)
+
+Figure 14.4
+-----------
+
+.. code-block:: R
+
+    hexbinplot(Hemoglobin ~ TIBC | Sex, data = NHANES, aspect = 0.8)
+
+|image3|\ 
+
+.. code-block:: R
+
+    panel.piechart <-
+      function(x, y, labels = as.character(y),
+               edges = 200, radius = 0.8, clockwise = FALSE,
+               init.angle = if(clockwise) 90 else 0,
+               density = NULL, angle = 45, 
+               col = superpose.polygon$col,
+               border = superpose.polygon$border,
+               lty = superpose.polygon$lty, ...)
+      {
+        stopifnot(require("gridBase"))
+        superpose.polygon <- trellis.par.get("superpose.polygon")
+        opar <- par(no.readonly = TRUE)
+        on.exit(par(opar))
+        if (panel.number() > 1) par(new = TRUE)
+        par(fig = gridFIG(), omi = c(0, 0, 0, 0), mai = c(0, 0, 0, 0))
+        pie(as.numeric(x), labels = labels, edges = edges, radius = radius,
+            clockwise = clockwise, init.angle = init.angle, angle = angle,
+            density = density, col = col, border  = border, lty = lty)
+      }
+    piechart <- function(x, data = NULL, panel = "panel.piechart", ...)
+    {
+      ocall <- sys.call(sys.parent())
+      ocall[[1]] <- quote(piechart)
+      ccall <- match.call()
+      ccall$data <- data
+      ccall$panel <- panel
+      ccall$default.scales <- list(draw = FALSE)
+      ccall[[1]] <- quote(lattice::barchart)
+      ans <- eval.parent(ccall)
+      ans$call <- ocall
+      ans
+    }
+
+Figure 14.5
+-----------
+
+.. code-block:: R
+
+    par(new = TRUE)
+
+::
+
+    ## Warning in par(new = TRUE): calling par(new=TRUE) with no plot
+
+.. code-block:: R
+
+    piechart(VADeaths, groups = FALSE, xlab = "")
+
+::
+
+    ## Loading required package: gridBase
+
+::
+
+    ## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+    ## logical.return = TRUE, : there is no package called 'gridBase'
+
+::
+
+    ## Loading required package: gridBase
+
+::
+
+    ## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+    ## logical.return = TRUE, : there is no package called 'gridBase'
+
+::
+
+    ## Loading required package: gridBase
+
+::
+
+    ## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+    ## logical.return = TRUE, : there is no package called 'gridBase'
+
+::
+
+    ## Loading required package: gridBase
+
+::
+
+    ## Warning in library(package, lib.loc = lib.loc, character.only = TRUE,
+    ## logical.return = TRUE, : there is no package called 'gridBase'
+
+|image4|\ 
+
+.. |image0| image:: ch14_files/figure-html/unnamed-chunk-3-1.png
+.. |image1| image:: ch14_files/figure-html/unnamed-chunk-4-1.png
+.. |image2| image:: ch14_files/figure-html/unnamed-chunk-5-1.png
+.. |image3| image:: ch14_files/figure-html/unnamed-chunk-6-1.png
+.. |image4| image:: ch14_files/figure-html/unnamed-chunk-7-1.png

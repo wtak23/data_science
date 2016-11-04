@@ -1,0 +1,191 @@
+Ch12 - Interacting with Trellis Displays
+""""""""""""""""""""""""""""""""""""""""
+The source R script available :download:`here <ch12.R>`
+
+.. contents:: `Contents`
+    :depth: 2
+    :local:
+
+
+.. code-block:: R
+
+    library(lattice)
+
+Topics covered:
+
+-  Comparison with the traditional graphics model
+-  Grid viewports as used in lattice
+-  API for interactive additions
+
+.. code-block:: R
+
+    library(grid)
+
+    state <- data.frame(state.x77, state.region)
+    trellis.vpname("xlab", prefix = "plot1")
+
+::
+
+    ## [1] "plot1.xlab.vp"
+
+.. code-block:: R
+
+    trellis.vpname("strip", column = 2, row = 2, prefix = "plot2")
+
+::
+
+    ## [1] "plot2.strip.2.2.vp"
+
+.. code-block:: R
+
+    data(Chem97, package = "mlmRev")
+
+Figure 12.1
+-----------
+
+.. code-block:: R
+
+    qqmath(~ gcsescore | factor(score), Chem97, groups = gender,
+           f.value = function(n) ppoints(100),
+           aspect = "xy", 
+           page = function(n) {
+             cat("Click on plot to place legend", fill = TRUE)
+             ll <- grid.locator(unit = "npc")
+             if (!is.null(ll))
+               draw.key(simpleKey(levels(factor(Chem97$gender))),
+                        vp = viewport(x = ll$x, y = ll$y),
+                        draw = TRUE)
+           })
+
+|image0|\ 
+
+::
+
+    ## Click on plot to place legend
+
+.. code-block:: R
+
+    state <- data.frame(state.x77, state.region)
+
+Figure 12.2
+-----------
+
+.. code-block:: R
+
+    xyplot(Murder ~ Life.Exp | state.region, data = state, 
+           layout = c(2, 2), type = c("p", "g"), subscripts = TRUE)
+    while (!is.null(fp <- trellis.focus())) {
+      if (fp$col > 0 & fp$row > 0)
+        panel.identify(labels = rownames(state))
+    }
+
+|image1|\ 
+
+Figure 12.3
+-----------
+
+.. code-block:: R
+
+    qqmath(~ (1000 * Population / Area), state, 
+           ylab = "Population Density (per square mile)",
+           xlab = "Standard Normal Quantiles",
+           scales = list(y = list(log = TRUE, at = 10^(0:3))))
+    trellis.focus()
+    do.call(panel.qqmathline, trellis.panelArgs())
+    panel.identify.qqmath(labels = row.names(state))
+
+::
+
+    ## integer(0)
+
+.. code-block:: R
+
+    trellis.unfocus()
+
+|image2|\ 
+
+.. code-block:: R
+
+    env <- environmental
+    env$ozone <- env$ozone^(1/3)
+
+Figure 12.4
+-----------
+
+.. code-block:: R
+
+    splom(env, pscales = 0, col = "grey")
+    trellis.focus("panel", 1, 1, highlight = FALSE)
+    panel.link.splom(pch = 16, col = "black")
+
+::
+
+    ## numeric(0)
+
+.. code-block:: R
+
+    trellis.unfocus()
+
+|image3|\ 
+
+.. code-block:: R
+
+    state$name <- with(state, 
+                       reorder(reorder(factor(rownames(state)), Frost), 
+                               as.numeric(state.region)))
+
+Figure 12.5
+-----------
+
+.. code-block:: R
+
+    dotplot(name ~ Frost | reorder(state.region, Frost), data = state, 
+            layout = c(1, 4), scales = list(y = list(relation="free")))
+    trellis.currentLayout()
+
+::
+
+    ##      [,1]
+    ## [1,]    1
+    ## [2,]    2
+    ## [3,]    3
+    ## [4,]    4
+
+.. code-block:: R
+
+    heights <- 
+      sapply(seq_len(nrow(trellis.currentLayout())),
+             function(i) {
+               trellis.focus("panel", column = 1, row = i, 
+                             highlight = FALSE)
+               h <- diff(current.panel.limits()$ylim)
+               trellis.unfocus()
+               h
+             })
+
+|image4|\ 
+
+.. code-block:: R
+
+    heights
+
+::
+
+    ## [1] 16.2 13.2  9.2 12.2
+
+Figure 12.6
+-----------
+
+.. code-block:: R
+
+    update(trellis.last.object(), 
+           par.settings = list(layout.heights = list(panel = heights)))
+
+|image5|\ 
+
+.. |image0| image:: ch12_files/figure-html/unnamed-chunk-3-1.png
+.. |image1| image:: ch12_files/figure-html/unnamed-chunk-4-1.png
+.. |image2| image:: ch12_files/figure-html/unnamed-chunk-5-1.png
+.. |image3| image:: ch12_files/figure-html/unnamed-chunk-6-1.png
+.. |image4| image:: ch12_files/figure-html/unnamed-chunk-7-1.png
+.. |image5| image:: ch12_files/figure-html/unnamed-chunk-8-1.png
