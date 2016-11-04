@@ -1,12 +1,25 @@
 ---
 title: "test"
-author: "ttt"
+author: "tw"
 date: "November 2, 2016"
-output: html_document
+output:
+  html_document:
+    keep_md: true
+    toc: true
+    toc_depth: 2
 ---
+
+
+---
+
+For above options, see: http://rmarkdown.rstudio.com/html_document_format.html
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{bash}
+echo $PWD
 ```
 
 ## R Markdown

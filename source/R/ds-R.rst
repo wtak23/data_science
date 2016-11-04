@@ -10,6 +10,9 @@ The notes here are created using ``knitr``, ``RMarkDown``, ``pandoc``, ``sed``, 
 
     control_var
     control_var2
+    sva_demo
+    sva_demo_jtleek2
+    knitr-spn
 
 .. rubric:: How the notebooks are created
 

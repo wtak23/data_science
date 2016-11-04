@@ -1,3 +1,15 @@
+#' ---
+#' title: "knitr-spn.R"
+#' author: Takanori Watanabe
+#' date: Nov 1, 2016
+#' output:
+#'    html_document:
+#'      keep_md: true
+#'      toc: true
+#'      toc_depth: 2
+#' ---
+
+
 #' This is a special R script which can be used to generate a report. You can
 #' write normal text in roxygen comments.
 #'
@@ -16,7 +28,7 @@ x = rnorm(5)
 mean(x)
 
 #' You can use the special syntax {{code}} to embed inline expressions, e.g.
-{{mean(x) + 2}}
+#' {{mean(x) + 2}}
 #' is the mean of x plus 2.
 #' The code itself may contain braces, but these are not checked.  Thus,
 #' perfectly valid (though very strange) R code such as `{{2 + 3}} - {{4 - 5}}`

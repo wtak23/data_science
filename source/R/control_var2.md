@@ -49,7 +49,7 @@ print(xtable(anova(lm1)), type='html')
 ```
 
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Wed Nov  2 23:57:50 2016 -->
+<!-- Thu Nov  3 19:20:17 2016 -->
 <table border=1>
 <tr> <th>  </th> <th> Df </th> <th> Sum Sq </th> <th> Mean Sq </th> <th> F value </th> <th> Pr(&gt;F) </th>  </tr>
   <tr> <td> sex </td> <td align="right"> 1 </td> <td align="right"> 17.73 </td> <td align="right"> 17.73 </td> <td align="right"> 2.17 </td> <td align="right"> 0.1577 </td> </tr>
@@ -76,7 +76,7 @@ print(xtable(summary(lm1)), type='html')
 ```
 
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Wed Nov  2 23:57:50 2016 -->
+<!-- Thu Nov  3 19:20:17 2016 -->
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
   <tr> <td align="right"> (Intercept) </td> <td align="right"> 5.5324 </td> <td align="right"> 0.9032 </td> <td align="right"> 6.13 </td> <td align="right"> 0.0000 </td> </tr>
@@ -117,13 +117,26 @@ summary(lm1)
 lm2 <- lm(height~sex+weight, data=df1)
 ```
 
+```r
+print(xtable(anova(lm2)), type='html')
+```
+
+<!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
+<!-- Thu Nov  3 19:20:17 2016 -->
+<table border=1>
+<tr> <th>  </th> <th> Df </th> <th> Sum Sq </th> <th> Mean Sq </th> <th> F value </th> <th> Pr(&gt;F) </th>  </tr>
+  <tr> <td> sex </td> <td align="right"> 1 </td> <td align="right"> 17.73 </td> <td align="right"> 17.73 </td> <td align="right"> 75.24 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td> weight </td> <td align="right"> 1 </td> <td align="right"> 142.83 </td> <td align="right"> 142.83 </td> <td align="right"> 606.15 </td> <td align="right"> 0.0000 </td> </tr>
+  <tr> <td> Residuals </td> <td align="right"> 17 </td> <td align="right"> 4.01 </td> <td align="right"> 0.24 </td> <td align="right">  </td> <td align="right">  </td> </tr>
+   </table>
+
 
 ```r
 print(xtable(anova(lm2)), type='html')
 ```
 
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Wed Nov  2 23:57:50 2016 -->
+<!-- Thu Nov  3 19:20:17 2016 -->
 <table border=1>
 <tr> <th>  </th> <th> Df </th> <th> Sum Sq </th> <th> Mean Sq </th> <th> F value </th> <th> Pr(&gt;F) </th>  </tr>
   <tr> <td> sex </td> <td align="right"> 1 </td> <td align="right"> 17.73 </td> <td align="right"> 17.73 </td> <td align="right"> 75.24 </td> <td align="right"> 0.0000 </td> </tr>
@@ -154,7 +167,7 @@ print(xtable(summary(lm2)), type='html')
 ```
 
 <!-- html table generated in R 3.3.1 by xtable 1.8-2 package -->
-<!-- Wed Nov  2 23:57:50 2016 -->
+<!-- Thu Nov  3 19:20:17 2016 -->
 <table border=1>
 <tr> <th>  </th> <th> Estimate </th> <th> Std. Error </th> <th> t value </th> <th> Pr(&gt;|t|) </th>  </tr>
   <tr> <td align="right"> (Intercept) </td> <td align="right"> 0.4152 </td> <td align="right"> 0.2584 </td> <td align="right"> 1.61 </td> <td align="right"> 0.1265 </td> </tr>
@@ -207,14 +220,14 @@ coefs2 <- coef(lm2)
 plot(weight,c(height[1:10],height[11:20] - coefs2[2]))
 ```
 
-![](control_var2_files/figure-html/unnamed-chunk-15-1.png)<!-- -->
+![](control_var2_files/figure-html/unnamed-chunk-16-1.png)<!-- -->
 
 ```r
 yy = c(height[1:10],height[-(1:10)] - coefs2[2])
 plot(weight,yy,col='red')
 ```
 
-![](control_var2_files/figure-html/unnamed-chunk-15-2.png)<!-- -->
+![](control_var2_files/figure-html/unnamed-chunk-16-2.png)<!-- -->
 
 ```r
 plot(weight[1:10],height[1:10],ylim=range(c(0,12)))
@@ -222,7 +235,7 @@ par(new=TRUE)
 plot(weight[-(1:10)],height[-(1:10)] - coefs2[2],col='red',axes=FALSE,xlab="",ylab="",ylim=range(c(0,12)))
 ```
 
-![](control_var2_files/figure-html/unnamed-chunk-15-3.png)<!-- -->
+![](control_var2_files/figure-html/unnamed-chunk-16-3.png)<!-- -->
 
 ```r
 plot(weight[1:10],height[1:10])
@@ -230,11 +243,11 @@ par(new=TRUE)
 plot(weight[-(1:10)],height[-(1:10)],col='red',axes=FALSE,xlab="",ylab="")
 ```
 
-![](control_var2_files/figure-html/unnamed-chunk-15-4.png)<!-- -->
+![](control_var2_files/figure-html/unnamed-chunk-16-4.png)<!-- -->
 
 
 ---
 title: "control_var2.R"
 author: "takanori"
-date: "Wed Nov  2 23:57:50 2016"
+date: "Thu Nov  3 19:20:16 2016"
 ---

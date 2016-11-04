@@ -1,0 +1,208 @@
+Ch11 - Manipulating the *trellis* object
+""""""""""""""""""""""""""""""""""""""""
+The source R script available :download:`here <ch11.R>`
+
+.. contents:: `Contents`
+    :depth: 2
+    :local:
+
+
+.. code-block:: R
+
+    library(lattice)
+
+Topics covered:
+
+-  Methods for "trellis" objects
+-  Tukey mean-difference plot
+-  Other specialized manipulations
+
+.. code-block:: R
+
+    methods(class = "trellis")
+
+::
+
+    ##  [1] dimnames<- dimnames   dim        plot       print      summary   
+    ##  [7] tmd        [          t          update    
+    ## see '?methods' for accessing help and source code
+
+.. code-block:: R
+
+    methods(class = "shingle")
+
+::
+
+    ## [1] as.data.frame plot          print         [             summary      
+    ## see '?methods' for accessing help and source code
+
+.. code-block:: R
+
+    methods(generic.function = "barchart")
+
+::
+
+    ## [1] barchart.array*   barchart.default* barchart.formula* barchart.matrix* 
+    ## [5] barchart.numeric* barchart.table*  
+    ## see '?methods' for accessing help and source code
+
+.. code-block:: R
+
+    dp.uspe <- 
+      dotplot(t(USPersonalExpenditure), 
+              groups = FALSE, 
+              index.cond = function(x, y) median(x),
+              layout = c(1, 5), 
+              type = c("p", "h"),
+              xlab = "Expenditure (billion dollars)")
+    dp.uspe.log <- 
+      dotplot(t(USPersonalExpenditure), 
+              groups = FALSE, 
+              index.cond = function(x, y) median(x),
+              layout = c(1, 5), 
+              scales = list(x = list(log = 2)),
+              xlab = "Expenditure (billion dollars)")
+
+Figure 11.1
+-----------
+
+.. code-block:: R
+
+    plot(dp.uspe,     split = c(1, 1, 2, 1), more = TRUE)
+    plot(dp.uspe.log, split = c(2, 1, 2, 1), more = FALSE)
+
+|image0|\ 
+
+.. code-block:: R
+
+    state <- data.frame(state.x77, state.region, state.name)
+    state$state.name <- 
+      with(state, reorder(reorder(state.name, Frost), 
+                          as.numeric(state.region)))
+    dpfrost <- 
+      dotplot(state.name ~ Frost | reorder(state.region, Frost),
+              data = state, layout = c(1, 4),
+              scales = list(y = list(relation = "free")))
+    summary(dpfrost)
+
+::
+
+    ## 
+    ## Call:
+    ## dotplot(state.name ~ Frost | reorder(state.region, Frost), data = state, 
+    ##     layout = c(1, 4), scales = list(y = list(relation = "free")))
+    ## 
+    ## Number of observations:
+    ## reorder(state.region, Frost)
+    ##         South          West     Northeast North Central 
+    ##            16            13             9            12
+
+Figure 11.2
+-----------
+
+.. code-block:: R
+
+    plot(dpfrost, 
+         panel.height = list(x = c(16, 13, 9, 12), unit = "null"))
+
+|image1|\ 
+
+Figure 11.3
+-----------
+
+.. code-block:: R
+
+    update(trellis.last.object(), layout = c(1, 1))[2]
+
+|image2|\ 
+
+.. code-block:: R
+
+    npanel <- 12
+    rot <- list(z = seq(0, 30, length = npanel), 
+                x = seq(0, -80, length = npanel))
+    quakeLocs <-
+      cloud(depth ~ long + lat, quakes, pch = ".", cex = 1.5,
+            panel = function(..., screen) {
+              pn <- panel.number()
+              panel.cloud(..., screen = list(z = rot$z[pn], 
+                                             x = rot$x[pn]))
+            },
+            xlab = NULL, ylab = NULL, zlab = NULL, 
+            scales = list(draw = FALSE), zlim = c(690, 30), 
+            par.settings = list(axis.line = list(col="transparent")))
+
+Figure 11.4
+-----------
+
+.. code-block:: R
+
+    quakeLocs[rep(1, npanel)]
+
+|image3|\ 
+
+.. code-block:: R
+
+    data(Chem97, package="mlmRev")
+    ChemQQ <- 
+      qq(gender ~ gcsescore | factor(score), Chem97, 
+         f.value = ppoints(100), strip = strip.custom(style = 5))
+
+Figure 11.5
+-----------
+
+.. code-block:: R
+
+    tmd(ChemQQ)
+
+|image4|\ 
+
+.. code-block:: R
+
+    library("latticeExtra")
+
+::
+
+    ## Loading required package: RColorBrewer
+
+.. code-block:: R
+
+    data(biocAccess)
+    baxy <- xyplot(log10(counts) ~ hour | month + weekday, biocAccess,
+                   type = c("p", "a"), as.table = TRUE,
+                   pch = ".", cex = 2, col.line = "black")
+    dimnames(baxy)$month
+
+::
+
+    ## [1] "Jan" "Feb" "Mar" "Apr" "May"
+
+.. code-block:: R
+
+    dimnames(baxy)$month <- month.name[1:5]
+    dimnames(baxy)
+
+::
+
+    ## $month
+    ## [1] "January"  "February" "March"    "April"    "May"     
+    ## 
+    ## $weekday
+    ## [1] "Monday"    "Tuesday"   "Wednesday" "Thursday"  "Friday"    "Saturday" 
+    ## [7] "Sunday"
+
+Figure 11.6
+-----------
+
+.. code-block:: R
+
+    useOuterStrips(baxy)
+
+|image5|\ 
+
+.. |image0| image:: ch11_files/figure-html/unnamed-chunk-3-1.png
+.. |image1| image:: ch11_files/figure-html/unnamed-chunk-4-1.png
+.. |image2| image:: ch11_files/figure-html/unnamed-chunk-5-1.png
+.. |image3| image:: ch11_files/figure-html/unnamed-chunk-6-1.png
+.. |image4| image:: ch11_files/figure-html/unnamed-chunk-7-1.png
+.. |image5| image:: ch11_files/figure-html/unnamed-chunk-8-1.png
