@@ -1,6 +1,6 @@
 #' ---
-#' title: "Ch2 - A Technical Overview"
-#' author:
+#' title: "Ch2 Introduction to R"
+#' author: 
 #' date: 
 #' output:
 #'    html_document:
@@ -8,97 +8,128 @@
 #'      toc: true
 #'      toc_depth: 2
 #' ---
-
-#' Gives a "big picture" view of the system. 
-#' 
-#' **Topics covered**
-#' 
-#' - The formula interface
-#' - object dimensions and physical layout
-#' - Annotation
-#' - Scales and Axes
-#' - Panel functions
 #'
+#' Codes from http://www-bcf.usc.edu/~gareth/ISL/All%20Labs.txt
+#' 
+#' 
+options(show.error.locations = TRUE)
+
+#' # Basic Commands
+
+x <- c(1,3,2,5)
+x
+x = c(1,6,2)
+x
+y = c(1,4,3)
+length(x)
+length(y)
+x+y
+ls()
+rm(x,y)
+ls()
+rm(list=ls())
+?matrix
+x=matrix(data=c(1,2,3,4), nrow=2, ncol=2)
+x
+x=matrix(c(1,2,3,4),2,2)
+matrix(c(1,2,3,4),2,2,byrow=TRUE)
+sqrt(x)
+x^2
+x=rnorm(50)
+y=x+rnorm(50,mean=50,sd=.1)
+cor(x,y)
+set.seed(1303)
+rnorm(50)
+set.seed(3)
+y=rnorm(100)
+mean(y)
+var(y)
+sqrt(var(y))
+sd(y)
+
+#' # Graphics
+
+x=rnorm(100)
+y=rnorm(100)
+plot(x,y)
+plot(x,y,xlab="this is the x-axis",ylab="this is the y-axis",main="Plot of X vs Y")
+pdf("Figure.pdf")
+plot(x,y,col="green")
+dev.off()
+x=seq(1,10)
+x
+x=1:10
+x
+x=seq(-pi,pi,length=50)
+y=x
+f=outer(x,y,function(x,y)cos(y)/(1+x^2))
+contour(x,y,f)
+contour(x,y,f,nlevels=45,add=T)
+fa=(f-t(f))/2
+contour(x,y,fa,nlevels=15)
+image(x,y,fa)
+persp(x,y,fa)
+persp(x,y,fa,theta=30)
+persp(x,y,fa,theta=30,phi=20)
+persp(x,y,fa,theta=30,phi=70)
+persp(x,y,fa,theta=30,phi=40)
+
+#' # Indexing Data
+
+A=matrix(1:16,4,4)
+A
+A[2,3]
+A[c(1,3),c(2,4)]
+A[1:3,2:4]
+A[1:2,]
+A[,1:2]
+A[1,]
+A[-c(1,3),]
+A[-c(1,3),-c(1,3,4)]
+dim(A)
+
+#' # Loading Data
+
+Auto=read.table("Auto.data")
+
+# fix(Auto)
+Auto=read.table("Auto.data",header=T,na.strings="?")
 #+ results = 'asis'
-#'
+print(xtable::xtable(head(Auto,n=10)), type='html')
 
-library(lattice)
+# fix(Auto)
+Auto=read.csv("Auto.csv",header=T,na.strings="?")
+#+ results = 'asis'
+print(xtable::xtable(head(Auto,n=10)), type='html')
 
-data(Oats, package = "MEMSS")
+# fix(Auto)
+attach(Auto)
+dim(Auto)
+Auto[1:4,]
+Auto=na.omit(Auto)
+dim(Auto)
+names(Auto)
 
-#' # Dimension and Physical Layout
-#' ## Figure 2.1 (A Trelis display of the **Data** Object)
-tp1.oats <- 
-  xyplot(yield ~ nitro | Variety + Block, data = Oats, type = 'o')
-print(tp1.oats)
+#' # Additional Graphical and Numerical Summaries
 
-dim(tp1.oats)
-dimnames(tp1.oats)
-xtabs(~Variety + Block, data = Oats)
-summary(tp1.oats)
-summary(tp1.oats[, 1])
+plot(cylinders, mpg)
+plot(Auto$cylinders, Auto$mpg)
+attach(Auto)
+plot(cylinders, mpg)
+cylinders=as.factor(cylinders)
+plot(cylinders, mpg)
+plot(cylinders, mpg, col="red")
+plot(cylinders, mpg, col="red", varwidth=T)
+plot(cylinders, mpg, col="red", varwidth=T,horizontal=T)
+plot(cylinders, mpg, col="red", varwidth=T, xlab="cylinders", ylab="MPG")
+hist(mpg)
+hist(mpg,col=2)
+hist(mpg,col=2,breaks=15)
+pairs(Auto)
+pairs(~ mpg + displacement + horsepower + weight + acceleration, Auto)
+plot(horsepower,mpg)
 
-#' ## Figure 2.2 (subset display of the Trellis object)
-print(tp1.oats[, 1])
-
-#' ## Figure 2.3 (aspect ratio control)
-update(tp1.oats, 
-       aspect="xy")
-
-#' ## Figure 2.4 
-update(tp1.oats, aspect = "xy",
-       layout = c(0, 18))
-
-#' ## Figure 2.5 (fig 2.5 with spacing between column blocks)
-update(tp1.oats, aspect = "xy", layout = c(0, 18), 
-       between = list(x = c(0, 0, 0.5), y = 0.5))
-
-#' # Grouped displays
-#' ## Figure 2.6 
-dotplot(variety ~ yield | site, barley, 
-        layout = c(1, 6), aspect = c(0.7),
-        groups = year, auto.key = list(space = 'right'))
-
-#' # Annotation: Captions, labels, and legends
-#' ## Figure 2.7
-key.variety <- 
-  list(space = "right", text = list(levels(Oats$Variety)),
-       points = list(pch = 1:3, col = "black"))
-xyplot(yield ~ nitro | Block, Oats, aspect = "xy", type = "o", 
-       groups = Variety, key = key.variety, lty = 1, pch = 1:3, 
-       col.line = "darkgrey", col.symbol = "black",
-       xlab = "Nitrogen concentration (cwt/acre)",
-       ylab = "Yield (bushels/acre)", 
-       main = "Yield of three varieties of oats",
-       sub = "A 3 x 4 split plot experiment with 6 blocks")
-
-#' # Scale and Axes
-#' ## Figure 2.8
-barchart(Class ~ Freq | Sex + Age, data = as.data.frame(Titanic), 
-         groups = Survived, stack = TRUE, layout = c(4, 1),
-         auto.key = list(title = "Survived", columns = 2))
-
-#' ## Figure 2.9
-barchart(Class ~ Freq | Sex + Age, data = as.data.frame(Titanic), 
-         groups = Survived, stack = TRUE, layout = c(4, 1), 
-         auto.key = list(title = "Survived", columns = 2),
-         scales = list(x = "free"))
-
-#' # The Panel function
-#' ## Figure 2.10
-bc.titanic <- 
-  barchart(Class ~ Freq | Sex + Age, as.data.frame(Titanic), 
-           groups = Survived, stack = TRUE, layout = c(4, 1),
-           auto.key = list(title = "Survived", columns = 2),
-           scales = list(x = "free"))
-update(bc.titanic, 
-       panel = function(...) {
-         panel.grid(h = 0, v = -1)
-         panel.barchart(...)
-       })
-
-#' ## Figure 2.11
-update(bc.titanic, 
-       panel = function(..., border) {
-         panel.barchart(..., border = "transparent")
-       })
+# tw: commented this out to create notebook (kinda like ginput from matlab)
+#identify(horsepower,mpg,name)
+summary(Auto)
+summary(mpg)

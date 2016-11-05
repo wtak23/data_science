@@ -1,6 +1,6 @@
 #' ---
-#' title: "Ch8 - Plot Coordinates and Axis Annotation"
-#' author:
+#' title: "Ch8 Tree-Based Methods"
+#' author: 
 #' date: 
 #' output:
 #'    html_document:
@@ -8,119 +8,108 @@
 #'      toc: true
 #'      toc_depth: 2
 #' ---
-
-library(lattice)
-
-
-#' Topics covered:
 #'
-#' - Packets
-#' - The prepanel function, axis limits, and aspect ratio
-#' - Axis annotation
-#' - The scales argument
-#'
-#' ## Figure 8.1
-stripplot(depth ~ factor(mag), data = quakes, jitter.data = TRUE, 
-          scales = list(y = "free", rot = 0),
-          prepanel = function(x, y, ...) list(ylim = rev(range(y))),
-          xlab = "Magnitude (Richter scale)")
+#' Codes from http://www-bcf.usc.edu/~gareth/ISL/All%20Labs.txt
+#' 
+#' 
+options(show.error.locations = TRUE)
 
-data(biocAccess, package = "latticeExtra")
+library(ISLR)
+attach(Wage)
 
-#' ## Figure 8.2
-xyplot(counts/1000 ~ time | equal.count(as.numeric(time), 
-                                        9, overlap = 0.1), 
-       biocAccess, type = "l", aspect = "xy", strip = FALSE,
-       ylab = "Numer of accesses (thousands)", xlab = "",
-       scales = list(x = list(relation = "sliced", axs = "i"), 
-                     y = list(alternating = FALSE)))
 
-data(Earthquake, package = "MEMSS")
+#' # Fitting Classification Trees
 
-#' ## Figure 8.3
-xyplot(accel ~ distance, data = Earthquake,
-       prepanel = prepanel.loess, aspect = "xy",
-       type = c("p", "g", "smooth"),
-       scales = list(log = 2),
-       xlab = "Distance From Epicenter (km)",
-       ylab = "Maximum Horizontal Acceleration (g)")
+library(tree)
+library(ISLR)
+attach(Carseats)
+High=ifelse(Sales<=8,"No","Yes")
+Carseats=data.frame(Carseats,High)
+tree.carseats=tree(High~.-Sales,Carseats)
+summary(tree.carseats)
+#+ fig.height=14,fig.width=14
+plot(tree.carseats)
+text(tree.carseats,pretty=0)
+tree.carseats
+set.seed(2)
+train=sample(1:nrow(Carseats), 200)
+Carseats.test=Carseats[-train,]
+High.test=High[-train]
+tree.carseats=tree(High~.-Sales,Carseats,subset=train)
+tree.pred=predict(tree.carseats,Carseats.test,type="class")
+table(tree.pred,High.test)
+(86+57)/200
+set.seed(3)
+cv.carseats=cv.tree(tree.carseats,FUN=prune.misclass)
+names(cv.carseats)
+cv.carseats
+par(mfrow=c(1,2))
+plot(cv.carseats$size,cv.carseats$dev,type="b")
+plot(cv.carseats$k,cv.carseats$dev,type="b")
+prune.carseats=prune.misclass(tree.carseats,best=9)
+plot(prune.carseats)
+text(prune.carseats,pretty=0)
+tree.pred=predict(prune.carseats,Carseats.test,type="class")
+table(tree.pred,High.test)
+(94+60)/200
+prune.carseats=prune.misclass(tree.carseats,best=15)
+plot(prune.carseats)
+text(prune.carseats,pretty=0)
+tree.pred=predict(prune.carseats,Carseats.test,type="class")
+table(tree.pred,High.test)
+(86+62)/200
 
-yscale.components.log2 <- function(...) {
-  ans <- yscale.components.default(...)
-  ans$right <- ans$left
-  ans$left$labels$labels <- 
-    parse(text = ans$left$labels$labels)
-  ans$right$labels$labels <- 
-    MASS::fractions(2^(ans$right$labels$at))
-  ans
-}
-logTicks <- function (lim, loc = c(1, 5)) {
-  ii <- floor(log10(range(lim))) + c(-1, 2)
-  main <- 10^(ii[1]:ii[2])
-  r <- as.numeric(outer(loc, main, "*"))
-  r[lim[1] <= r & r <= lim[2]]
-}
-xscale.components.log2 <- function(lim, ...) {
-  ans <- xscale.components.default(lim = lim, ...)
-  tick.at <- logTicks(2^lim, loc = c(1, 3))
-  ans$bottom$ticks$at <- log(tick.at, 2)
-  ans$bottom$labels$at <- log(tick.at, 2)
-  ans$bottom$labels$labels <- as.character(tick.at)
-  ans
-}
+# #' Fitting Regression Trees
 
-#' ## Figure 8.4
-xyplot(accel ~ distance | cut(Richter, c(4.9, 5.5, 6.5, 7.8)),
-       data = Earthquake, type = c("p", "g"),
-       scales = list(log = 2, y = list(alternating = 3)),
-       xlab = "Distance From Epicenter (km)",
-       ylab = "Maximum Horizontal Acceleration (g)",
-       xscale.components = xscale.components.log2,
-       yscale.components = yscale.components.log2)
+library(MASS)
+set.seed(1)
+train = sample(1:nrow(Boston), nrow(Boston)/2)
+tree.boston=tree(medv~.,Boston,subset=train)
+summary(tree.boston)
+plot(tree.boston)
+text(tree.boston,pretty=0)
+cv.boston=cv.tree(tree.boston)
+plot(cv.boston$size,cv.boston$dev,type='b')
+prune.boston=prune.tree(tree.boston,best=5)
+plot(prune.boston)
+text(prune.boston,pretty=0)
+yhat=predict(tree.boston,newdata=Boston[-train,])
+boston.test=Boston[-train,"medv"]
+plot(yhat,boston.test)
+abline(0,1)
+mean((yhat-boston.test)^2)
 
-xscale.components.log10 <- function(lim, ...) {
-  ans <- xscale.components.default(lim = lim, ...)
-  tick.at <- logTicks(10^lim, loc = 1:9)
-  tick.at.major <- logTicks(10^lim, loc = 1)
-  major <- tick.at %in% tick.at.major
-  ans$bottom$ticks$at <- log(tick.at, 10)
-  ans$bottom$ticks$tck <- ifelse(major, 1.5, 0.75)
-  ans$bottom$labels$at <- log(tick.at, 10)
-  ans$bottom$labels$labels <- as.character(tick.at)
-  ans$bottom$labels$labels[!major] <- ""
-  ans$bottom$labels$check.overlap <- FALSE
-  ans
-}
+#' # Bagging and Random Forests
 
-#' ## Figure 8.5
-xyplot(accel ~ distance, data = Earthquake, 
-       prepanel = prepanel.loess, aspect = "xy", 
-       type = c("p", "g"), scales = list(log = 10),
-       xlab = "Distance From Epicenter (km)",
-       ylab = "Maximum Horizontal Acceleration (g)",
-       xscale.components = xscale.components.log10)
+library(randomForest)
+set.seed(1)
+bag.boston=randomForest(medv~.,data=Boston,subset=train,mtry=13,importance=TRUE)
+bag.boston
+yhat.bag = predict(bag.boston,newdata=Boston[-train,])
+plot(yhat.bag, boston.test)
+abline(0,1)
+mean((yhat.bag-boston.test)^2)
+bag.boston=randomForest(medv~.,data=Boston,subset=train,mtry=13,ntree=25)
+yhat.bag = predict(bag.boston,newdata=Boston[-train,])
+mean((yhat.bag-boston.test)^2)
+set.seed(1)
+rf.boston=randomForest(medv~.,data=Boston,subset=train,mtry=6,importance=TRUE)
+yhat.rf = predict(rf.boston,newdata=Boston[-train,])
+mean((yhat.rf-boston.test)^2)
+importance(rf.boston)
+varImpPlot(rf.boston)
 
-axis.CF <- function(side, ...) {
-  if (side == "right") {
-    F2C <- function(f) 5 * (f - 32) / 9 
-    C2F <- function(c) 32 + 9 * c / 5 
-    ylim <- current.panel.limits()$ylim
-    prettyF <- pretty(ylim)
-    prettyC <- pretty(F2C(ylim))
-    panel.axis(side = side, outside = TRUE, at = prettyF, 
-               tck = 5, line.col = "grey65", text.col = "grey35")
-    panel.axis(side = side, outside = TRUE, at = C2F(prettyC), 
-               labels = as.character(prettyC),
-               tck = 1, line.col = "black", text.col = "black")
-  }
-  else axis.default(side = side, ...)
-}
+#' # Boosting
 
-#' ## Figure 8.6
-xyplot(nhtemp ~ time(nhtemp), aspect = "xy", type = "o",
-       scales = list(y = list(alternating = 2, tck = c(1, 5))),
-       axis = axis.CF, xlab = "Year", ylab = "Temperature", 
-       main = "Yearly temperature in New Haven, CT",
-       key = list(text = list(c("(Celcius)", "(Fahrenheit)"), 
-                              col = c("black", "grey35")), columns = 2))
-
+library(gbm)
+set.seed(1)
+boost.boston=gbm(medv~.,data=Boston[train,],distribution="gaussian",n.trees=5000,interaction.depth=4)
+summary(boost.boston)
+par(mfrow=c(1,2))
+plot(boost.boston,i="rm")
+plot(boost.boston,i="lstat")
+yhat.boost=predict(boost.boston,newdata=Boston[-train,],n.trees=5000)
+mean((yhat.boost-boston.test)^2)
+boost.boston=gbm(medv~.,data=Boston[train,],distribution="gaussian",n.trees=5000,interaction.depth=4,shrinkage=0.2,verbose=F)
+yhat.boost=predict(boost.boston,newdata=Boston[-train,],n.trees=5000)
+mean((yhat.boost-boston.test)^2)

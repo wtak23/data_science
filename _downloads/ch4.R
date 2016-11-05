@@ -1,6 +1,6 @@
 #' ---
-#' title: "Ch4 - Displaying Multiway Tables"
-#' author:
+#' title: "Ch4 Logistic Regression, LDA, QDA, and KNN"
+#' author: 
 #' date: 
 #' output:
 #'    html_document:
@@ -8,79 +8,149 @@
 #'      toc: true
 #'      toc_depth: 2
 #' ---
-
 #'
-#' **Topics covered**:
-#' 
-#' - Cleveland dot plot
-#' - Bar chart
-#' - Reordering factor levels
+#' Codes from http://www-bcf.usc.edu/~gareth/ISL/All%20Labs.txt
 #' 
 #' 
+options(show.error.locations = TRUE)
 
-library(lattice)
+#' # The Stock Market Data
 
-VADeaths
-class(VADeaths)
-methods("dotplot")
+library(ISLR)
+names(Smarket)
+str(Smarket)
+dim(Smarket)
 
-#' ## Figure 4.1
-dotplot(VADeaths, groups = FALSE)
+#+ results = 'asis'
+print(xtable::xtable(head(Smarket,n=10)), type='html')
 
-#' ## Figure 4.2
-dotplot(VADeaths, groups = FALSE, 
-        layout = c(1, 4), aspect = 0.7, 
-        origin = 0, type = c("p", "h"),
-        main = "Death Rates in Virginia - 1940", 
-        xlab = "Rate (per 1000)")
+summary(Smarket)
 
-#' ## Figure 4.3
-dotplot(VADeaths, type = "o",
-        auto.key = list(lines = TRUE, space = "right"),
-        main = "Death Rates in Virginia - 1940",
-        xlab = "Rate (per 1000)")
+pairs(Smarket)
 
-#' ## Figure 4.4
-barchart(VADeaths, groups = FALSE,
-         layout = c(1, 4), aspect = 0.7, reference = FALSE, 
-         main = "Death Rates in Virginia - 1940",
-         xlab = "Rate (per 100)")
+#+ fig.height=12,fig.width=12
+lattice::splom(Smarket,group=Smarket$Year,alpha=0.05)
 
-data(postdoc, package = "latticeExtra")
+#cor(Smarket) #<- won't work, cuz it has a `Factor` column "Direction")
+cor(Smarket[,-9]) # <- so drop that column
 
-#' ## Figure 4.5
-barchart(prop.table(postdoc, margin = 1), xlab = "Proportion",
-         auto.key = list(adj = 1))
+attach(Smarket)
+plot(Volume)
 
-#' ## Figure 4.6
-dotplot(prop.table(postdoc, margin = 1), groups = FALSE, 
-        xlab = "Proportion",
-        par.strip.text = list(abbreviate = TRUE, minlength = 10))
+#' # Logistic Regression
 
-#' ## Figure 4.7
-dotplot(prop.table(postdoc, margin = 1), groups = FALSE, 
-        index.cond = function(x, y) median(x),
-        xlab = "Proportion", layout = c(1, 5), aspect = 0.6,
-        scales = list(y = list(relation = "free", rot = 0)),
-        prepanel = function(x, y) {
-          list(ylim = levels(reorder(y, x)))
-        },
-        panel = function(x, y, ...) {
-          panel.dotplot(x, reorder(y, x), ...)
-        })
+glm.fit=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume,data=Smarket,family=binomial)
+summary(glm.fit)
+coef(glm.fit)
+summary(glm.fit)$coef
+summary(glm.fit)$coef[,4]
+glm.probs=predict(glm.fit,type="response")
+glm.probs[1:10]
+contrasts(Direction)
+glm.pred=rep("Down",1250)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction)
+(507+145)/1250
+mean(glm.pred==Direction)
+train=(Year<2005)
+Smarket.2005=Smarket[!train,]
+dim(Smarket.2005)
+Direction.2005=Direction[!train]
+glm.fit=glm(Direction~Lag1+Lag2+Lag3+Lag4+Lag5+Volume,data=Smarket,family=binomial,subset=train)
+glm.probs=predict(glm.fit,Smarket.2005,type="response")
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005)
+mean(glm.pred!=Direction.2005)
+glm.fit=glm(Direction~Lag1+Lag2,data=Smarket,family=binomial,subset=train)
+glm.probs=predict(glm.fit,Smarket.2005,type="response")
+glm.pred=rep("Down",252)
+glm.pred[glm.probs>.5]="Up"
+table(glm.pred,Direction.2005)
+mean(glm.pred==Direction.2005)
+106/(106+76)
+predict(glm.fit,newdata=data.frame(Lag1=c(1.2,1.5),Lag2=c(1.1,-0.8)),type="response")
 
-data(Chem97, package = "mlmRev")
-gcsescore.tab <- xtabs(~gcsescore + gender, Chem97)
-gcsescore.df <- as.data.frame(gcsescore.tab)
-gcsescore.df$gcsescore <- 
-  as.numeric(as.character(gcsescore.df$gcsescore))
+#' # Linear Discriminant Analysis
 
-#' ## Figure 4.8
-xyplot(Freq ~ gcsescore | gender, data = gcsescore.df, 
-       type = "h", layout = c(1, 2), xlab = "Average GCSE Score")
+library(MASS)
+lda.fit=lda(Direction~Lag1+Lag2,data=Smarket,subset=train)
+lda.fit
+plot(lda.fit)
+lda.pred=predict(lda.fit, Smarket.2005)
+names(lda.pred)
+lda.class=lda.pred$class
+table(lda.class,Direction.2005)
+mean(lda.class==Direction.2005)
+sum(lda.pred$posterior[,1]>=.5)
+sum(lda.pred$posterior[,1]<.5)
+lda.pred$posterior[1:20,1]
+lda.class[1:20]
+sum(lda.pred$posterior[,1]>.9)
 
-score.tab <- xtabs(~score + gender, Chem97)
-score.df <- as.data.frame(score.tab)
+#' # Quadratic Discriminant Analysis
 
-#' ## Figure 4.9
-barchart(Freq ~ score | gender, score.df, origin = 0)
+qda.fit=qda(Direction~Lag1+Lag2,data=Smarket,subset=train)
+qda.fit
+qda.class=predict(qda.fit,Smarket.2005)$class
+table(qda.class,Direction.2005)
+mean(qda.class==Direction.2005)
+
+#' # K-Nearest Neighbors
+
+library(class)
+train.X=cbind(Lag1,Lag2)[train,]
+test.X=cbind(Lag1,Lag2)[!train,]
+train.Direction=Direction[train]
+set.seed(1)
+knn.pred=knn(train.X,test.X,train.Direction,k=1)
+table(knn.pred,Direction.2005)
+(83+43)/252
+knn.pred=knn(train.X,test.X,train.Direction,k=3)
+table(knn.pred,Direction.2005)
+mean(knn.pred==Direction.2005)
+
+#' # An Application to Caravan Insurance Data
+
+dim(Caravan)
+
+#+ results = 'asis'
+print(xtable::xtable(head(Caravan,n=10)), type='html')
+
+attach(Caravan)
+summary(Purchase)
+
+
+348/5822
+standardized.X=scale(Caravan[,-86])
+var(Caravan[,1])
+var(Caravan[,2])
+var(standardized.X[,1])
+var(standardized.X[,2])
+test=1:1000
+train.X=standardized.X[-test,]
+test.X=standardized.X[test,]
+train.Y=Purchase[-test]
+test.Y=Purchase[test]
+set.seed(1)
+knn.pred=knn(train.X,test.X,train.Y,k=1)
+mean(test.Y!=knn.pred)
+mean(test.Y!="No")
+table(knn.pred,test.Y)
+9/(68+9)
+knn.pred=knn(train.X,test.X,train.Y,k=3)
+table(knn.pred,test.Y)
+5/26
+knn.pred=knn(train.X,test.X,train.Y,k=5)
+table(knn.pred,test.Y)
+4/15
+glm.fit=glm(Purchase~.,data=Caravan,family=binomial,subset=-test)
+glm.probs=predict(glm.fit,Caravan[test,],type="response")
+glm.pred=rep("No",1000)
+glm.pred[glm.probs>.5]="Yes"
+table(glm.pred,test.Y)
+glm.pred=rep("No",1000)
+glm.pred[glm.probs>.25]="Yes"
+table(glm.pred,test.Y)
+11/(22+11)

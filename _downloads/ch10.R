@@ -1,296 +1,141 @@
 #' ---
-#' title: "Ch10 - Data Manipulation and Related Topics"
-#' author:
+#' title: "Ch10 Unsupervised Learning"
+#' author: 
 #' date: 
 #' output:
 #'    html_document:
+#'      fig_width: 12
+#'      fig_height: 10
 #'      keep_md: true
 #'      toc: true
 #'      toc_depth: 2
 #' ---
-
-library(lattice)
-library(RColorBrewer)
-
-#' Topics covered:
 #'
-#' - Non-standard evaluation in the context of lattice
-#' - The extended formula interface
-#' - Combining data sources, subsetting
-#' - Shingles
-#' - Ordering levels of categorical variables
-#' - Controlling the appearance of strips
-#'
+#' Codes from http://www-bcf.usc.edu/~gareth/ISL/All%20Labs.txt
+#' 
+#' 
+options(show.error.locations = TRUE)
+
+library(ISLR)
+attach(Wage)
 
 
-Titanic1 <- as.data.frame(as.table(Titanic[, , "Adult" ,])) 
-Titanic1
+#' # Lab 1: Principal Components Analysis
 
-#' ## Figure 10.1
-barchart(Class ~ Freq | Sex, Titanic1, 
-         groups = Survived, stack = TRUE, 
-         auto.key = list(title = "Survived", columns = 2))
+states=row.names(USArrests)
+states
+names(USArrests)
+apply(USArrests, 2, mean)
+apply(USArrests, 2, var)
+pr.out=prcomp(USArrests, scale=TRUE)
+names(pr.out)
+pr.out$center
+pr.out$scale
+pr.out$rotation
+dim(pr.out$x)
+biplot(pr.out, scale=0)
+pr.out$rotation=-pr.out$rotation
+pr.out$x=-pr.out$x
+biplot(pr.out, scale=0)
+pr.out$sdev
+pr.var=pr.out$sdev^2
+pr.var
+pve=pr.var/sum(pr.var)
+pve
+plot(pve, xlab="Principal Component", ylab="Proportion of Variance Explained", ylim=c(0,1),type='b')
+plot(cumsum(pve), xlab="Principal Component", ylab="Cumulative Proportion of Variance Explained", ylim=c(0,1),type='b')
+a=c(1,2,8,-3)
+cumsum(a)
 
-Titanic2 <- 
-  reshape(Titanic1, direction = "wide", v.names = "Freq", 
-          idvar = c("Class", "Sex"), timevar = "Survived")
-names(Titanic2) <- c("Class", "Sex", "Dead", "Alive")
-Titanic2
 
-#' ## Figure 10.2
-barchart(Class ~ Dead + Alive | Sex, 
-         Titanic2, 
-         stack = TRUE, 
-         auto.key = list(columns = 2))
+#' # Lab 2: Clustering
 
-data(Gcsemv, package = "mlmRev")
+#' ## K-Means Clustering
 
-#' ## Figure 10.3
-xyplot(written ~ course | gender, data = Gcsemv, 
-       type = c("g", "p", "smooth"),
-       xlab = "Coursework score", ylab = "Written exam score",
-       panel = function(x, y, ...) {
-         panel.xyplot(x, y, ...)
-         panel.rug(x = x[is.na(y)], y = y[is.na(x)])
-       })
+set.seed(2)
+x=matrix(rnorm(50*2), ncol=2)
+x[1:25,1]=x[1:25,1]+3
+x[1:25,2]=x[1:25,2]-4
+km.out=kmeans(x,2,nstart=20)
+km.out$cluster
+plot(x, col=(km.out$cluster+1), main="K-Means Clustering Results with K=2", xlab="", ylab="", pch=20, cex=2)
+set.seed(4)
+km.out=kmeans(x,3,nstart=20)
+km.out
+plot(x, col=(km.out$cluster+1), main="K-Means Clustering Results with K=3", xlab="", ylab="", pch=20, cex=2)
+set.seed(3)
+km.out=kmeans(x,3,nstart=1)
+km.out$tot.withinss
+km.out=kmeans(x,3,nstart=20)
+km.out$tot.withinss
 
-#' ## Figure 10.4
-qqmath( ~ written + course, Gcsemv, type = c("p", "g"), 
-        outer = TRUE, groups = gender, auto.key = list(columns = 2),
-        f.value = ppoints(200), ylab = "Score")
+#' ## Hierarchical Clustering
 
-set.seed(20051028)
-x1 <- rexp(2000)
-x1 <- x1[x1 > 1]
-x2 <- rexp(1000)
-str(make.groups(x1, x2))
+hc.complete=hclust(dist(x), method="complete")
+hc.average=hclust(dist(x), method="average")
+hc.single=hclust(dist(x), method="single")
+par(mfrow=c(1,3))
+plot(hc.complete,main="Complete Linkage", xlab="", sub="", cex=.9)
+plot(hc.average, main="Average Linkage", xlab="", sub="", cex=.9)
+plot(hc.single, main="Single Linkage", xlab="", sub="", cex=.9)
+cutree(hc.complete, 2)
+cutree(hc.average, 2)
+cutree(hc.single, 2)
+cutree(hc.single, 4)
+xsc=scale(x)
+plot(hclust(dist(xsc), method="complete"), main="Hierarchical Clustering with Scaled Features")
+x=matrix(rnorm(30*3), ncol=3)
+dd=as.dist(1-cor(t(x)))
+plot(hclust(dd, method="complete"), main="Complete Linkage with Correlation-Based Distance", xlab="", sub="")
 
-#' ## Figure 10.5
-qqmath(~ data, make.groups(x1, x2), groups = which, 
-       distribution = qexp, aspect = "iso", type = c('p', 'g'))
 
-str(beaver1)
-str(beaver2)
-beavers <- make.groups(beaver1, beaver2)
-str(beavers)
-beavers$hour <- 
-  with(beavers, time %/% 100 + 24*(day - 307) + (time %% 100)/60)
+#' # Lab 3: NCI60 Data Example
 
-#' ## Figure 10.6
-xyplot(temp ~ hour | which, data = beavers, groups = activ, 
-       auto.key = list(text = c("inactive", "active"), columns = 2),
-       xlab = "Time (hours)", ylab = "Body Temperature (C)", 
-       scales = list(x = list(relation = "sliced")))
+#' ## The NCI60 data
 
-data(USAge.df, package = "latticeExtra")
-head(USAge.df)
+library(ISLR)
+nci.labs=NCI60$labs
+nci.data=NCI60$data
+dim(nci.data)
+nci.labs[1:4]
+table(nci.labs)
 
-#' ## Figure 10.7
-xyplot(Population ~ Age | factor(Year), USAge.df, 
-       groups = Sex, type = c("l", "g"),
-       auto.key = list(points = FALSE, lines = TRUE, columns = 2),
-       aspect = "xy", ylab = "Population (millions)",
-       subset = Year %in% seq(1905, 1975, by = 10))
+#' ## PCA on the NCI60 Data
 
-#' ## Figure 10.8
-xyplot(Population ~ Year | factor(Age), USAge.df, 
-       groups = Sex, type = "l", strip = FALSE, strip.left = TRUE, 
-       layout = c(1, 3), ylab = "Population (millions)", 
-       auto.key = list(lines = TRUE, points = FALSE, columns = 2),
-       subset = Age %in% c(0, 10, 20))
-
-#' ## Figure 10.9
-xyplot(Population ~ Year | factor(Year - Age), USAge.df, 
-       groups = Sex, subset = (Year - Age) %in% 1894:1905,
-       type = c("g", "l"), ylab = "Population (millions)", 
-       auto.key = list(lines = TRUE, points = FALSE, columns = 2))
-
-#' ## Figure 10.10
-xyplot(stations ~ mag, quakes, jitter.x = TRUE, 
-       type = c("p", "smooth"),
-       xlab = "Magnitude (Richter)", 
-       ylab = "Number of stations reporting") 
-
-quakes$Mag <- equal.count(quakes$mag, number = 10, overlap = 0.2)
-summary(quakes$Mag)
-as.character(levels(quakes$Mag))
-ps.mag <- plot(quakes$Mag, ylab = "Level",
-               xlab = "Magnitude (Richter)")
-bwp.quakes <- 
-  bwplot(stations ~ Mag, quakes, xlab = "Magnitude", 
-         ylab = "Number of stations reporting")
-
-#' ## Figure 10.11
-plot(bwp.quakes, position = c(0, 0, 1, 0.65))
-plot(ps.mag, position = c(0, 0.65, 1, 1), newpage = FALSE)
-
-#' ## Figure 10.12
-bwplot(sqrt(stations) ~ Mag, quakes, 
-       scales = 
-         list(x = list(limits = as.character(levels(quakes$Mag)), 
-                       rot = 60)),
-       xlab = "Magnitude (Richter)",
-       ylab = expression(sqrt("Number of stations")))
-
-#' ## Figure 10.13
-qqmath(~ sqrt(stations) | Mag, quakes, 
-       type = c("p", "g"), pch = ".", cex = 3, 
-       prepanel = prepanel.qqmathline, aspect = "xy",
-       strip = strip.custom(strip.levels = TRUE, 
-                            strip.names = FALSE),
-       xlab = "Standard normal quantiles", 
-       ylab = expression(sqrt("Number of stations")))
-
-#' ## Figure 10.14
-xyplot(sqrt(stations) ~ mag, quakes, cex = 0.6,
-       panel = panel.bwplot, horizontal = FALSE, box.ratio = 0.05, 
-       xlab = "Magnitude (Richter)", 
-       ylab = expression(sqrt("Number of stations")))
-
-state.density <-
-  data.frame(name = state.name,
-             area = state.x77[, "Area"],
-             population = state.x77[, "Population"],
-             region = state.region)
-state.density$density <- with(state.density, population / area)
-
-#' ## Figure 10.15
-dotplot(reorder(name, density) ~ density, state.density,
-        xlab = "Population Density (thousands per square mile)")
-
-state.density$Density <-
-  shingle(state.density$density,
-          intervals = rbind(c(0, 0.2),
-                            c(0.2, 1)))
-
-#' ## Figure 10.16
-dotplot(reorder(name, density) ~ density | Density, state.density,
-        strip = FALSE, layout = c(2, 1), levels.fos = 1:50,
-        scales = list(x = "free"), between = list(x = 0.5),
-        xlab = "Population Density (thousands per square mile)", 
-        par.settings = list(layout.widths = list(panel = c(2, 1))))
-
-cutAndStack <- 
-  function(x, number = 6, overlap = 0.1, type = 'l',
-           xlab = "Time", ylab = deparse(substitute(x)), ...) {
-    time <- if (is.ts(x)) time(x) else seq_along(x)
-    Time <- equal.count(as.numeric(time), 
-                        number = number, overlap = overlap)
-    xyplot(as.numeric(x) ~ time | Time,
-           type = type, xlab = xlab, ylab = ylab,
-           default.scales = list(x = list(relation = "free"),
-                                 y = list(relation = "free")),
-           ...)
-  }
-
-#' ## Figure 10.17
-cutAndStack(EuStockMarkets[, "DAX"], aspect = "xy",
-            scales = list(x = list(draw = FALSE), 
-                          y = list(rot = 0)))
-
-bdp1 <- 
-  dotplot(as.character(variety) ~ yield | as.character(site), barley,
-          groups = year, layout = c(1, 6),
-          auto.key = list(space = "top", columns = 2),
-          #' ## strip = FALSE, strip.left = TRUE,
-          aspect = "fill")
-bdp2 <- 
-  dotplot(variety ~ yield | site, barley,
-          groups = year, layout = c(1, 6),
-          auto.key = list(space = "top", columns = 2),
-          #' ## strip = FALSE, strip.left = TRUE)
-          aspect = "fill")
-
-#' ## Figure 10.18
-plot(bdp1, split = c(1, 1, 2, 1))
-plot(bdp2, split = c(2, 1, 2, 1), newpage = FALSE)
-
-state.density <-
-  data.frame(name = state.name,
-             area = state.x77[, "Area"],
-             population = state.x77[, "Population"],
-             region = state.region)
-state.density$density <- with(state.density, population / area)
-
-#' ## Figure 10.19
-dotplot(reorder(name, density) ~ 1000 * density, state.density, 
-        scales = list(x = list(log = 10)), 
-        xlab = "Density (per square mile)")
-
-state.density$region <- 
-  with(state.density, reorder(region, density, median))
-state.density$name <- 
-  with(state.density, 
-       reorder(reorder(name, density), as.numeric(region)))
-
-#' ## Figure 10.20
-# dotplot(name ~ 1000 * density | region, state.density,
-#         strip = FALSE, strip.left = TRUE, layout = c(1, 4),
-#         scales = list(x = list(log = 10),
-#                       y = list(relation = "free")),
-#         xlab = "Density (per square mile)")
-
-library("latticeExtra")
-
-#' ## Figure 10.21
-resizePanels()
-
-data(USCancerRates, package = "latticeExtra")
-
-#' ## Figure 10.22
-xyplot(rate.male ~ rate.female | state, USCancerRates,
-       aspect = "iso", pch = ".", cex = 2,
-       index.cond = function(x, y) { median(y - x, na.rm = TRUE) },
-       scales = list(log = 2, at = c(75, 150, 300, 600)),
-       panel = function(...) {
-         panel.grid(h = -1, v = -1)
-         panel.abline(0, 1)
-         panel.xyplot(...)
-       })
-
-strip.style4 <- function(..., style) {
-  strip.default(..., style = 4)
+pr.out=prcomp(nci.data, scale=TRUE)
+Cols=function(vec){
+  cols=rainbow(length(unique(vec)))
+  return(cols[as.numeric(as.factor(vec))])
 }
-data(Chem97, package = "mlmRev")
+par(mfrow=c(1,2))
+plot(pr.out$x[,1:2], col=Cols(nci.labs), pch=19,xlab="Z1",ylab="Z2")
+plot(pr.out$x[,c(1,3)], col=Cols(nci.labs), pch=19,xlab="Z1",ylab="Z3")
+summary(pr.out)
+plot(pr.out)
+pve=100*pr.out$sdev^2/sum(pr.out$sdev^2)
+par(mfrow=c(1,2))
+plot(pve,  type="o", ylab="PVE", xlab="Principal Component", col="blue")
+plot(cumsum(pve), type="o", ylab="Cumulative PVE", xlab="Principal Component", col="brown3")
 
-#' ## Figure 10.23
-qqmath(~gcsescore | factor(score), Chem97, groups = gender,
-       type = c("l", "g"),  aspect = "xy",
-       auto.key = list(points = FALSE, lines = TRUE, columns = 2),
-       f.value = ppoints(100), strip = strip.style4,
-       xlab = "Standard normal quantiles",
-       ylab = "Average GCSE score")
+#' ## Clustering the Observations of the NCI60 Data
 
-strip.combined <-
-  function(which.given, which.panel, factor.levels, ...) {
-    if (which.given == 1) {
-      panel.rect(0, 0, 1, 1, col = "grey90", border = 1)
-      panel.text(x = 0, y = 0.5, pos = 4,
-                 lab = factor.levels[which.panel[which.given]])
-    }
-    if (which.given == 2) {
-      panel.text(x = 1, y = 0.5, pos = 2,
-                 lab = factor.levels[which.panel[which.given]])
-    }
-  }
-
-#' ## Figure 10.24
-qqmath(~ gcsescore | factor(score) + gender, Chem97,
-       f.value = ppoints(100), type = c("l", "g"), aspect = "xy",
-       strip = strip.combined,
-       par.strip.text = list(lines = 0.5),
-       xlab = "Standard normal quantiles",
-       ylab = "Average GCSE score")
-
-morris <- barley$site == "Morris"
-barley$year[morris] <-
-  ifelse(barley$year[morris] == "1931", "1932", "1931")
-
-#' ## Figure 10.25
-stripplot(sqrt(abs(residuals(lm(yield ~ variety+year+site)))) ~ site,
-          data = barley, groups = year, jitter.data = TRUE,
-          auto.key = list(points = TRUE, lines = TRUE, columns = 2),
-          type = c("p", "a"), fun = median,
-          ylab = expression(abs("Residual Barley Yield")^{1 / 2}))
-
-
+sd.data=scale(nci.data)
+par(mfrow=c(1,3))
+data.dist=dist(sd.data)
+plot(hclust(data.dist), labels=nci.labs, main="Complete Linkage", xlab="", sub="",ylab="")
+plot(hclust(data.dist, method="average"), labels=nci.labs, main="Average Linkage", xlab="", sub="",ylab="")
+plot(hclust(data.dist, method="single"), labels=nci.labs,  main="Single Linkage", xlab="", sub="",ylab="")
+hc.out=hclust(dist(sd.data))
+hc.clusters=cutree(hc.out,4)
+table(hc.clusters,nci.labs)
+par(mfrow=c(1,1))
+plot(hc.out, labels=nci.labs)
+abline(h=139, col="red")
+hc.out
+set.seed(2)
+km.out=kmeans(sd.data, 4, nstart=20)
+km.clusters=km.out$cluster
+table(km.clusters,hc.clusters)
+hc.out=hclust(dist(pr.out$x[,1:5]))
+plot(hc.out, labels=nci.labs, main="Hier. Clust. on First Five Score Vectors")
+table(cutree(hc.out,4), nci.labs)
