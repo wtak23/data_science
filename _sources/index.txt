@@ -5,7 +5,7 @@ My notebook pertaining to Data Science.
 
 .. toctree::
    :maxdepth: 1
-   :caption: Table of Contents
+   :caption: Research Notes
 
    pytak
    sqlite-whirlwind
@@ -13,6 +13,16 @@ My notebook pertaining to Data Science.
    pnc-mean-analysis
    pnc_study_feature_1104_onesession.rst
    rst-test/top-rst
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Spark Notes
+
+    pyspark/top-edx
+    pyspark/pyspark-aws
+    pyspark/pyspark-overflow
+    pyspark/pyspark-snippet
+    pyspark/pyspark-practice
 
 .. toctree::
    :maxdepth: 1
