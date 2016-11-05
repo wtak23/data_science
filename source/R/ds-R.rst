@@ -8,11 +8,13 @@ The notes here are created using ``knitr``, ``RMarkDown``, ``pandoc``, ``sed``, 
     :caption: Table of Contents
     :name: ds-R
 
-    control_var
     control_var2
-    sva_demo
     sva_demo_jtleek2
-    knitr-spn
+    t_1104b_combat_pca
+
+..    control_var
+..    sva_demo
+..    knitr-spn
 
 .. rubric:: How the notebooks are created
 
