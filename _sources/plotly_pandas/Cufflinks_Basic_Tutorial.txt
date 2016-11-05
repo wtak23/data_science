@@ -117,6 +117,7 @@ the legend.
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/.local/lib/python2.7/site-packages/cufflinks/plotlytools.py:164: FutureWarning:
     
@@ -199,6 +200,7 @@ Bars can also be stacked by a given dimension
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:1: FutureWarning:
     
@@ -210,6 +212,7 @@ Bars can also be stacked by a given dimension
 
 
 .. parsed-literal::
+    :class: myliteral
 
     <plotly.tools.PlotlyDisplay object>
     None
@@ -319,6 +322,7 @@ Or with ``df.figure()``
 
 
 .. parsed-literal::
+    :class: myliteral
 
     ['layout', 'data']
     ['layout', 'data']
@@ -375,6 +379,7 @@ Get Layout object
 
 
 .. parsed-literal::
+    :class: myliteral
 
     {'legend': {'bgcolor': '#F5F6F9', 'font': {'color': '#4D5663'}},
      'paper_bgcolor': '#F5F6F9',

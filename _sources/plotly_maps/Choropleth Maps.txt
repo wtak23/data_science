@@ -429,6 +429,7 @@ World choropleth map
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (222, 3)
     (121, 3)

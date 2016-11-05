@@ -1,0 +1,14 @@
+ggplot-book (``ggplot-book.rst``)
+"""""""""""""""""""""""""""""""""
+
+
+Figures created are based on codes available at: http://ggplot2.org/book/
+
+.. toctree::
+    :maxdepth: 1
+    :caption: Contents
+    :name: ggplot-book
+
+    ch1-introduction
+    ch2-getting-started
+

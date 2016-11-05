@@ -37,6 +37,7 @@ Simple subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -76,6 +77,7 @@ Multiple Subplots With Titles
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -130,6 +132,7 @@ Customizing Subplot Axes
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -187,6 +190,7 @@ Subplots with Shared Y-Axes
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y1 ]
@@ -232,6 +236,7 @@ Stacked Subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]
@@ -281,6 +286,7 @@ Stacked Subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -325,6 +331,7 @@ Subplots with Shared X-Axes
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]
@@ -435,6 +442,7 @@ Multiple Custom Sized Subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]

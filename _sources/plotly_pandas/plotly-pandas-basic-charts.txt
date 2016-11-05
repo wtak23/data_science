@@ -134,6 +134,7 @@ Subplots are entirely customizable with Plotly's native Python syntax:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]
@@ -182,6 +183,7 @@ always present:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]
@@ -444,6 +446,7 @@ Updating cufflinks plots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     Figure(
         data=Data([

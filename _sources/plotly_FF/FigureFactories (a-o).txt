@@ -123,6 +123,7 @@ Simple candlestick chart from a Pandas DataFrame
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/.local/lib/python2.7/site-packages/pandas_datareader/base.py:47: FutureWarning:
     
