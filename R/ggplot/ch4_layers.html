@@ -351,8 +351,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ggplot-book/ggplot-book.html">ggplot-book (<code class="docutils literal"><span class="pre">ggplot-book.rst</span></code>)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch1-introduction.html">ch1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch2-getting-started.html">ch2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch1-introduction.html">Ch1 Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch2-getting-started.html">Ch2 Getting started with ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch3-toolbox.html">Ch3 Toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch4-mastery.html">Ch4 Mastering the grammar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch5-layers.html">Ch5 Build a plot layer by layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch6-scales.html">Ch6 Scales, axes, and legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch7-position.html">Ch7 Positioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch8-themes.html">Ch8 Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch9-tidy-data.html">Ch9 Data analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch10-data-manip.html">Ch10 Data transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch11-modelling.html">Ch11 Modelling for visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch12-programming.html">Ch12 Programming with ggplot2</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../lattice-R-book/lattice-R.html">lattice plot examples (<code class="docutils literal"><span class="pre">lattice-R.rst</span></code>)</a><ul>
@@ -1491,12 +1501,12 @@ with default dataset and aesthetic mappings:</p>
 p
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/layer1-1.png" /></p>
+<p><img alt="image0" src="R/ggplot/_figures/layers/layer1-1.png" /></p>
 <p>There&#8217;s nothing to see yet, so we need to add a layer:</p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">+</span> geom_point<span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-1-1.png" /></p>
+<p><img alt="image1" src="R/ggplot/_figures/layers/unnamed-chunk-1-1.png" /></p>
 <p><code class="docutils literal"><span class="pre">geom_point()</span></code> is a shortcut. Behind the scenes it calls the
 <code class="docutils literal"><span class="pre">layer()</span></code> function to create a new layer: <a href="#id1"><span class="problematic" id="id2">:raw-latex:`\indexf{layer}`</span></a></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">+</span> layer<span class="p">(</span>
@@ -1508,7 +1518,7 @@ p
 <span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/layer2-1.png" /></p>
+<p><img alt="image2" src="R/ggplot/_figures/layers/layer2-1.png" /></p>
 <p>This call fully specifies the five components to the layer:
 <a href="#id3"><span class="problematic" id="id4">:raw-latex:`\index{Layers!components}`</span></a></p>
 <ul>
@@ -1624,7 +1634,7 @@ smoothed line, and labelling the outlying points:</p>
   geom_text<span class="p">(</span>data <span class="o">=</span> outlier<span class="p">,</span> aes<span class="p">(</span>label <span class="o">=</span> model<span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image3" src="../../_images/unnamed-chunk-2-1.png" /></p>
+<p><img alt="image3" src="R/ggplot/_figures/layers/unnamed-chunk-2-1.png" /></p>
 <p>(The labels aren&#8217;t particularly easy to read, but you can fix that with
 some manual tweaking.)</p>
 <p>Note that you need the explicit <code class="docutils literal"><span class="pre">data</span> <span class="pre">=</span></code> in the layers, but not in the
@@ -1641,7 +1651,7 @@ specifying a dataset for each layer:</p>
   geom_text<span class="p">(</span>data <span class="o">=</span> outlier<span class="p">,</span> aes<span class="p">(</span>label <span class="o">=</span> model<span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-3-12.png" /></p>
+<p><img alt="image4" src="R/ggplot/_figures/layers/unnamed-chunk-3-1.png" /></p>
 <p>I don&#8217;t particularly like this style in this example because it makes it
 less clear what the primary dataset is (and because of the way that the
 arguments to <code class="docutils literal"><span class="pre">ggplot()</span></code> are ordered, it actually requires more
@@ -1666,7 +1676,7 @@ class <span class="o">&lt;-</span> mpg <span class="o">%&gt;%</span>
 </pre></div>
 </div>
 <p>Use the data to recreate this plot:</p>
-<p><img alt="image5" src="../../_images/unnamed-chunk-5-1.png" /></p>
+<p><img alt="image5" src="R/ggplot/_figures/layers/unnamed-chunk-5-1.png" /></p>
 </li>
 </ol>
 </div>
@@ -1722,7 +1732,7 @@ ggplot<span class="p">(</span>mpg<span class="p">)</span> <span class="o">+</spa
   geom_point<span class="p">(</span>aes<span class="p">(</span>displ<span class="p">,</span> hwy<span class="p">,</span> colour <span class="o">=</span> <span class="kp">class</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image6" src="../../_images/unnamed-chunk-6-1.png" /><img alt="image7" src="../../_images/unnamed-chunk-6-2.png" /><img alt="image8" src="../../_images/unnamed-chunk-6-3.png" /><img alt="image9" src="../../_images/unnamed-chunk-6-4.png" /></p>
+<p><img alt="image6" src="R/ggplot/_figures/layers/unnamed-chunk-6-1.png" /><img alt="image7" src="R/ggplot/_figures/layers/unnamed-chunk-6-2.png" /><img alt="image8" src="R/ggplot/_figures/layers/unnamed-chunk-6-3.png" /><img alt="image9" src="R/ggplot/_figures/layers/unnamed-chunk-6-4.png" /></p>
 <p>Within each layer, you can add, override, or remove mappings:</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2210,8 +2220,7 @@ disadvantages compared to a line plot?</li>
       
     </p>
     <p>
-        &copy; Copyright 2016 Takanori Watanabe.<br/>
-      Last updated on Nov 04, 2016.<br/>
+      Last updated on Nov 05, 2016.<br/>
     </p>
   </div>
 </footer>

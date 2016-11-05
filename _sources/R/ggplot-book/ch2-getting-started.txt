@@ -1,5 +1,5 @@
-ch2
-===
+Ch2 Getting started with ggplot2
+================================
 
 .. raw:: html
 

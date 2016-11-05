@@ -351,8 +351,18 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../ggplot-book/ggplot-book.html">ggplot-book (<code class="docutils literal"><span class="pre">ggplot-book.rst</span></code>)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch1-introduction.html">ch1</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch2-getting-started.html">ch2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch1-introduction.html">Ch1 Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch2-getting-started.html">Ch2 Getting started with ggplot2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch3-toolbox.html">Ch3 Toolbox</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch4-mastery.html">Ch4 Mastering the grammar</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch5-layers.html">Ch5 Build a plot layer by layer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch6-scales.html">Ch6 Scales, axes, and legends</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch7-position.html">Ch7 Positioning</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch8-themes.html">Ch8 Themes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch9-tidy-data.html">Ch9 Data analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch10-data-manip.html">Ch10 Data transformation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch11-modelling.html">Ch11 Modelling for visualisation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ggplot-book/ch12-programming.html">Ch12 Programming with ggplot2</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="lattice-R.html">lattice plot examples (<code class="docutils literal"><span class="pre">lattice-R.rst</span></code>)</a><ul class="current">
@@ -1398,7 +1408,7 @@ grid<span class="o">$</span>k <span class="o">&lt;-</span> <span class="kp">with
        prepanel <span class="o">=</span> prepanel.hypocycloid<span class="p">,</span> panel <span class="o">=</span> panel.hypocycloid<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-3-17.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-3-16.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">&lt;-</span> xyplot<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="o">~</span> <span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> aspect <span class="o">=</span> <span class="m">1</span><span class="p">,</span> cycles <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
             scales <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>draw <span class="o">=</span> <span class="kc">FALSE</span><span class="p">),</span> xlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
             panel <span class="o">=</span> panel.hypotrochoid<span class="p">)</span>
@@ -1435,7 +1445,7 @@ faithful<span class="o">$</span>Eruptions <span class="o">&lt;-</span> equal.cou
             prepanel <span class="o">=</span> prepanel.ls<span class="p">,</span> panel <span class="o">=</span> panel.ls<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-17.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-16.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.bwtufte <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> coef <span class="o">=</span> <span class="m">1.5</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
   x <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>x<span class="p">);</span> y <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>y<span class="p">)</span>
   ux <span class="o">&lt;-</span> <span class="kp">sort</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>x<span class="p">))</span>
@@ -1461,7 +1471,7 @@ data<span class="p">(</span>Chem97<span class="p">,</span> package <span class="
        ylab <span class="o">=</span> <span class="s">&quot;Transformed GCSE score&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image3" src="../../_images/unnamed-chunk-6-17.png" /></p>
+<p><img alt="image3" src="../../_images/unnamed-chunk-6-16.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>Cars93<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;MASS&quot;</span><span class="p">)</span>
 cor.Cars93 <span class="o">&lt;-</span>
   cor<span class="p">(</span>Cars93<span class="p">[,</span> <span class="o">!</span><span class="kp">sapply</span><span class="p">(</span>Cars93<span class="p">,</span> <span class="kp">is.factor</span><span class="p">)],</span> use <span class="o">=</span> <span class="s">&quot;pair&quot;</span><span class="p">)</span>
@@ -1700,8 +1710,7 @@ breaks <span class="o">&lt;-</span> <span class="kp">exp</span><span class="p">(
       
     </p>
     <p>
-        &copy; Copyright 2016 Takanori Watanabe.<br/>
-      Last updated on Nov 04, 2016.<br/>
+      Last updated on Nov 05, 2016.<br/>
     </p>
   </div>
 </footer>
