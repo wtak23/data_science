@@ -5,3 +5,4 @@ build_published/*
 source/*/generated/*.rst
 ipynbs
 r-ignore
+.Rhistory

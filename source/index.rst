@@ -29,6 +29,7 @@ My notebook pertaining to Data Science.
    :caption: R Notes
 
    R/ds-R.rst
+   R-ISL/R-ISL.rst
    R/ggplot/top-ggplot.rst
    R/ggplot-book/ggplot-book.rst
    R/lattice-R-book/lattice-R
