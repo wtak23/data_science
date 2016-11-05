@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2209,7 +2228,7 @@ working for backward compatibility at this point...</p>
 qplot<span class="p">(</span>displ<span class="p">,</span> hwy<span class="p">,</span> data <span class="o">=</span> mpg<span class="p">,</span> colour <span class="o">=</span> <span class="kp">factor</span><span class="p">(</span>cyl<span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-4-15.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-4-16.png" /></p>
 <div class="section" id="mapping-aesthetics-to-data">
 <h3><a class="toc-backref" href="#id3">Mapping aesthetics to data</a></h3>
 <p>another deprecated option... replaced <code class="docutils literal"><span class="pre">opts(drop</span> <span class="pre">=</span> <span class="pre">&quot;legend_box&quot;)</span></code> with
@@ -2225,7 +2244,7 @@ qplot<span class="p">(</span>displ<span class="p">,</span> hwy<span class="p">,<
   theme<span class="p">(</span>legend.position<span class="o">=</span><span class="s">&quot;none&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-5-14.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-5-15.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># qplot(displ, hwy, data=mpg, colour=factor(cyl), geom=&quot;bar&quot;,</span>
 <span class="c1">#       stat=&quot;identity&quot;, position = &quot;identity&quot;) +</span>
 <span class="c1">#   opts(drop = &quot;legend_box&quot;)</span>
@@ -2241,7 +2260,7 @@ qplot<span class="p">(</span>displ<span class="p">,</span> hwy<span class="p">,<
 geom_smooth<span class="p">(</span>data<span class="o">=</span> <span class="kp">subset</span><span class="p">(</span>mpg<span class="p">,</span> cyl <span class="o">!=</span> <span class="m">5</span><span class="p">),</span> method<span class="o">=</span><span class="s">&quot;lm&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-22.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-23.png" /></p>
 </div>
 </div>
 <div class="section" id="a-more-complex-plot">
@@ -2263,7 +2282,7 @@ y <span class="o">&lt;-</span> <span class="kp">factor</span><span class="p">(</
 qplot<span class="p">(</span>x<span class="p">,</span> x<span class="p">,</span> size <span class="o">=</span> x<span class="p">)</span> <span class="c1">#+ theme(legend.box = &#39;vertical&#39;)</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-7-13.png" /></p>
+<p><img alt="image4" src="../../_images/unnamed-chunk-7-14.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># qplot(x, x, 1:10, colour = x)# + opts(keep = &quot;legend_box&quot;)</span>
 <span class="c1"># qplot(y, y, 1:10, shape = y) #+ opts(keep = &quot;legend_box&quot;)</span>
 <span class="c1"># qplot(y, y, 1:10, colour = y)# + opts(keep = &quot;legend_box&quot;)</span>
@@ -2282,7 +2301,7 @@ p <span class="o">&lt;-</span> qplot<span class="p">(</span>x1<span class="p">,<
 p
 </pre></div>
 </div>
-<p><img alt="image5" src="../../_images/unnamed-chunk-8-16.png" /></p>
+<p><img alt="image5" src="../../_images/unnamed-chunk-8-17.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">+</span> coord_trans<span class="p">(</span>y<span class="o">=</span><span class="s">&quot;log10&quot;</span><span class="p">)</span>
 </pre></div>
 </div>

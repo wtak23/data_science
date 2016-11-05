@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2007,7 +2026,7 @@
        cut <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>number <span class="o">=</span> <span class="m">4</span><span class="p">,</span> overlap <span class="o">=</span> <span class="m">0.05</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-3-115.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-3-116.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>biocAccess<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;latticeExtra&quot;</span><span class="p">)</span>
 ssd <span class="o">&lt;-</span> stl<span class="p">(</span>ts<span class="p">(</span>biocAccess<span class="o">$</span>counts<span class="p">[</span><span class="m">1</span><span class="o">:</span><span class="p">(</span><span class="m">24</span> <span class="o">*</span> <span class="m">30</span> <span class="o">*</span> <span class="m">2</span><span class="p">)],</span> frequency <span class="o">=</span> <span class="m">24</span><span class="p">),</span>
            <span class="s">&quot;periodic&quot;</span><span class="p">)</span>
@@ -2019,7 +2038,7 @@ ssd <span class="o">&lt;-</span> stl<span class="p">(</span>ts<span class="p">(<
 <div class="highlight-R"><div class="highlight"><pre><span></span>xyplot<span class="p">(</span>ssd<span class="p">,</span> xlab <span class="o">=</span> <span class="s">&quot;Time (Days)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-4-112.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-4-113.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;flowViz&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2035,7 +2054,7 @@ ssd <span class="o">&lt;-</span> stl<span class="p">(</span>ts<span class="p">(<
 <div class="highlight-R"><div class="highlight"><pre><span></span>densityplot<span class="p">(</span>Visit <span class="o">~</span> <span class="sb">`FSC-H`</span> <span class="o">|</span> Patient<span class="p">,</span> data <span class="o">=</span> GvHD<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-111.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-112.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;hexbin&quot;</span><span class="p">)</span>
 data<span class="p">(</span>NHANES<span class="p">)</span>
 </pre></div>
@@ -2121,7 +2140,7 @@ piechart <span class="o">&lt;-</span> <span class="kr">function</span><span clas
 <span class="c1">## logical.return = TRUE, : there is no package called &#39;gridBase&#39;</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-7-19.png" /></p>
+<p><img alt="image4" src="../../_images/unnamed-chunk-7-110.png" /></p>
 </div>
 </div>
 

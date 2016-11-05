@@ -37,7 +37,7 @@
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="" href="../index.html" />
     <link rel="up" title="R notes (ds-R.rst)" href="ds-R.html" />
-    <link rel="next" title="R - Labs from ISL (R-ISL)" href="../R-ISL/R-ISL.html" />
+    <link rel="next" title="4 Introduction to Data Science with R" href="dave-langer/TitanicDataAnalysis_Video7.html" />
     <link rel="prev" title="2 R code from Jeff Leek’s page" href="sva_demo_jtleek2.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
@@ -820,6 +820,25 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
 </ul>
 </li>
 </ul>
@@ -2132,7 +2151,7 @@ deprecated...)</p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>pairs<span class="p">(</span>pca5<span class="p">[,</span><span class="m">1</span><span class="o">:</span>ncomp<span class="p">],</span>col<span class="o">=</span>df<span class="o">$</span>site<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../_images/unnamed-chunk-5-120.png" /></p>
+<p><img alt="image0" src="../_images/unnamed-chunk-5-121.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="c1"># ** Scatter-matrix using `lattice::splom` ----</span>
 </pre></div>
 </div>
@@ -2189,7 +2208,7 @@ pca5.combat<span class="p">[</span><span class="s">&#39;site&#39;</span><span cl
 lattice<span class="o">::</span>splom<span class="p">(</span>pca5.combat<span class="p">,</span>group<span class="o">=</span>pca5.combat<span class="o">$</span>site<span class="p">,</span>alpha<span class="o">=</span><span class="m">0.2</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../_images/unnamed-chunk-8-117.png" /></p>
+<p><img alt="image2" src="../_images/unnamed-chunk-8-118.png" /></p>
 <p>So looks like the site differences got removed quite nicely. Next we&#8217;ll
 see if <strong>age-related biological variation</strong> was preserved (our variation
 of interest). We&#8217;ll run machine-learning/regression-analysi for this.

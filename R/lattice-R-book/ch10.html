@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2069,7 +2088,7 @@ Titanic1
          auto.key <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>title <span class="o">=</span> <span class="s">&quot;Survived&quot;</span><span class="p">,</span> columns <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-3-111.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-3-112.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>Titanic2 <span class="o">&lt;-</span>
   reshape<span class="p">(</span>Titanic1<span class="p">,</span> direction <span class="o">=</span> <span class="s">&quot;wide&quot;</span><span class="p">,</span> v.names <span class="o">=</span> <span class="s">&quot;Freq&quot;</span><span class="p">,</span>
           idvar <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;Class&quot;</span><span class="p">,</span> <span class="s">&quot;Sex&quot;</span><span class="p">),</span> timevar <span class="o">=</span> <span class="s">&quot;Survived&quot;</span><span class="p">)</span>
@@ -2097,7 +2116,7 @@ Titanic2
          auto.key <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>columns <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-4-18.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-4-19.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>Gcsemv<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;mlmRev&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2113,7 +2132,7 @@ Titanic2
        <span class="p">})</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-17.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-18.png" /></p>
 </div>
 <div class="section" id="figure-10-4">
 <h2><a class="toc-backref" href="#id4">Figure 10.4</a></h2>
@@ -2142,7 +2161,7 @@ str<span class="p">(</span>make.groups<span class="p">(</span>x1<span class="p">
        distribution <span class="o">=</span> qexp<span class="p">,</span> aspect <span class="o">=</span> <span class="s">&quot;iso&quot;</span><span class="p">,</span> type <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&#39;p&#39;</span><span class="p">,</span> <span class="s">&#39;g&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-7-15.png" /></p>
+<p><img alt="image4" src="../../_images/unnamed-chunk-7-16.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>str<span class="p">(</span>beaver1<span class="p">)</span>
 </pre></div>
 </div>
@@ -2188,7 +2207,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        scales <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>x <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>relation <span class="o">=</span> <span class="s">&quot;sliced&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../../_images/unnamed-chunk-8-18.png" /></p>
+<p><img alt="image5" src="../../_images/unnamed-chunk-8-19.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>USAge.df<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;latticeExtra&quot;</span><span class="p">)</span>
 <span class="kp">head</span><span class="p">(</span>USAge.df<span class="p">)</span>
 </pre></div>
@@ -2212,7 +2231,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        subset <span class="o">=</span> Year <span class="o">%in%</span> <span class="kp">seq</span><span class="p">(</span><span class="m">1905</span><span class="p">,</span> <span class="m">1975</span><span class="p">,</span> by <span class="o">=</span> <span class="m">10</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image6" src="../../_images/unnamed-chunk-9-12.png" /></p>
+<p><img alt="image6" src="../../_images/unnamed-chunk-9-13.png" /></p>
 </div>
 <div class="section" id="figure-10-8">
 <h2><a class="toc-backref" href="#id8">Figure 10.8</a></h2>
@@ -2223,7 +2242,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        subset <span class="o">=</span> Age <span class="o">%in%</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">10</span><span class="p">,</span> <span class="m">20</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image7" src="../../_images/unnamed-chunk-10-12.png" /></p>
+<p><img alt="image7" src="../../_images/unnamed-chunk-10-13.png" /></p>
 </div>
 <div class="section" id="figure-10-9">
 <h2><a class="toc-backref" href="#id9">Figure 10.9</a></h2>
@@ -2233,7 +2252,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        auto.key <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>lines <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> points <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> columns <span class="o">=</span> <span class="m">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image8" src="../../_images/unnamed-chunk-11-1.png" /></p>
+<p><img alt="image8" src="../../_images/unnamed-chunk-11-11.png" /></p>
 </div>
 <div class="section" id="figure-10-10">
 <h2><a class="toc-backref" href="#id10">Figure 10.10</a></h2>
@@ -2243,7 +2262,7 @@ str<span class="p">(</span>beavers<span class="p">)</span>
        ylab <span class="o">=</span> <span class="s">&quot;Number of stations reporting&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image9" src="../../_images/unnamed-chunk-12-11.png" /></p>
+<p><img alt="image9" src="../../_images/unnamed-chunk-12-12.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>quakes<span class="o">$</span>Mag <span class="o">&lt;-</span> equal.count<span class="p">(</span>quakes<span class="o">$</span>mag<span class="p">,</span> number <span class="o">=</span> <span class="m">10</span><span class="p">,</span> overlap <span class="o">=</span> <span class="m">0.2</span><span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>quakes<span class="o">$</span>Mag<span class="p">)</span>
 </pre></div>
@@ -2288,7 +2307,7 @@ bwp.quakes <span class="o">&lt;-</span>
 plot<span class="p">(</span>ps.mag<span class="p">,</span> position <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">0</span><span class="p">,</span> <span class="m">0.65</span><span class="p">,</span> <span class="m">1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> newpage <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image10" src="../../_images/unnamed-chunk-13-11.png" /></p>
+<p><img alt="image10" src="../../_images/unnamed-chunk-13-12.png" /></p>
 </div>
 <div class="section" id="figure-10-12">
 <h2><a class="toc-backref" href="#id12">Figure 10.12</a></h2>
@@ -2313,7 +2332,7 @@ plot<span class="p">(</span>ps.mag<span class="p">,</span> position <span class=
        ylab <span class="o">=</span> <span class="kp">expression</span><span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="s">&quot;Number of stations&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image12" src="../../_images/unnamed-chunk-15-11.png" /></p>
+<p><img alt="image12" src="../../_images/unnamed-chunk-15-12.png" /></p>
 </div>
 <div class="section" id="figure-10-14">
 <h2><a class="toc-backref" href="#id14">Figure 10.14</a></h2>
@@ -2323,7 +2342,7 @@ plot<span class="p">(</span>ps.mag<span class="p">,</span> position <span class=
        ylab <span class="o">=</span> <span class="kp">expression</span><span class="p">(</span><span class="kp">sqrt</span><span class="p">(</span><span class="s">&quot;Number of stations&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image13" src="../../_images/unnamed-chunk-16-1.png" /></p>
+<p><img alt="image13" src="../../_images/unnamed-chunk-16-11.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>state.density <span class="o">&lt;-</span>
   <span class="kt">data.frame</span><span class="p">(</span>name <span class="o">=</span> state.name<span class="p">,</span>
              area <span class="o">=</span> state.x77<span class="p">[,</span> <span class="s">&quot;Area&quot;</span><span class="p">],</span>

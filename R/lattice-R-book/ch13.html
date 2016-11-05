@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2030,7 +2049,7 @@ grid<span class="o">$</span>k <span class="o">&lt;-</span> <span class="kp">with
        prepanel <span class="o">=</span> prepanel.hypocycloid<span class="p">,</span> panel <span class="o">=</span> panel.hypocycloid<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-3-114.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-3-115.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>p <span class="o">&lt;-</span> xyplot<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">)</span> <span class="o">~</span> <span class="kt">c</span><span class="p">(</span><span class="m">-1</span><span class="p">,</span> <span class="m">1</span><span class="p">),</span> aspect <span class="o">=</span> <span class="m">1</span><span class="p">,</span> cycles <span class="o">=</span> <span class="m">15</span><span class="p">,</span>
             scales <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>draw <span class="o">=</span> <span class="kc">FALSE</span><span class="p">),</span> xlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
             panel <span class="o">=</span> panel.hypotrochoid<span class="p">)</span>
@@ -2043,7 +2062,7 @@ grid<span class="o">$</span>k <span class="o">&lt;-</span> <span class="kp">with
 <div class="highlight-R"><div class="highlight"><pre><span></span>p<span class="p">[</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">42</span><span class="p">)]</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-4-111.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-4-112.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;logspline&quot;</span><span class="p">)</span>
 prepanel.ls <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> n <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
   fit <span class="o">&lt;-</span> logspline<span class="p">(</span>x<span class="p">)</span>
@@ -2067,7 +2086,7 @@ faithful<span class="o">$</span>Eruptions <span class="o">&lt;-</span> equal.cou
             prepanel <span class="o">=</span> prepanel.ls<span class="p">,</span> panel <span class="o">=</span> panel.ls<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-110.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-111.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.bwtufte <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> coef <span class="o">=</span> <span class="m">1.5</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span> <span class="p">{</span>
   x <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>x<span class="p">);</span> y <span class="o">&lt;-</span> <span class="kp">as.numeric</span><span class="p">(</span>y<span class="p">)</span>
   ux <span class="o">&lt;-</span> <span class="kp">sort</span><span class="p">(</span><span class="kp">unique</span><span class="p">(</span>x<span class="p">))</span>
@@ -2131,7 +2150,7 @@ panel.corrgram <span class="o">&lt;-</span>
 <span class="c1">## logical.return = TRUE, : there is no package called &#39;ellipse&#39;</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-7-18.png" /></p>
+<p><img alt="image4" src="../../_images/unnamed-chunk-7-19.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.corrgram.2 <span class="o">&lt;-</span>
   <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> subscripts<span class="p">,</span> at <span class="o">=</span> <span class="kp">pretty</span><span class="p">(</span>z<span class="p">),</span> scale <span class="o">=</span> <span class="m">0.8</span><span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
   <span class="p">{</span>
@@ -2166,7 +2185,7 @@ panel.corrgram <span class="o">&lt;-</span>
           col.regions <span class="o">=</span> colorRampPalette<span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="s">&quot;white&quot;</span><span class="p">,</span> <span class="s">&quot;blue&quot;</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../../_images/unnamed-chunk-8-111.png" /></p>
+<p><img alt="image5" src="../../_images/unnamed-chunk-8-112.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>panel.3d.contour <span class="o">&lt;-</span>
   <span class="kr">function</span><span class="p">(</span>x<span class="p">,</span> y<span class="p">,</span> z<span class="p">,</span> rot.mat<span class="p">,</span> distance<span class="p">,</span>
            nlevels <span class="o">=</span> <span class="m">20</span><span class="p">,</span> zlim.scaled<span class="p">,</span> <span class="kc">...</span><span class="p">)</span>
@@ -2195,7 +2214,7 @@ panel.corrgram <span class="o">&lt;-</span>
           screen <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>z <span class="o">=</span> <span class="m">20</span><span class="p">,</span> x <span class="o">=</span> <span class="m">-60</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image6" src="../../_images/unnamed-chunk-9-13.png" /></p>
+<p><img alt="image6" src="../../_images/unnamed-chunk-9-14.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;maps&quot;</span><span class="p">)</span>
 county.map <span class="o">&lt;-</span> map<span class="p">(</span><span class="s">&quot;county&quot;</span><span class="p">,</span> plot <span class="o">=</span> <span class="kc">FALSE</span><span class="p">,</span> fill <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 str<span class="p">(</span>county.map<span class="p">)</span>
@@ -2236,7 +2255,7 @@ colors <span class="o">&lt;-</span> brewer.pal<span class="p">(</span>n <span cl
               x <span class="o">=</span> <span class="m">1</span><span class="p">,</span> y <span class="o">=</span> <span class="m">0</span><span class="p">,</span> corner <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="m">0</span><span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image7" src="../../_images/unnamed-chunk-10-13.png" /></p>
+<p><img alt="image7" src="../../_images/unnamed-chunk-10-14.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>rad <span class="o">&lt;-</span> <span class="kr">function</span><span class="p">(</span>x<span class="p">)</span> <span class="p">{</span> <span class="kc">pi</span> <span class="o">*</span> x <span class="o">/</span> <span class="m">180</span> <span class="p">}</span>
 county.map<span class="o">$</span>xx <span class="o">&lt;-</span> <span class="kp">with</span><span class="p">(</span>county.map<span class="p">,</span> <span class="kp">cos</span><span class="p">(</span>rad<span class="p">(</span>x<span class="p">))</span> <span class="o">*</span> <span class="kp">cos</span><span class="p">(</span>rad<span class="p">(</span>y<span class="p">)))</span>
 county.map<span class="o">$</span>yy <span class="o">&lt;-</span> <span class="kp">with</span><span class="p">(</span>county.map<span class="p">,</span> <span class="kp">sin</span><span class="p">(</span>rad<span class="p">(</span>x<span class="p">))</span> <span class="o">*</span> <span class="kp">cos</span><span class="p">(</span>rad<span class="p">(</span>y<span class="p">)))</span>
@@ -2267,7 +2286,7 @@ aspect <span class="o">&lt;-</span>
       xlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span> zlab <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image8" src="../../_images/unnamed-chunk-11-11.png" /></p>
+<p><img alt="image8" src="../../_images/unnamed-chunk-11-12.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;latticeExtra&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2309,7 +2328,7 @@ breaks <span class="o">&lt;-</span> <span class="kp">exp</span><span class="p">(
 <span class="c1">## alaska,haines, alaska,....</span>
 </pre></div>
 </div>
-<p><img alt="image9" src="../../_images/unnamed-chunk-12-12.png" /></p>
+<p><img alt="image9" src="../../_images/unnamed-chunk-12-13.png" /></p>
 </div>
 </div>
 

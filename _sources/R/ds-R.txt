@@ -11,6 +11,7 @@ The notes here are created using ``knitr``, ``RMarkDown``, ``pandoc``, ``sed``, 
     control_var2
     sva_demo_jtleek2
     t_1104b_combat_pca
+    dave-langer/TitanicDataAnalysis_Video7
 
 ..    control_var
 ..    sva_demo

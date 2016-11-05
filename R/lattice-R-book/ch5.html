@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2042,7 +2061,7 @@
        strip <span class="o">=</span> strip.custom<span class="p">(</span>strip.names <span class="o">=</span> <span class="kc">TRUE</span><span class="p">,</span> var.name <span class="o">=</span> <span class="s">&quot;Depth&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-3-118.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-3-119.png" /></p>
 </div>
 <div class="section" id="figure-5-3">
 <h2><a class="toc-backref" href="#id3">Figure 5.3</a></h2>
@@ -2052,7 +2071,7 @@
        xlab <span class="o">=</span> <span class="s">&quot;Longitude&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Latitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-4-115.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-4-116.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>depth.col <span class="o">&lt;-</span> gray.colors<span class="p">(</span><span class="m">100</span><span class="p">)[</span><span class="kp">cut</span><span class="p">(</span>quakes<span class="o">$</span>depth<span class="p">,</span> <span class="m">100</span><span class="p">,</span> label <span class="o">=</span> <span class="kc">FALSE</span><span class="p">)]</span>
 depth.ord <span class="o">&lt;-</span> <span class="kp">rev</span><span class="p">(</span><span class="kp">order</span><span class="p">(</span>quakes<span class="o">$</span>depth<span class="p">))</span>
 </pre></div>
@@ -2066,7 +2085,7 @@ depth.ord <span class="o">&lt;-</span> <span class="kp">rev</span><span class="p
        xlab <span class="o">=</span> <span class="s">&quot;Longitude&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Latitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image3" src="../../_images/unnamed-chunk-5-114.png" /></p>
+<p><img alt="image3" src="../../_images/unnamed-chunk-5-115.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>quakes<span class="o">$</span>Magnitude <span class="o">&lt;-</span> equal.count<span class="p">(</span>quakes<span class="o">$</span>mag<span class="p">,</span> <span class="m">4</span><span class="p">)</span>
 <span class="kp">summary</span><span class="p">(</span>quakes<span class="o">$</span>Magnitude<span class="p">)</span>
 </pre></div>
@@ -2126,7 +2145,7 @@ quakes.ordered<span class="o">$</span>color <span class="o">&lt;-</span>
        xlab <span class="o">=</span> <span class="s">&quot;Longitude&quot;</span><span class="p">,</span> ylab <span class="o">=</span> <span class="s">&quot;Latitude&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../../_images/unnamed-chunk-7-112.png" /></p>
+<p><img alt="image5" src="../../_images/unnamed-chunk-7-113.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>types.plain <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;p&quot;</span><span class="p">,</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="s">&quot;o&quot;</span><span class="p">,</span> <span class="s">&quot;r&quot;</span><span class="p">,</span> <span class="s">&quot;g&quot;</span><span class="p">,</span> <span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="s">&quot;S&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;smooth&quot;</span><span class="p">)</span>
 types.horiz <span class="o">&lt;-</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;s&quot;</span><span class="p">,</span> <span class="s">&quot;S&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">,</span> <span class="s">&quot;a&quot;</span><span class="p">,</span> <span class="s">&quot;smooth&quot;</span><span class="p">)</span>
 horiz <span class="o">&lt;-</span> <span class="kp">rep</span><span class="p">(</span><span class="kt">c</span><span class="p">(</span><span class="kc">FALSE</span><span class="p">,</span> <span class="kc">TRUE</span><span class="p">),</span> <span class="kt">c</span><span class="p">(</span><span class="kp">length</span><span class="p">(</span>types.plain<span class="p">),</span> <span class="kp">length</span><span class="p">(</span>types.horiz<span class="p">)))</span>
@@ -2163,7 +2182,7 @@ y <span class="o">&lt;-</span> x <span class="o">+</span> <span class="m">0.25</
        <span class="p">})[</span><span class="kp">rep</span><span class="p">(</span><span class="m">1</span><span class="p">,</span> <span class="kp">length</span><span class="p">(</span>types<span class="p">))]</span>
 </pre></div>
 </div>
-<p><img alt="image6" src="../../_images/unnamed-chunk-8-114.png" /></p>
+<p><img alt="image6" src="../../_images/unnamed-chunk-8-115.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>Earthquake<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;MEMSS&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2180,7 +2199,7 @@ y <span class="o">&lt;-</span> x <span class="o">+</span> <span class="m">0.25</
        ylab <span class="o">=</span> <span class="s">&quot;Maximum Horizontal Acceleration (g)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image7" src="../../_images/unnamed-chunk-9-16.png" /></p>
+<p><img alt="image7" src="../../_images/unnamed-chunk-9-17.png" /></p>
 </div>
 <div class="section" id="figure-5-9">
 <h2><a class="toc-backref" href="#id9">Figure 5.9</a></h2>
@@ -2191,7 +2210,7 @@ y <span class="o">&lt;-</span> x <span class="o">+</span> <span class="m">0.25</
        ylab <span class="o">=</span> <span class="s">&quot;Maximum Horizontal Acceleration (g)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image8" src="../../_images/unnamed-chunk-10-16.png" /></p>
+<p><img alt="image8" src="../../_images/unnamed-chunk-10-17.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span><span class="kn">library</span><span class="p">(</span><span class="s">&quot;locfit&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2216,7 +2235,7 @@ coef <span class="o">&lt;-</span> coef<span class="p">(</span>lm<span class="p">
        ylab <span class="o">=</span> <span class="s">&quot;Maximum Horizontal Acceleration (g)&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image9" src="../../_images/unnamed-chunk-11-13.png" /></p>
+<p><img alt="image9" src="../../_images/unnamed-chunk-11-14.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>data<span class="p">(</span>SeatacWeather<span class="p">,</span> package <span class="o">=</span> <span class="s">&quot;latticeExtra&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2228,7 +2247,7 @@ coef <span class="o">&lt;-</span> coef<span class="p">(</span>lm<span class="p">
        data <span class="o">=</span> SeatacWeather<span class="p">,</span> type <span class="o">=</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> lty <span class="o">=</span> <span class="m">1</span><span class="p">,</span> col <span class="o">=</span> <span class="s">&quot;black&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image10" src="../../_images/unnamed-chunk-12-14.png" /></p>
+<p><img alt="image10" src="../../_images/unnamed-chunk-12-15.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>maxp <span class="o">&lt;-</span> <span class="kp">max</span><span class="p">(</span>SeatacWeather<span class="o">$</span>precip<span class="p">,</span> na.rm <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -2241,7 +2260,7 @@ coef <span class="o">&lt;-</span> coef<span class="p">(</span>lm<span class="p">
        type <span class="o">=</span> <span class="kt">c</span><span class="p">(</span><span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="s">&quot;l&quot;</span><span class="p">,</span> <span class="s">&quot;h&quot;</span><span class="p">),</span> distribute.type <span class="o">=</span> <span class="kc">TRUE</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image11" src="../../_images/unnamed-chunk-13-14.png" /></p>
+<p><img alt="image11" src="../../_images/unnamed-chunk-13-15.png" /></p>
 </div>
 <div class="section" id="figure-5-13">
 <h2><a class="toc-backref" href="#id13">Figure 5.13</a></h2>
@@ -2269,14 +2288,14 @@ data<span class="p">(</span>gvhd10<span class="p">,</span> package <span class="
        panel <span class="o">=</span> panel.hexbinplot<span class="p">,</span> <span class="m">.</span>aspect.ratio <span class="o">=</span> <span class="m">1</span><span class="p">,</span> trans <span class="o">=</span> <span class="kp">sqrt</span><span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image13" src="../../_images/unnamed-chunk-15-13.png" /></p>
+<p><img alt="image13" src="../../_images/unnamed-chunk-15-14.png" /></p>
 </div>
 <div class="section" id="figure-5-15">
 <h2><a class="toc-backref" href="#id15">Figure 5.15</a></h2>
 <div class="highlight-R"><div class="highlight"><pre><span></span>splom<span class="p">(</span>USArrests<span class="p">)</span>
 </pre></div>
 </div>
-<p><img alt="image14" src="../../_images/unnamed-chunk-16-12.png" /></p>
+<p><img alt="image14" src="../../_images/unnamed-chunk-16-13.png" /></p>
 </div>
 <div class="section" id="figure-5-16">
 <h2><a class="toc-backref" href="#id16">Figure 5.16</a></h2>

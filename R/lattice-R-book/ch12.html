@@ -822,6 +822,25 @@
 <li class="toctree-l3"><a class="reference internal" href="../t_1104b_combat_pca.html#save-combat-corrected-data-matrix">3.5 Save ComBat corrected data-matrix</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html">4 Introduction to Data Science with R</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video1-data-analysis-part-1">4.1 Video1 - Data Analysis Part 1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video2-data-analysis-part-2">4.2 Video2 - Data Analysis Part 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video3-data-analysis-part-3">4.3 Video3 - Data Analysis Part 3</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video4-exploratory-modeling-random-forests">4.4 Video4 - Exploratory Modeling (Random Forests)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-with-the-default-parameters-using-pclass-title">4.4.1 Train a Random Forest with the default parameters using pclass &amp; title</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp">4.4.2 Train a Random Forest using pclass, title, &amp; sibsp</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch">4.4.3 Train a Random Forest using pclass, title, &amp; parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-parch">4.4.4 Train a Random Forest using pclass, title, sibsp, parch</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-family-size">4.4.5 Train a Random Forest using pclass, title, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-sibsp-family-size">4.4.6 Train a Random Forest using pclass, title, sibsp, &amp; family.size</a></li>
+<li class="toctree-l4"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#train-a-random-forest-using-pclass-title-parch-family-size">4.4.7 Train a Random Forest using pclass, title, parch, &amp; family.size</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video5-cross-validation">4.5 Video5 - Cross Validation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video6-exploratory-modeling-2">4.6 Video6 - Exploratory Modeling 2</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../dave-langer/TitanicDataAnalysis_Video7.html#video7-submitting-scoring-and-some-analysis">4.7 Video7 Submitting, scoring, and some analysis</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../R-ISL/R-ISL.html">R - Labs from ISL (<code class="docutils literal"><span class="pre">R-ISL</span></code>)</a><ul>
@@ -2030,7 +2049,7 @@ trellis.vpname<span class="p">(</span><span class="s">&quot;xlab&quot;</span><sp
        <span class="p">})</span>
 </pre></div>
 </div>
-<p><img alt="image0" src="../../_images/unnamed-chunk-3-113.png" /></p>
+<p><img alt="image0" src="../../_images/unnamed-chunk-3-114.png" /></p>
 <div class="highlight-python"><div class="highlight"><pre><span></span><span class="c1">## Click on plot to place legend</span>
 </pre></div>
 </div>
@@ -2048,7 +2067,7 @@ trellis.vpname<span class="p">(</span><span class="s">&quot;xlab&quot;</span><sp
 <span class="p">}</span>
 </pre></div>
 </div>
-<p><img alt="image1" src="../../_images/unnamed-chunk-4-110.png" /></p>
+<p><img alt="image1" src="../../_images/unnamed-chunk-4-111.png" /></p>
 </div>
 <div class="section" id="figure-12-3">
 <h2><a class="toc-backref" href="#id3">Figure 12.3</a></h2>
@@ -2067,7 +2086,7 @@ panel.identify.qqmath<span class="p">(</span>labels <span class="o">=</span> <sp
 <div class="highlight-R"><div class="highlight"><pre><span></span>trellis.unfocus<span class="p">()</span>
 </pre></div>
 </div>
-<p><img alt="image2" src="../../_images/unnamed-chunk-5-19.png" /></p>
+<p><img alt="image2" src="../../_images/unnamed-chunk-5-110.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>env <span class="o">&lt;-</span> environmental
 env<span class="o">$</span>ozone <span class="o">&lt;-</span> env<span class="o">$</span>ozone<span class="o">^</span><span class="p">(</span><span class="m">1</span><span class="o">/</span><span class="m">3</span><span class="p">)</span>
 </pre></div>
@@ -2118,7 +2137,7 @@ trellis.currentLayout<span class="p">()</span>
          <span class="p">})</span>
 </pre></div>
 </div>
-<p><img alt="image4" src="../../_images/unnamed-chunk-7-17.png" /></p>
+<p><img alt="image4" src="../../_images/unnamed-chunk-7-18.png" /></p>
 <div class="highlight-R"><div class="highlight"><pre><span></span>heights
 </pre></div>
 </div>
@@ -2132,7 +2151,7 @@ trellis.currentLayout<span class="p">()</span>
        par.settings <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>layout.heights <span class="o">=</span> <span class="kt">list</span><span class="p">(</span>panel <span class="o">=</span> heights<span class="p">)))</span>
 </pre></div>
 </div>
-<p><img alt="image5" src="../../_images/unnamed-chunk-8-110.png" /></p>
+<p><img alt="image5" src="../../_images/unnamed-chunk-8-111.png" /></p>
 </div>
 </div>
 
