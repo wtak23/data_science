@@ -156,6 +156,7 @@ County-level
 
 
 .. parsed-literal::
+    :class: myliteral
 
     'http://catalog.civicdashboards.com/dataset/cda82e8b-7a8b-411e-95ba-1200b921c35d/resource/5c5d19a0-b817-49e6-b76e-ea63a8e2c0f6/download/fd880c1e4d23463ca869f1122109b3eftemp.geojson'
 
@@ -168,6 +169,7 @@ County-level
 
 
 .. parsed-literal::
+    :class: myliteral
 
     <Response [200]>
 
@@ -202,6 +204,7 @@ through and convert the names in the GeoJSON to the website format
 
 
 .. parsed-literal::
+    :class: myliteral
 
     [u'Charlotte', u'Seminole', u'Baker', u'DeSoto', u'Levy', u'Alachua', u'Pasco', u'Hendry', u'Okeechobee', u'Broward', u'St. Johns', u'Gulf', u'Glades', u'Marion', u'Duval', u'Madison', u'Osceola', u'Lee', u'Volusia', u'Sarasota', u'Indian River', u'Clay', u'Putnam', u'Wakulla', u'Holmes', u'Escambia', u'Flagler', u'Union', u'Brevard', u'Suwannee', u'Orange', u'Martin', u'Nassau', u'Jefferson', u'Santa Rosa', u'Hamilton', u'Calhoun', u'Hernando', u'Miami-Dade', u'Pinellas', u'Palm Beach', u'Hillsborough', u'Collier', u'Gilchrist', u'Dixie', u'Bay', u'Gadsden', u'Okaloosa', u'Citrus', u'Lafayette', u'Manatee', u'Monroe', u'Columbia', u'Sumter', u'Washington', u'St. Lucie', u'Polk', u'Taylor', u'Leon', u'Lake', u'Highlands', u'Hardee', u'Bradford', u'Liberty', u'Franklin', u'Walton', u'Jackson']
 
@@ -258,6 +261,7 @@ on which party has more votes
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:7: UnicodeWarning:
     
@@ -287,6 +291,7 @@ Create JSON Files
 
 
 .. parsed-literal::
+    :class: myliteral
 
     total 360K
     -rw-r--r-- 1 takanori takanori  29K Sep 29 15:40 Choropleth Maps.ipynb

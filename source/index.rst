@@ -12,16 +12,15 @@ My notebook pertaining to Data Science.
    spark-config
    pnc-mean-analysis
    pnc_study_feature_1104_onesession.rst
-
-
-
+   rst-test/top-rst
 
 .. toctree::
    :maxdepth: 1
    :caption: R Notes
 
    R/ds-R.rst
-   R/lattice-R-book/lattice-R-book
+   R/ggplot/top-ggplot.rst
+   R/lattice-R-book/lattice-R
 
 
 .. toctree::

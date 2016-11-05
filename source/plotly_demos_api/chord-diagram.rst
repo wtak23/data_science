@@ -44,6 +44,7 @@ Define the list of nodes (vs stands for vertices):
 
 
 .. parsed-literal::
+    :class: myliteral
 
     ['id', 'label']
 
@@ -64,6 +65,7 @@ Define the label list. Labels will be displayed in the Plotly plot:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     ['weight']
 
@@ -85,6 +87,7 @@ indices:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     400
 
@@ -108,6 +111,7 @@ Get the list of Contestant countries:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     25
 
@@ -134,6 +138,7 @@ Get the node positions, assigned by the circular layout:
 
 
 .. parsed-literal::
+    :class: myliteral
 
     [0.4539904997395468, 0.8910065241883678]
 
@@ -324,6 +329,7 @@ Finally, plot!
 
 
 .. parsed-literal::
+    :class: myliteral
 
     u'https://plot.ly/~takanori/44'
 

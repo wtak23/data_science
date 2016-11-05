@@ -132,6 +132,7 @@ Vanilla Scatterplot Matrix
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -165,6 +166,7 @@ Indexing a Column
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -199,6 +201,7 @@ Styling the Diagonal Subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]    [ (1,2) x2,y2 ]    [ (1,3) x3,y3 ]    [ (1,4) x4,y4 ]  
@@ -236,6 +239,7 @@ Use a Theme to Style the Subplots
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -270,6 +274,7 @@ Example 4 with Interval Factoring
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]
@@ -383,6 +388,7 @@ Using the colormap as a Dictionary
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y2 ]  [ (1,3) x3,y3 ]
@@ -779,6 +785,7 @@ Multiple Violin Plots with Qualitative Coloring
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y1 ]  [ (1,3) x3,y1 ]  [ (1,4) x4,y1 ]  [ (1,5) x5,y1 ]
@@ -876,6 +883,7 @@ Violin Plots with Colorscale
 
 
 .. parsed-literal::
+    :class: myliteral
 
     {'A': -0.58132987295885585,
      'B': 0.13909523462167314,
@@ -897,6 +905,7 @@ Violin Plots with Colorscale
 
 
 .. parsed-literal::
+    :class: myliteral
 
     This is the format of your plot grid:
     [ (1,1) x1,y1 ]  [ (1,2) x2,y1 ]  [ (1,3) x3,y1 ]  [ (1,4) x4,y1 ]  [ (1,5) x5,y1 ]

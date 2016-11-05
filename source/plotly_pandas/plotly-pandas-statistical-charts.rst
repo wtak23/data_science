@@ -704,6 +704,7 @@ Basic Box Plot
 
 
 .. parsed-literal::
+    :class: myliteral
 
     A B C D E F G H I J K L M N O P Q R S T U V W X Y Z
 
@@ -716,6 +717,7 @@ Basic Box Plot
 
 
 .. parsed-literal::
+    :class: myliteral
 
     
 
@@ -1059,6 +1061,7 @@ Bar Chart with Error Bars
 
 
 .. parsed-literal::
+    :class: myliteral
 
     ('OJ', 'VC') (0.5, 1.0, 2.0)
 
@@ -1080,6 +1083,7 @@ Bar Chart with Error Bars
 
 
 .. parsed-literal::
+    :class: myliteral
 
     [{'error_y': {'array': dose  supp     
        0.5   OJ    std    4.4597

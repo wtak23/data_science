@@ -40,6 +40,7 @@ started <https://plot.ly/python/getting-started/>`__ guide.
 
 
 .. parsed-literal::
+    :class: myliteral
 
     {u'colorscale': u'dflt',
      u'datagen_mode': u'stocks',
@@ -67,6 +68,7 @@ Basic
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 5)
 
@@ -156,6 +158,7 @@ Filled line plot
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 3)
 
@@ -234,6 +237,7 @@ With best fit line
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 1)
 
@@ -284,6 +288,7 @@ With best fit line
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/.local/lib/python2.7/site-packages/cufflinks/plotlytools.py:164: FutureWarning:
     
@@ -308,6 +313,7 @@ Scatter Chart
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 2)
 
@@ -380,6 +386,7 @@ Spread Chart
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 2)
 
@@ -451,6 +458,7 @@ Bar Chart
 
 
 .. parsed-literal::
+    :class: myliteral
 
     ['polar', 'space', 'ggplot', 'pearl', 'solar', 'white', 'henanigans']
 
@@ -467,11 +475,13 @@ Default
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (4, 5)
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:2: FutureWarning:
     
@@ -550,6 +560,7 @@ Default
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:1: FutureWarning:
     
@@ -576,6 +587,7 @@ Stacked bars
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/anaconda2/lib/python2.7/site-packages/ipykernel/__main__.py:1: FutureWarning:
     
@@ -603,6 +615,7 @@ Box Plot
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (100, 6)
 
@@ -698,6 +711,7 @@ Historgram
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (500, 2)
 
@@ -769,6 +783,7 @@ Heatmap Plot
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (20, 20)
 
@@ -1117,6 +1132,7 @@ Bubble 3D
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (20, 6)
 
@@ -1214,6 +1230,7 @@ Surface
 
 
 .. parsed-literal::
+    :class: myliteral
 
     (80, 80)
 

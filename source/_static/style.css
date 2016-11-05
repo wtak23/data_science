@@ -64,6 +64,15 @@ img {
     display: block;
     margin: auto;
 }
+
+/*=============================================================================
+    Change admonitions
+  ===========================================================================*/
+/*div.admonition{
+    background-color: rgba(0,0,255,0.15);
+}*/
+
+
 /*=============================================================================
     To style output from pandas
     (these are assigned class "dataframe")

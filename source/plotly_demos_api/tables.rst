@@ -32,6 +32,7 @@ Simple table
 
 
 .. parsed-literal::
+    :class: myliteral
 
     [['Country', 'Year', 'Population'],
      ['United States', 2000, 282200000],
@@ -83,6 +84,7 @@ Add Links
 
 
 .. parsed-literal::
+    :class: myliteral
 
     [['User', 'Language', 'Chart Type', '# of Views'],
      ['<a href="https://plot.ly/~empet/folder/home">empet</a>',
@@ -180,6 +182,7 @@ Include and Index Column
 
 
 .. parsed-literal::
+    :class: myliteral
 
     /home/takanori/.local/lib/python2.7/site-packages/pandas_datareader/base.py:47: FutureWarning:
     

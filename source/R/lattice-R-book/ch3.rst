@@ -6,7 +6,7 @@ The source R script available :download:`here <ch3.R>`
     :depth: 2
     :local:
 
-.. include:: ./table-template.rst
+.. include:: /table-template-knitr.rst
 
 
 From http://lmdvr.r-forge.r-project.org/figures/figures.html
