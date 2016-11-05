@@ -6,3 +6,4 @@ source/*/generated/*.rst
 ipynbs
 r-ignore
 .Rhistory
+*.html
