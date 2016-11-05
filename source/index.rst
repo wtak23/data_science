@@ -20,8 +20,8 @@ My notebook pertaining to Data Science.
 
    R/ds-R.rst
    R/ggplot/top-ggplot.rst
+   R/ggplot-book/ggplot-book.rst
    R/lattice-R-book/lattice-R
-
 
 .. toctree::
    :maxdepth: 1
